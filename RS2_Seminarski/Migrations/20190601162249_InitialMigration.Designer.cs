@@ -10,7 +10,7 @@ using RS2_Seminarski.Database;
 namespace RS2_Seminarski.Migrations
 {
     [DbContext(typeof(FitnessCenterDbContext))]
-    [Migration("20190601111752_InitialMigration")]
+    [Migration("20190601162249_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,13 +29,9 @@ namespace RS2_Seminarski.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<int?>("ClientId");
-
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<string>("Email");
-
-                    b.Property<int?>("EmployeeId");
 
                     b.Property<string>("FirstName");
 
@@ -48,10 +44,6 @@ namespace RS2_Seminarski.Migrations
                     b.Property<int>("Status");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("EmployeeId");
 
                     b.ToTable("AppUsers");
                 });
@@ -90,21 +82,10 @@ namespace RS2_Seminarski.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("RS2_Seminarski.Database.AppUser", b =>
-                {
-                    b.HasOne("RS2_Seminarski.Database.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-
-                    b.HasOne("RS2_Seminarski.Database.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId");
-                });
-
             modelBuilder.Entity("RS2_Seminarski.Database.Client", b =>
                 {
                     b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
-                        .WithOne()
+                        .WithOne("Client")
                         .HasForeignKey("RS2_Seminarski.Database.Client", "AppUserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -112,7 +93,7 @@ namespace RS2_Seminarski.Migrations
             modelBuilder.Entity("RS2_Seminarski.Database.Employee", b =>
                 {
                     b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
-                        .WithOne()
+                        .WithOne("Employee")
                         .HasForeignKey("RS2_Seminarski.Database.Employee", "AppUserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

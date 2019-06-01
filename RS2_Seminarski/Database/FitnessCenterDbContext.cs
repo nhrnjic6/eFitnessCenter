@@ -19,15 +19,13 @@ namespace RS2_Seminarski.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AppUser>()
-                .HasOne<Client>()
-                .WithOne(c => c.AppUser)
-                .HasForeignKey<Client>(b => b.AppUserId);
+            modelBuilder.Entity<Client>()
+                .HasIndex(c => c.AppUserId)
+                .IsUnique(true);
 
-            modelBuilder.Entity<AppUser>()
-                .HasOne<Employee>()
-                .WithOne(e => e.AppUser)
-                .HasForeignKey<Employee>(e => e.AppUserId);
+            modelBuilder.Entity<Employee>()
+                .HasIndex(c => c.AppUserId)
+                .IsUnique(true);
         }
     }
 }
