@@ -19,6 +19,13 @@ namespace RS2_Seminarski.Exceptions
                 context.ModelState.AddModelError("ERROR", context.Exception.Message);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
+
+            else if (context.Exception is InvalidCredentialsException)
+            {
+                context.ModelState.AddModelError("ERROR", context.Exception.Message);
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+
             else
             {
                 context.ModelState.AddModelError("ERROR", "Greška na serveru");

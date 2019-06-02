@@ -51,7 +51,7 @@ namespace RS2_Seminarski.Security
             {
                 return handler.ValidateToken(token, param, out validatedToken);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 throw new InvalidTokenException("Invalid token provided");
             }
