@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RS2_Seminarski.Database;
+using RS2_Seminarski.Exceptions;
 
 namespace RS2_Seminarski
 {
@@ -27,7 +28,7 @@ namespace RS2_Seminarski
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
             services.AddDbContext<FitnessCenterDbContext>(
                 opts => opts.UseSqlServer(Configuration["ConnectionString:FitnessCenterDB"]));

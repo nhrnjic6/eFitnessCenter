@@ -16,10 +16,12 @@ namespace RS2_Seminarski.Controllers
     public class TokenController : ControllerBase
     {
         private readonly FitnessCenterDbContext _context;
+        private readonly AuthenticationService authenticationService;
 
         public TokenController(FitnessCenterDbContext context)
-        {
+        {   
             _context = context;
+            authenticationService = new AuthenticationService();
         }
 
         // GET: api/Token
@@ -31,22 +33,14 @@ namespace RS2_Seminarski.Controllers
                 .Include(user => user.Client)
                 .ToList();
 
-            return JWTUtil.CreateToken(1, "EMPLOYEE");
+            return JWTUtil.CreateToken(1, "CLIENT");
         }
 
         // GET: api/Token/5
         [HttpGet("{id}")]
         public UserInfo GetAppUser([FromRoute] int id)
         {
-            var token = Request.Headers["Authorization"];
-            var claims = JWTUtil.VerifyToken(token).Claims;
-
-            UserInfo userInfo = new UserInfo
-            {
-                Id = int.Parse(claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault().Value),
-                Role = claims.Where(x => x.Type == ClaimTypes.Role).FirstOrDefault().Value
-            };
-
+            UserInfo userInfo = authenticationService.IsAuthorized(Request, "EMPLOYEE");
             return userInfo;
         }
 

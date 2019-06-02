@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using RS2_Seminarski.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -52,7 +53,7 @@ namespace RS2_Seminarski.Security
             }
             catch(Exception e)
             {
-                return null;
+                throw new InvalidTokenException("Invalid token provided");
             }
         }
     }
