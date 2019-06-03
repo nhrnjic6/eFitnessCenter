@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
+using AutoMapper;
 
 namespace RS2_Seminarski
 {
@@ -29,7 +30,8 @@ namespace RS2_Seminarski
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
+                .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddAutoMapper();
             services.AddDbContext<FitnessCenterDbContext>(
                 opts => opts.UseSqlServer(Configuration["ConnectionString:FitnessCenterDB"]));
         }
