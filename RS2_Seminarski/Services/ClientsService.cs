@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Models.Requests.Clients;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Mappers;
@@ -19,6 +20,15 @@ namespace RS2_Seminarski.Services
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        public List<Models.Clients.Client> GetAll()
+        {
+            return _context.AppUsers
+                .Include(x => x.Client)
+                .Where(x => x.Client != null)
+                .Select(x => _mapper.Map<Models.Clients.Client>(x))
+                .ToList();
         }
 
         public Models.Clients.Client Create(CreateClientRequest createClientRequest)

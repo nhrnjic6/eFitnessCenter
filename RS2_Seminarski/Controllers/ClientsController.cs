@@ -28,6 +28,12 @@ namespace RS2_Seminarski.Controllers
         }
 
         [HttpGet]
+        public List<Models.Clients.Client> Get()
+        {
+            return _clientsService.GetAll();
+        }
+
+        [HttpPost]
         public Models.Clients.Client Create(CreateClientRequest createClientRequest)
         {
             validateModel();
