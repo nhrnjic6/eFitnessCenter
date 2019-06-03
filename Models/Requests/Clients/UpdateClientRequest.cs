@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Models.Clients
+namespace Models.Requests.Clients
 {
-    public class Client
-    {   
-        [Required]
-        public int Id { get; set; }
+    public class UpdateClientRequest
+    {
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -19,7 +17,5 @@ namespace Models.Clients
         public string PhoneNumber { get; set; }
         [Required]
         public string Address { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; }
     }
 }

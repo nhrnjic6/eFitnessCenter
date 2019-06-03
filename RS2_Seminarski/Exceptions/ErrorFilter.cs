@@ -32,6 +32,12 @@ namespace RS2_Seminarski.Exceptions
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
 
+            else if (context.Exception is ResourceNotFoundException)
+            {
+                context.ModelState.AddModelError("ERROR", context.Exception.Message);
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            }
+
             else
             {
                 context.ModelState.AddModelError("ERROR", "Greška na serveru");

@@ -33,12 +33,33 @@ namespace RS2_Seminarski.Controllers
             return _clientsService.GetAll();
         }
 
+        [HttpGet("{id}")]
+        public Models.Clients.Client GetById(int id)
+        {
+            return _clientsService.GetById(id);
+        }
+
         [HttpPost]
         public Models.Clients.Client Create(CreateClientRequest createClientRequest)
         {
             validateModel();
             return _clientsService.Create(createClientRequest);
         } 
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _clientsService.Delete(id);
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, UpdateClientRequest updateClientRequest)
+        {
+            validateModel();
+            _clientsService.Update(id, updateClientRequest);
+            return NoContent();
+        }
 
         private void validateModel()
         {
