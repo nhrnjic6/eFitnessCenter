@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Models.Requests.Clients;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
+using RS2_Seminarski.Security;
 using RS2_Seminarski.Services;
 
 namespace RS2_Seminarski.Controllers
@@ -18,6 +19,7 @@ namespace RS2_Seminarski.Controllers
     {
         private readonly FitnessCenterDbContext _context;
         private readonly ClientsService _clientsService;
+        private readonly AuthenticationService _authenticationService;
         private readonly IMapper _mapper;
 
         public ClientsController(FitnessCenterDbContext context, IMapper mapper)
@@ -25,11 +27,13 @@ namespace RS2_Seminarski.Controllers
             _context = context;
             _mapper = mapper;
             _clientsService = new ClientsService(_context, _mapper);
+            _authenticationService = new AuthenticationService(_context);
         }
 
         [HttpGet]
         public List<Models.Clients.Client> Get()
         {
+            _authenticationService.IsAuthorized(Request, "EMPLOYEE");
             return _clientsService.GetAll();
         }
 
@@ -42,6 +46,7 @@ namespace RS2_Seminarski.Controllers
         [HttpPost]
         public Models.Clients.Client Create(CreateClientRequest createClientRequest)
         {
+            _authenticationService.IsAuthorized(Request, "EMPLOYEE");
             validateModel();
             return _clientsService.Create(createClientRequest);
         } 
@@ -49,6 +54,7 @@ namespace RS2_Seminarski.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            _authenticationService.IsAuthorized(Request, "EMPLOYEE");
             _clientsService.Delete(id);
             return NoContent();
         }
@@ -56,6 +62,7 @@ namespace RS2_Seminarski.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, UpdateClientRequest updateClientRequest)
         {
+            _authenticationService.IsAuthorized(Request, "EMPLOYEE");
             validateModel();
             _clientsService.Update(id, updateClientRequest);
             return NoContent();

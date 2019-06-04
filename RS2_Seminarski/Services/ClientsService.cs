@@ -48,7 +48,7 @@ namespace RS2_Seminarski.Services
         }
 
         public Models.Clients.Client Create(CreateClientRequest createClientRequest)
-        {
+        {   
             Database.AppUser appUser = _mapper.Map<Database.AppUser>(createClientRequest);
             appUser.HashedPassword = HashUtil.ComputeSha256Hash(createClientRequest.Password);
             appUser.CreatedAt = DateTime.UtcNow;
