@@ -26,13 +26,16 @@ namespace RS2_Seminarski.Controllers
         }
 
         [HttpPost]
-        public string CreateToken(GetTokenPost getTokenPost)
+        public TokenResponse CreateToken(GetTokenPost getTokenPost)
         {
             string token = authenticationService.AuthenticateUser(
                 getTokenPost.Email, getTokenPost.Password
-            );      
+            );
 
-            return token;
+            return new TokenResponse
+            {
+                AccessToken = token
+            };
         }
     }
 }

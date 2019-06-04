@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS2_Seminarski", "RS2_Semin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3D8A693A-B0B9-4488-A049-467DBA0B1FDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eFitnessCenterDesktop", "eFitnessCenterDesktop\eFitnessCenterDesktop.csproj", "{72C693EA-C605-42CC-BAA8-36C546E79B82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3D8A693A-B0B9-4488-A049-467DBA0B1FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D8A693A-B0B9-4488-A049-467DBA0B1FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D8A693A-B0B9-4488-A049-467DBA0B1FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C693EA-C605-42CC-BAA8-36C546E79B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C693EA-C605-42CC-BAA8-36C546E79B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C693EA-C605-42CC-BAA8-36C546E79B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C693EA-C605-42CC-BAA8-36C546E79B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
