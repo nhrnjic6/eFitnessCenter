@@ -1,4 +1,5 @@
-﻿using eFitnessCenterDesktop.Services;
+﻿using eFitnessCenterDesktop.Clients;
+using eFitnessCenterDesktop.Services;
 using Models.Requests.Token;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,17 @@ namespace eFitnessCenterDesktop
     public partial class LoginForm : Form
     {
         private readonly TokenService tokenService;
+        private Action<string> _tokenAction;
 
         public LoginForm()
         {
             InitializeComponent();
             tokenService = new TokenService();
+        }
+
+        public void OnTokenFetch(Action<string> action)
+        {
+            _tokenAction = action;
         }
 
         private async void BtnSubmit_Click(object sender, EventArgs e)
@@ -37,7 +44,7 @@ namespace eFitnessCenterDesktop
             }
             else
             {
-                MessageBox.Show(result.AccessToken);
+                _tokenAction(result.AccessToken);
             }
         }
     }

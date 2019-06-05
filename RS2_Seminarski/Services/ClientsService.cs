@@ -23,11 +23,20 @@ namespace RS2_Seminarski.Services
             _mapper = mapper;
         }
 
-        public List<Models.Clients.Client> GetAll()
+        public List<Models.Clients.Client> GetAll(SearchClientParams searchClientParams)
         {
-            return _context.AppUsers
+            var query = _context.AppUsers.AsQueryable()
                 .Include(x => x.Client)
-                .Where(x => x.Client != null)
+                .Where(x => x.Client != null);
+                //.Select(x => _mapper.Map<Models.Clients.Client>(x));
+
+            if(searchClientParams.UserStatus != null)
+            {
+                Database.UserStatus userStatus = (Database.UserStatus)(int)searchClientParams.UserStatus;
+                query = query.Where(x => x.Status == userStatus);
+            }
+
+            return query
                 .Select(x => _mapper.Map<Models.Clients.Client>(x))
                 .ToList();
         }
@@ -52,7 +61,7 @@ namespace RS2_Seminarski.Services
             Database.AppUser appUser = _mapper.Map<Database.AppUser>(createClientRequest);
             appUser.HashedPassword = HashUtil.ComputeSha256Hash(createClientRequest.Password);
             appUser.CreatedAt = DateTime.UtcNow;
-            appUser.Status = UserStatus.INACTIVE;
+            appUser.Status = Database.UserStatus.INACTIVE;
 
             // add client specific data
             Database.Client client = new Database.Client();
@@ -91,7 +100,7 @@ namespace RS2_Seminarski.Services
                 throw new ResourceNotFoundException("Client with id: " + id + " not found");
             }
 
-            client.Status = UserStatus.DELETED;
+            client.Status = Database.UserStatus.DELETED;
             _context.AppUsers.Update(client);
             _context.SaveChanges();
         }
