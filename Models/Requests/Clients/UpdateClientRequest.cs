@@ -17,5 +17,7 @@ namespace Models.Requests.Clients
         public string PhoneNumber { get; set; }
         [Required]
         public string Address { get; set; }
+        [Required]
+        public UserStatus? Status { get; set; }
     }
 }

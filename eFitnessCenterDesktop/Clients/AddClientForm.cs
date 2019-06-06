@@ -60,6 +60,11 @@ namespace eFitnessCenterDesktop.Clients
         {
             if (_clientForEdit != null)
             {
+                lblStatus.Visible = true;
+                cbStatus.Visible = true;
+
+                cbStatus.Text = toStringStatus(_clientForEdit.Status);
+
                 tbPassword.Visible = false;
                 tbIme.Text = _clientForEdit.FirstName;
                 tbPrezime.Text = _clientForEdit.LastName;
@@ -92,10 +97,33 @@ namespace eFitnessCenterDesktop.Clients
                 LastName = tbPrezime.Text,
                 Email = tbEmail.Text,
                 Address = tbAdresa.Text,
-                PhoneNumber = tbTelefon.Text
+                PhoneNumber = tbTelefon.Text,
+                Status = fromString(cbStatus.Text)
             };
 
             await _apiService.Update<Client>(_clientForEdit.Id ,updateClientRequest);
+        }
+
+        private UserStatus? fromString(string userStatus)
+        {
+            switch (userStatus)
+            {
+                case "Active": return UserStatus.ACTIVE;
+                case "Inactive": return UserStatus.INACTIVE;
+                case "Deleted": return UserStatus.DELETED;
+                default: return null;
+            }
+        }
+
+        private string toStringStatus(UserStatus userStatus)
+        {
+            switch (userStatus)
+            {
+                case UserStatus.ACTIVE: return "Active";
+                case UserStatus.INACTIVE: return "Inactive";
+                case UserStatus.DELETED: return "Deleted";
+                default: return "Inactive";
+            }
         }
     }
 }

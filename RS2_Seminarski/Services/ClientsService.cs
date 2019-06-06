@@ -28,7 +28,6 @@ namespace RS2_Seminarski.Services
             var query = _context.AppUsers.AsQueryable()
                 .Include(x => x.Client)
                 .Where(x => x.Client != null);
-                //.Select(x => _mapper.Map<Models.Clients.Client>(x));
 
             if(searchClientParams.UserStatus != null)
             {
@@ -36,9 +35,21 @@ namespace RS2_Seminarski.Services
                 query = query.Where(x => x.Status == userStatus);
             }
 
-            return query
+            if(!string.IsNullOrEmpty(searchClientParams.FirstName))
+            {
+                query = query.Where(x => x.FirstName == searchClientParams.FirstName);
+            }
+
+            if (!string.IsNullOrEmpty(searchClientParams.LastName))
+            {
+                query = query.Where(x => x.LastName == searchClientParams.LastName);
+            }
+
+            List<Models.Clients.Client> clients = query
                 .Select(x => _mapper.Map<Models.Clients.Client>(x))
                 .ToList();
+
+            return clients;
         }
 
         public Models.Clients.Client GetById(int id)

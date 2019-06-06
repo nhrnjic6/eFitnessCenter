@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Requests.Clients;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -21,5 +22,7 @@ namespace Models.Clients
         public string Address { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
+        [Required]
+        public UserStatus Status { get; set; }
     }
 }

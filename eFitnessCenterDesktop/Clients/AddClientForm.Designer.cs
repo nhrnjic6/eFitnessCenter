@@ -41,6 +41,8 @@
             this.tbTelefon = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -150,11 +152,36 @@
             this.tbPassword.Size = new System.Drawing.Size(239, 20);
             this.tbPassword.TabIndex = 7;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(292, 20);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblStatus.TabIndex = 13;
+            this.lblStatus.Text = "Status";
+            this.lblStatus.Visible = false;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "Deleted"});
+            this.cbStatus.Location = new System.Drawing.Point(295, 44);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(193, 21);
+            this.cbStatus.TabIndex = 14;
+            this.cbStatus.Visible = false;
+            // 
             // AddClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 460);
+            this.ClientSize = new System.Drawing.Size(617, 460);
+            this.Controls.Add(this.cbStatus);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.tbTelefon);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
@@ -190,5 +217,7 @@
         private System.Windows.Forms.TextBox tbTelefon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ComboBox cbStatus;
     }
 }

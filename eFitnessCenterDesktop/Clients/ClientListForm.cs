@@ -35,7 +35,9 @@ namespace eFitnessCenterDesktop.Clients
 
             SearchClientParams searchClientParams = new SearchClientParams
             {
-                UserStatus = status
+                UserStatus = status,
+                FirstName = tbIme.Text,
+                LastName = tbPrezime.Text
             };
 
             _clients = await _apiService.GetAll<List<Client>>(searchClientParams);
