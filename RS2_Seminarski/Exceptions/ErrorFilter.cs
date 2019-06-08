@@ -38,6 +38,11 @@ namespace RS2_Seminarski.Exceptions
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
             }
 
+            else if (context.Exception is ActiveMembershipException)
+            {
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
+
             else
             {
                 context.ModelState.AddModelError("ERROR", "Greška na serveru");
