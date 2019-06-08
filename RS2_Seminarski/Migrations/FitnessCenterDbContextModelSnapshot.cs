@@ -48,34 +48,20 @@ namespace RS2_Seminarski.Migrations
 
             modelBuilder.Entity("RS2_Seminarski.Database.Client", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AppUserId");
+                    b.Property<int?>("Id");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique();
 
                     b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("RS2_Seminarski.Database.Employee", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AppUserId");
+                    b.Property<int?>("Id");
 
                     b.Property<decimal>("Salary");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique();
 
                     b.ToTable("Employees");
                 });
@@ -84,7 +70,7 @@ namespace RS2_Seminarski.Migrations
                 {
                     b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
                         .WithOne("Client")
-                        .HasForeignKey("RS2_Seminarski.Database.Client", "AppUserId")
+                        .HasForeignKey("RS2_Seminarski.Database.Client", "Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -92,7 +78,7 @@ namespace RS2_Seminarski.Migrations
                 {
                     b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
                         .WithOne("Employee")
-                        .HasForeignKey("RS2_Seminarski.Database.Employee", "AppUserId")
+                        .HasForeignKey("RS2_Seminarski.Database.Employee", "Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
