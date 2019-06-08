@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RS2_Seminarski.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Initial_Migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,15 +33,13 @@ namespace RS2_Seminarski.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AppUserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clients_AppUsers_AppUserId",
-                        column: x => x.AppUserId,
+                        name: "FK_Clients_AppUsers_Id",
+                        column: x => x.Id,
                         principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -51,33 +49,19 @@ namespace RS2_Seminarski.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Salary = table.Column<decimal>(nullable: false),
-                    AppUserId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false),
+                    Salary = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employees_AppUsers_AppUserId",
-                        column: x => x.AppUserId,
+                        name: "FK_Employees_AppUsers_Id",
+                        column: x => x.Id,
                         principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Clients_AppUserId",
-                table: "Clients",
-                column: "AppUserId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employees_AppUserId",
-                table: "Employees",
-                column: "AppUserId",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

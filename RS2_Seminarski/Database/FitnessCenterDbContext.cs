@@ -19,13 +19,7 @@ namespace RS2_Seminarski.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Client>()
-                .HasIndex(c => c.AppUserId)
-                .IsUnique(true);
-
-            modelBuilder.Entity<Employee>()
-                .HasIndex(c => c.AppUserId)
-                .IsUnique(true);
+            
         }
     }
 }

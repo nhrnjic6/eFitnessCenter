@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 namespace RS2_Seminarski.Database
 {
     public class Employee
-    {   [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+    {
+        [ForeignKey("Id")]
+        public AppUser AppUser { get; set; } = new AppUser();
         public decimal Salary { get; set; }
-        public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
     }
 }
