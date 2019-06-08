@@ -15,6 +15,7 @@ namespace RS2_Seminarski.Mappers
             CreateMap<CreateClientRequest, Database.AppUser>();
             CreateMap<Database.AppUser, Models.Clients.Client>();
             CreateMap<Models.Requests.Clients.UpdateClientRequest, Database.AppUser>();
+            CreateMap<Database.MembershipPayment, Models.MembershipPayments.MembershipPayment>();
         }
     }
 }

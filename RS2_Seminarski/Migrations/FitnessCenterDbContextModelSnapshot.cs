@@ -80,6 +80,56 @@ namespace RS2_Seminarski.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("RS2_Seminarski.Database.MembershipPayment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClientId");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("EmployeeId");
+
+                    b.Property<int>("MembershipTypeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("MembershipTypeId");
+
+                    b.ToTable("MembershipPayment");
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.MembershipType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MonthsValid");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<double>("Price");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MembershipType");
+
+                    b.HasData(
+                        new { Id = 1, MonthsValid = 1, Name = "Jedan Mjesec", Price = 40.0 },
+                        new { Id = 2, MonthsValid = 2, Name = "Dva Mjeseca", Price = 70.0 },
+                        new { Id = 3, MonthsValid = 6, Name = "Sest Mjeseci", Price = 110.0 },
+                        new { Id = 4, MonthsValid = 12, Name = "Godisnja Clanarina", Price = 180.0 }
+                    );
+                });
+
             modelBuilder.Entity("RS2_Seminarski.Database.Client", b =>
                 {
                     b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
@@ -93,6 +143,24 @@ namespace RS2_Seminarski.Migrations
                     b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
                         .WithOne("Employee")
                         .HasForeignKey("RS2_Seminarski.Database.Employee", "AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.MembershipPayment", b =>
+                {
+                    b.HasOne("RS2_Seminarski.Database.Client", "Client")
+                        .WithMany("MembershipPayments")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("RS2_Seminarski.Database.Employee", "Employee")
+                        .WithMany("MembershipPayments")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("RS2_Seminarski.Database.MembershipType", "MembershipType")
+                        .WithMany()
+                        .HasForeignKey("MembershipTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

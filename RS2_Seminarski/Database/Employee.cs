@@ -14,5 +14,6 @@ namespace RS2_Seminarski.Database
         public decimal Salary { get; set; }
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+        public virtual ICollection<MembershipPayment> MembershipPayments { get; set; }
     }
 }

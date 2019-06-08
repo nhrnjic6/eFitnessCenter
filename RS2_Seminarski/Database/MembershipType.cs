@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace RS2_Seminarski.Database
 {
-    public class Client
+    public class MembershipType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
-        public virtual ICollection<MembershipPayment> MembershipPayments { get; set; }
+        [Required]
+        public int MonthsValid { get; set; }
+        [Required]
+        public double Price { get; set; }
+        [Required]
+        public string Name { get; set; }
     }
 }
