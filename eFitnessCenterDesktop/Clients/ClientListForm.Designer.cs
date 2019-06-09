@@ -113,7 +113,7 @@
             // 
             // clientBindingSource
             // 
-            this.clientBindingSource.DataSource = typeof(Models.Clients.Client);
+            //this.clientBindingSource.DataSource = typeof(Models.Clients.Client);
             // 
             // tbIme
             // 

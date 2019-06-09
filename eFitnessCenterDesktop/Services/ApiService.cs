@@ -26,7 +26,7 @@ namespace eFitnessCenterDesktop.Services
         public async Task<T> GetAll<T>(IQueryParams queryParams)
         {
             var url = $"{_baseUrl}/{_resource}";
-            url += queryParams.ToQueryParams();
+            url += queryParams?.ToQueryParams();
             return await url
                 .WithHeader("Authorization", _token)
                 .GetJsonAsync<T>();

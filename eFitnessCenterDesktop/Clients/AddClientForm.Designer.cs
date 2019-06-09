@@ -43,6 +43,7 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.btnClanarine = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,7 +121,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(29, 414);
+            this.btnSave.Location = new System.Drawing.Point(29, 481);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 10;
@@ -155,12 +156,13 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(292, 20);
+            this.lblStatus.Location = new System.Drawing.Point(29, 403);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(37, 13);
             this.lblStatus.TabIndex = 13;
             this.lblStatus.Text = "Status";
             this.lblStatus.Visible = false;
+            this.lblStatus.Click += new System.EventHandler(this.LblStatus_Click);
             // 
             // cbStatus
             // 
@@ -169,17 +171,28 @@
             "Active",
             "Inactive",
             "Deleted"});
-            this.cbStatus.Location = new System.Drawing.Point(295, 44);
+            this.cbStatus.Location = new System.Drawing.Point(29, 432);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(193, 21);
+            this.cbStatus.Size = new System.Drawing.Size(239, 21);
             this.cbStatus.TabIndex = 14;
             this.cbStatus.Visible = false;
+            // 
+            // btnClanarine
+            // 
+            this.btnClanarine.Location = new System.Drawing.Point(447, 42);
+            this.btnClanarine.Name = "btnClanarine";
+            this.btnClanarine.Size = new System.Drawing.Size(75, 23);
+            this.btnClanarine.TabIndex = 15;
+            this.btnClanarine.Text = "Clanarine";
+            this.btnClanarine.UseVisualStyleBackColor = true;
+            this.btnClanarine.Click += new System.EventHandler(this.BtnClanarine_Click);
             // 
             // AddClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 460);
+            this.ClientSize = new System.Drawing.Size(844, 526);
+            this.Controls.Add(this.btnClanarine);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.tbTelefon);
@@ -219,5 +232,6 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Button btnClanarine;
     }
 }

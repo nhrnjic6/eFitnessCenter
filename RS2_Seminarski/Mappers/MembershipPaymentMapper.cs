@@ -28,10 +28,14 @@ namespace RS2_Seminarski.Mappers
 
             return new MembershipPayment
             {
-                Client = client,
                 Id = membershipPayment.Id,
-                CreatedAt = membershipPayment.CreatedAt,
-                MembershipType = membershipType
+                CreatedAt = membershipPayment.CreatedAt.ToString("dd-MM-yyyy"),
+                ClientId = client.Id,
+                FirstName = client.FirstName,
+                LastName = client.LastName,
+                MembershipTypeName = membershipType.Name,
+                ValidDescriptor = "Valid or Invalid",
+                TotalPaid = membershipType.Price
             };
         }
     }

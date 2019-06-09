@@ -1,4 +1,5 @@
-﻿using eFitnessCenterDesktop.Services;
+﻿using eFitnessCenterDesktop.Membership;
+using eFitnessCenterDesktop.Services;
 using Models.Clients;
 using Models.Requests.Clients;
 using System;
@@ -72,6 +73,10 @@ namespace eFitnessCenterDesktop.Clients
                 tbTelefon.Text = _clientForEdit.PhoneNumber;
                 tbAdresa.Text = _clientForEdit.Address;
             }
+            else
+            {
+                btnClanarine.Visible = false;
+            }
         }
 
         private async void CreateNewClient()
@@ -124,6 +129,24 @@ namespace eFitnessCenterDesktop.Clients
                 case UserStatus.DELETED: return "Deleted";
                 default: return "Inactive";
             }
+        }
+
+        private void LblStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnClanarine_Click(object sender, EventArgs e)
+        {
+            MembershipPaymentForm paymentForm = new MembershipPaymentForm(_accessToken, _clientForEdit);
+            paymentForm.MdiParent = this.MdiParent;
+            paymentForm.WindowState = FormWindowState.Maximized;
+            paymentForm.ControlBox = false;
+            paymentForm.MaximizeBox = false;
+            paymentForm.MinimizeBox = false;
+            paymentForm.ShowIcon = false;
+
+            paymentForm.Show();
         }
     }
 }
