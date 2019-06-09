@@ -31,10 +31,10 @@ namespace RS2_Seminarski.Controllers
         }
 
         [HttpGet]
-        public List<MembershipPayment> GetAll()
+        public List<MembershipPayment> GetAll([FromQuery] MembershipPaymentSearchParams searchParams)
         {
             _authenticationService.IsAuthorized(Request, "EMPLOYEE");
-            return _membershipPaymentService.GetAll();
+            return _membershipPaymentService.GetAll(searchParams);
         }
 
         [HttpPost]

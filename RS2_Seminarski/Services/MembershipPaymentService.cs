@@ -22,16 +22,20 @@ namespace RS2_Seminarski.Services
             _mapper = mapper;
         }
 
-        public List<MembershipPayment> GetAll()
+        public List<MembershipPayment> GetAll(MembershipPaymentSearchParams searchParams)
         {
-            List<Database.MembershipPayment> membershipPayments =
-                _context.MembershipPayments
+            IQueryable<Database.MembershipPayment> query = _context.MembershipPayments
+                .AsQueryable()
                 .Include(x => x.Client)
                     .ThenInclude(x => x.AppUser)
-                .Include(x => x.MembershipType)
-                .ToList();
+                .Include(x => x.MembershipType);
 
-            return membershipPayments
+            if(searchParams.ClientId != null)
+            {
+                query = query.Where(x => x.ClientId == searchParams.ClientId);
+            }
+
+            return query
                 .Select(x => MembershipPaymentMapper.FromDb(x))
                 .ToList();
         }
