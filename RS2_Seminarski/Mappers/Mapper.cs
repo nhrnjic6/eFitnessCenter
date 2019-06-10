@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Models.Requests.Clients;
+using Models.Requests.Suplements;
 using RS2_Seminarski.Database;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace RS2_Seminarski.Mappers
             CreateMap<Database.MembershipPayment, Models.Membership.MembershipPayment>();
             CreateMap<Database.MembershipType, Models.Membership.MembershipType>();
             CreateMap<Database.SuplementType, Models.Suplements.SuplementType>();
+            CreateMap<Database.Suplement, Models.Suplements.Suplement>();
+            CreateMap<SuplementCreateRequest, Database.Suplement>().ReverseMap();
         }
     }
 }
