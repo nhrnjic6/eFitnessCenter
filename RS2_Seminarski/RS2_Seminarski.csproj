@@ -7,6 +7,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190608151820_Add_Membership_Tables.cs" />
     <Compile Remove="Migrations\20190608151820_Add_Membership_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20190610185909_Add_Suplement_Tables.cs" />
+    <Compile Remove="Migrations\20190610185909_Add_Suplement_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20190610190241_Add_Suplement_Tables.cs" />
+    <Compile Remove="Migrations\20190610190241_Add_Suplement_Tables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

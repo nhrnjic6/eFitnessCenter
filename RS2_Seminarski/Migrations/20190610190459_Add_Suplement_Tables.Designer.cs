@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RS2_Seminarski.Database;
 
 namespace RS2_Seminarski.Migrations
 {
     [DbContext(typeof(FitnessCenterDbContext))]
-    partial class FitnessCenterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190610190459_Add_Suplement_Tables")]
+    partial class Add_Suplement_Tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,13 +159,6 @@ namespace RS2_Seminarski.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SuplementTypes");
-
-                    b.HasData(
-                        new { Id = 1, Type = "Powder" },
-                        new { Id = 2, Type = "Capsule" },
-                        new { Id = 3, Type = "Softgels" },
-                        new { Id = 4, Type = "Liquids" }
-                    );
                 });
 
             modelBuilder.Entity("RS2_Seminarski.Database.Client", b =>
