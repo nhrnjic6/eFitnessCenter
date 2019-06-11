@@ -20,7 +20,7 @@ namespace RS2_Seminarski.Database
         [Required]
         public DateTime CreatedAt { get; set; }
         [Required]
-        public int SumplementTypeId { get; set; }
+        public int SuplementTypeId { get; set; }
         public SuplementType SuplementType { get; set; }
         public string Description { get; set; }
         public double Amount { get; set; }

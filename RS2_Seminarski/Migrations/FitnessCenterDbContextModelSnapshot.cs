@@ -135,9 +135,7 @@ namespace RS2_Seminarski.Migrations
 
                     b.Property<double>("Price");
 
-                    b.Property<int>("SumplementTypeId");
-
-                    b.Property<int?>("SuplementTypeId");
+                    b.Property<int>("SuplementTypeId");
 
                     b.HasKey("Id");
 
@@ -201,7 +199,8 @@ namespace RS2_Seminarski.Migrations
                 {
                     b.HasOne("RS2_Seminarski.Database.SuplementType", "SuplementType")
                         .WithMany()
-                        .HasForeignKey("SuplementTypeId");
+                        .HasForeignKey("SuplementTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

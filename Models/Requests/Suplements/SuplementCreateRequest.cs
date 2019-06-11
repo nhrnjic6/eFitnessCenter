@@ -12,7 +12,7 @@ namespace Models.Requests.Suplements
         [Required]
         public double Price { get; set; }
         [Required]
-        public int SumplementTypeId { get; set; }
+        public int SuplementTypeId { get; set; }
         [Required]
         public string Description { get; set; }
         [Required]

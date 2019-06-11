@@ -38,7 +38,7 @@ namespace RS2_Seminarski.Services
                 query = query.Where(x => x.SuplementType.Type == suplementSearch.Type);
             }
 
-            return query.Select(x => _mapper.Map<Models.Suplements.Suplement>(x))
+            return query.Select(x => mapFromDb(x))
                 .ToList();
         }
 
@@ -48,7 +48,7 @@ namespace RS2_Seminarski.Services
             suplement.CreatedAt = DateTime.Now;
             _context.Suplements.Add(suplement);
             _context.SaveChanges();
-            return _mapper.Map<Models.Suplements.Suplement>(suplement);
+            return mapFromDb(suplement);
         }
 
         public void Update(int id ,SuplementCreateRequest suplementCreateRequest)
@@ -76,6 +76,14 @@ namespace RS2_Seminarski.Services
 
             _context.Suplements.Remove(suplement);
             _context.SaveChanges();
+        }
+
+        private Models.Suplements.Suplement mapFromDb(Database.Suplement dbSuplement)
+        {
+            Models.Suplements.Suplement suplement = new Models.Suplements.Suplement();
+            suplement.SuplementTypeName = dbSuplement.SuplementType?.Type;
+            _mapper.Map(dbSuplement, suplement);
+            return suplement;
         }
     }
 }

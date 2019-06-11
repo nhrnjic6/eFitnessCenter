@@ -30,8 +30,7 @@ namespace RS2_Seminarski.Migrations
                     Name = table.Column<string>(nullable: false),
                     Price = table.Column<double>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
-                    SumplementTypeId = table.Column<int>(nullable: false),
-                    SuplementTypeId = table.Column<int>(nullable: true),
+                    SuplementTypeId = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Amount = table.Column<double>(nullable: false),
                     MessureUnit = table.Column<string>(nullable: true)
@@ -44,7 +43,18 @@ namespace RS2_Seminarski.Migrations
                         column: x => x.SuplementTypeId,
                         principalTable: "SuplementTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "SuplementTypes",
+                columns: new[] { "Id", "Type" },
+                values: new object[,]
+                {
+                    { 1, "Powder" },
+                    { 2, "Capsule" },
+                    { 3, "Softgels" },
+                    { 4, "Liquids" }
                 });
 
             migrationBuilder.CreateIndex(
