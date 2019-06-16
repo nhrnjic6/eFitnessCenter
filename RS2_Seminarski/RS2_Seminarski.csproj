@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -15,6 +15,8 @@
     <Compile Remove="Migrations\20190610190459_Add_Suplement_Tables.Designer.cs" />
     <Compile Remove="Migrations\20190610190841_Add_Suplement_Types.cs" />
     <Compile Remove="Migrations\20190610190841_Add_Suplement_Types.Designer.cs" />
+    <Compile Remove="Migrations\20190616113530_Add_Suplement_Payment.cs" />
+    <Compile Remove="Migrations\20190616113530_Add_Suplement_Payment.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

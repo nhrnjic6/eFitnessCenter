@@ -20,6 +20,7 @@ namespace RS2_Seminarski.Database
         public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<Suplement> Suplements { get; set; }
         public DbSet<SuplementType> SuplementTypes { get; set; }
+        public DbSet<SuplementPayment> SuplementPayments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

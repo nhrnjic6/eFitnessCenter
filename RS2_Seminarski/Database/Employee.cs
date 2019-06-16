@@ -13,5 +13,6 @@ namespace RS2_Seminarski.Database
         public AppUser AppUser { get; set; } = new AppUser();
         public decimal Salary { get; set; }
         public ICollection<MembershipPayment> MembershipPayments { get; set; }
+        public ICollection<SuplementPayment> SuplementPayments { get; set; }
     }
 }

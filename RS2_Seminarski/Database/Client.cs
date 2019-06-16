@@ -12,5 +12,6 @@ namespace RS2_Seminarski.Database
         [ForeignKey("Id")]
         public AppUser AppUser { get; set; } = new AppUser();
         public ICollection<MembershipPayment> MembershipPayments { get; set; }
+        public ICollection<SuplementPayment> SuplementPayments { get; set; }
     }
 }
