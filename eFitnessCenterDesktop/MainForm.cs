@@ -1,4 +1,5 @@
 ﻿using eFitnessCenterDesktop.Clients;
+using eFitnessCenterDesktop.Suplements;
 using Models.Clients;
 using System;
 using System.Collections.Generic;
@@ -170,6 +171,30 @@ namespace eFitnessCenterDesktop
         private void AddClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowNewClient(null);
+        }
+
+        private void SuplementListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuplementsListForm suplementsListForm = new SuplementsListForm(_accessToken);
+            suplementsListForm.MdiParent = this;
+            suplementsListForm.WindowState = FormWindowState.Maximized;
+            suplementsListForm.ControlBox = false;
+            suplementsListForm.MaximizeBox = false;
+            suplementsListForm.MinimizeBox = false;
+            suplementsListForm.ShowIcon = false;
+            suplementsListForm.Show();
+        }
+
+        private void NewSuplementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            numAmount suplementsAddForm = new numAmount(_accessToken, null);
+            suplementsAddForm.MdiParent = this;
+            suplementsAddForm.WindowState = FormWindowState.Maximized;
+            suplementsAddForm.ControlBox = false;
+            suplementsAddForm.MaximizeBox = false;
+            suplementsAddForm.MinimizeBox = false;
+            suplementsAddForm.ShowIcon = false;
+            suplementsAddForm.Show();
         }
     }
 }

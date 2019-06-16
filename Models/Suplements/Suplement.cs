@@ -10,7 +10,7 @@ namespace Models.Suplements
 
         public string Name { get; set; }
         public double Price { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
         public int SuplementTypeId { get; set; }
         public string SuplementTypeName { get; set; }
         public string Description { get; set; }

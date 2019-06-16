@@ -99,10 +99,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\TokenService.cs" />
-    <Compile Include="SuplementsListForm.cs">
+    <Compile Include="Suplements\SuplementAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuplementsListForm.Designer.cs">
+    <Compile Include="Suplements\SuplementAddForm.Designer.cs">
+      <DependentUpon>SuplementAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suplements\SuplementsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suplements\SuplementsListForm.Designer.cs">
       <DependentUpon>SuplementsListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Clients\AddClientForm.resx">
@@ -132,12 +138,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SuplementsListForm.resx">
+    <EmbeddedResource Include="Suplements\SuplementAddForm.resx">
+      <DependentUpon>SuplementAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suplements\SuplementsListForm.resx">
       <DependentUpon>SuplementsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Models.Clients.Client.datasource" />
     <None Include="Properties\DataSources\Models.Membership.MembershipPayment.datasource" />
+    <None Include="Properties\DataSources\Models.Suplements.Suplement.datasource" />
+    <None Include="Properties\DataSources\Models.Suplements.Suplement1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -36,6 +36,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.suplementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suplementListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newSuplementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -43,7 +46,8 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clientsToolStripMenuItem});
+            this.clientsToolStripMenuItem,
+            this.suplementsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(820, 24);
@@ -89,6 +93,29 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // suplementsToolStripMenuItem
+            // 
+            this.suplementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.suplementListToolStripMenuItem,
+            this.newSuplementToolStripMenuItem});
+            this.suplementsToolStripMenuItem.Name = "suplementsToolStripMenuItem";
+            this.suplementsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.suplementsToolStripMenuItem.Text = "Suplements";
+            // 
+            // suplementListToolStripMenuItem
+            // 
+            this.suplementListToolStripMenuItem.Name = "suplementListToolStripMenuItem";
+            this.suplementListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.suplementListToolStripMenuItem.Text = "Suplement List";
+            this.suplementListToolStripMenuItem.Click += new System.EventHandler(this.SuplementListToolStripMenuItem_Click);
+            // 
+            // newSuplementToolStripMenuItem
+            // 
+            this.newSuplementToolStripMenuItem.Name = "newSuplementToolStripMenuItem";
+            this.newSuplementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newSuplementToolStripMenuItem.Text = "New Suplement";
+            this.newSuplementToolStripMenuItem.Click += new System.EventHandler(this.NewSuplementToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +145,9 @@
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allClientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suplementsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suplementListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newSuplementToolStripMenuItem;
     }
 }
 

@@ -81,8 +81,9 @@ namespace RS2_Seminarski.Services
         private Models.Suplements.Suplement mapFromDb(Database.Suplement dbSuplement)
         {
             Models.Suplements.Suplement suplement = new Models.Suplements.Suplement();
-            suplement.SuplementTypeName = dbSuplement.SuplementType?.Type;
             _mapper.Map(dbSuplement, suplement);
+            suplement.SuplementTypeName = dbSuplement.SuplementType?.Type;
+            suplement.CreatedAt = dbSuplement.CreatedAt.ToString("dd-MM-yyyy");
             return suplement;
         }
     }
