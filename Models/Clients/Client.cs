@@ -19,5 +19,7 @@ namespace Models.Clients
         public string Address { get; set; }
         public DateTime CreatedAt { get; set; }
         public UserStatus Status { get; set; }
+
+        public string Name { get { return $"{FirstName} {LastName}"; } }
     }
 }

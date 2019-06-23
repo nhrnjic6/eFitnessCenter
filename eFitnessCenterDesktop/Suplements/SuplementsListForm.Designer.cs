@@ -130,7 +130,6 @@
             // 
             // suplementBindingSource1
             // 
-            this.suplementBindingSource1.DataSource = typeof(Models.Suplements.Suplement);
             // 
             // dataGridViewTextBoxColumn1
             // 

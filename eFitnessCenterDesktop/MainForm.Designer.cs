@@ -33,12 +33,14 @@
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.suplementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suplementListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newSuplementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suplementPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -66,16 +68,55 @@
             // allClientsToolStripMenuItem
             // 
             this.allClientsToolStripMenuItem.Name = "allClientsToolStripMenuItem";
-            this.allClientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allClientsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.allClientsToolStripMenuItem.Text = "All Clients";
             this.allClientsToolStripMenuItem.Click += new System.EventHandler(this.AllClientsToolStripMenuItem_Click);
             // 
             // addClientToolStripMenuItem
             // 
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.addClientToolStripMenuItem.Text = "Add Client";
             this.addClientToolStripMenuItem.Click += new System.EventHandler(this.AddClientToolStripMenuItem_Click);
+            // 
+            // suplementsToolStripMenuItem
+            // 
+            this.suplementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.suplementListToolStripMenuItem,
+            this.newSuplementToolStripMenuItem,
+            this.suplementPaymentsToolStripMenuItem,
+            this.newPaymentToolStripMenuItem});
+            this.suplementsToolStripMenuItem.Name = "suplementsToolStripMenuItem";
+            this.suplementsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.suplementsToolStripMenuItem.Text = "Suplements";
+            // 
+            // suplementListToolStripMenuItem
+            // 
+            this.suplementListToolStripMenuItem.Name = "suplementListToolStripMenuItem";
+            this.suplementListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.suplementListToolStripMenuItem.Text = "Suplement List";
+            this.suplementListToolStripMenuItem.Click += new System.EventHandler(this.SuplementListToolStripMenuItem_Click);
+            // 
+            // newSuplementToolStripMenuItem
+            // 
+            this.newSuplementToolStripMenuItem.Name = "newSuplementToolStripMenuItem";
+            this.newSuplementToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.newSuplementToolStripMenuItem.Text = "New Suplement";
+            this.newSuplementToolStripMenuItem.Click += new System.EventHandler(this.NewSuplementToolStripMenuItem_Click);
+            // 
+            // suplementPaymentsToolStripMenuItem
+            // 
+            this.suplementPaymentsToolStripMenuItem.Name = "suplementPaymentsToolStripMenuItem";
+            this.suplementPaymentsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.suplementPaymentsToolStripMenuItem.Text = "Suplement Payments";
+            this.suplementPaymentsToolStripMenuItem.Click += new System.EventHandler(this.SuplementPaymentsToolStripMenuItem_Click);
+            // 
+            // newPaymentToolStripMenuItem
+            // 
+            this.newPaymentToolStripMenuItem.Name = "newPaymentToolStripMenuItem";
+            this.newPaymentToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.newPaymentToolStripMenuItem.Text = "New Payment";
+            this.newPaymentToolStripMenuItem.Click += new System.EventHandler(this.NewPaymentToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -92,29 +133,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // suplementsToolStripMenuItem
-            // 
-            this.suplementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.suplementListToolStripMenuItem,
-            this.newSuplementToolStripMenuItem});
-            this.suplementsToolStripMenuItem.Name = "suplementsToolStripMenuItem";
-            this.suplementsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.suplementsToolStripMenuItem.Text = "Suplements";
-            // 
-            // suplementListToolStripMenuItem
-            // 
-            this.suplementListToolStripMenuItem.Name = "suplementListToolStripMenuItem";
-            this.suplementListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.suplementListToolStripMenuItem.Text = "Suplement List";
-            this.suplementListToolStripMenuItem.Click += new System.EventHandler(this.SuplementListToolStripMenuItem_Click);
-            // 
-            // newSuplementToolStripMenuItem
-            // 
-            this.newSuplementToolStripMenuItem.Name = "newSuplementToolStripMenuItem";
-            this.newSuplementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newSuplementToolStripMenuItem.Text = "New Suplement";
-            this.newSuplementToolStripMenuItem.Click += new System.EventHandler(this.NewSuplementToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -148,6 +166,8 @@
         private System.Windows.Forms.ToolStripMenuItem suplementsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suplementListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newSuplementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suplementPaymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newPaymentToolStripMenuItem;
     }
 }
 

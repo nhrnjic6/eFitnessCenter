@@ -48,7 +48,7 @@ namespace RS2_Seminarski.Migrations
 
             migrationBuilder.InsertData(
                 table: "SuplementTypes",
-                columns: new[] { "Id", "Type" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
                     { 1, "Powder" },

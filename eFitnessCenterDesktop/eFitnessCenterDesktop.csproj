@@ -105,6 +105,18 @@
     <Compile Include="Suplements\SuplementAddForm.Designer.cs">
       <DependentUpon>SuplementAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Suplements\SuplementPaymentCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suplements\SuplementPaymentCreate.Designer.cs">
+      <DependentUpon>SuplementPaymentCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suplements\SuplementPaymentListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suplements\SuplementPaymentListForm.Designer.cs">
+      <DependentUpon>SuplementPaymentListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Suplements\SuplementsListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,12 @@
     <EmbeddedResource Include="Suplements\SuplementAddForm.resx">
       <DependentUpon>SuplementAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Suplements\SuplementPaymentCreate.resx">
+      <DependentUpon>SuplementPaymentCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suplements\SuplementPaymentListForm.resx">
+      <DependentUpon>SuplementPaymentListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Suplements\SuplementsListForm.resx">
       <DependentUpon>SuplementsListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +167,8 @@
     <None Include="Properties\DataSources\Models.Membership.MembershipPayment.datasource" />
     <None Include="Properties\DataSources\Models.Suplements.Suplement.datasource" />
     <None Include="Properties\DataSources\Models.Suplements.Suplement1.datasource" />
+    <None Include="Properties\DataSources\Models.Suplements.SuplementPayment.datasource" />
+    <None Include="Properties\DataSources\Models.Suplements.SuplementPayment1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

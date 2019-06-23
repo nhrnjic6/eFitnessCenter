@@ -196,5 +196,29 @@ namespace eFitnessCenterDesktop
             suplementsAddForm.ShowIcon = false;
             suplementsAddForm.Show();
         }
+
+        private void SuplementPaymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuplementPaymentListForm paymentForm = new SuplementPaymentListForm(_accessToken);
+            paymentForm.MdiParent = this;
+            paymentForm.WindowState = FormWindowState.Maximized;
+            paymentForm.ControlBox = false;
+            paymentForm.MaximizeBox = false;
+            paymentForm.MinimizeBox = false;
+            paymentForm.ShowIcon = false;
+            paymentForm.Show();
+        }
+
+        private void NewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuplementPaymentCreate paymentForm = new SuplementPaymentCreate(_accessToken, null);
+            paymentForm.MdiParent = this;
+            paymentForm.WindowState = FormWindowState.Maximized;
+            paymentForm.ControlBox = false;
+            paymentForm.MaximizeBox = false;
+            paymentForm.MinimizeBox = false;
+            paymentForm.ShowIcon = false;
+            paymentForm.Show();
+        }
     }
 }

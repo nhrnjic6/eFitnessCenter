@@ -152,7 +152,7 @@ namespace RS2_Seminarski.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Type");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 

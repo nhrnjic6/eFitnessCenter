@@ -34,7 +34,7 @@ namespace eFitnessCenterDesktop.Suplements
         {
             List<SuplementType> types = await _suplementTypeApiService.GetAll<List<SuplementType>>(null);
             cbVrsta.DataSource = types;
-            cbVrsta.DisplayMember = "Type";
+            cbVrsta.DisplayMember = "Name";
             cbVrsta.ValueMember = "Id";
         }
 
