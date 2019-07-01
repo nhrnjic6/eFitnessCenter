@@ -51,8 +51,8 @@ namespace eFitnessCenterDesktop.Suplements
         {   
             List<Suplement> suplements = await _suplementApiService.GetAll<List<Suplement>>(null);
             cbSuplement.DataSource = suplements;
-            cbSuplement.ValueMember = "Name";
-            cbSuplement.DisplayMember = "Name";
+            cbSuplement.ValueMember = "Type";
+            cbSuplement.DisplayMember = "Type";
         }
 
         private async void initSuplementTypeList()

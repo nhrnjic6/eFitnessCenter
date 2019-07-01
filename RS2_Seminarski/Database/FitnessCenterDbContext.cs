@@ -21,6 +21,9 @@ namespace RS2_Seminarski.Database
         public DbSet<Suplement> Suplements { get; set; }
         public DbSet<SuplementType> SuplementTypes { get; set; }
         public DbSet<SuplementPayment> SuplementPayments { get; set; }
+        public DbSet<WorkoutType> WorkoutTypes { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +42,13 @@ namespace RS2_Seminarski.Database
                     new SuplementType { Id = 3, Type = "Softgels" },
                     new SuplementType { Id = 4, Type = "Liquids" }
                 );
+
+            modelBuilder.Entity<WorkoutType>()
+                .HasData(
+                new WorkoutType { Id = 1, Name = "Workout Type 1" },
+                new WorkoutType { Id = 2, Name = "Workout Type 2" },
+                new WorkoutType { Id = 3, Name = "Workout Type 3" }
+            );
         }
     }
 }

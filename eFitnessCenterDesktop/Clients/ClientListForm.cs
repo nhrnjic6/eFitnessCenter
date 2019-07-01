@@ -1,5 +1,6 @@
 ﻿using eFitnessCenterDesktop.Services;
 using Models.Clients;
+using Models.Requests;
 using Models.Requests.Clients;
 using System;
 using System.Collections.Generic;

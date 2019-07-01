@@ -177,7 +177,7 @@ namespace RS2_Seminarski.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Type");
 
                     b.HasKey("Id");
 
@@ -188,6 +188,63 @@ namespace RS2_Seminarski.Migrations
                         new { Id = 2, Type = "Capsule" },
                         new { Id = 3, Type = "Softgels" },
                         new { Id = 4, Type = "Liquids" }
+                    );
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.Trainer", b =>
+                {
+                    b.Property<int?>("Id");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Trainers");
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.Workout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Difficulty");
+
+                    b.Property<int>("Duration");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int?>("TrainerId");
+
+                    b.Property<int>("WorkoutTypeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainerId");
+
+                    b.HasIndex("WorkoutTypeId");
+
+                    b.ToTable("Workouts");
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.WorkoutType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WorkoutTypes");
+
+                    b.HasData(
+                        new { Id = 1, Name = "Workout Type 1" },
+                        new { Id = 2, Name = "Workout Type 2" },
+                        new { Id = 3, Name = "Workout Type 3" }
                     );
                 });
 
@@ -243,6 +300,26 @@ namespace RS2_Seminarski.Migrations
                     b.HasOne("RS2_Seminarski.Database.Suplement", "Suplement")
                         .WithMany("SuplementPayments")
                         .HasForeignKey("SuplementId");
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.Trainer", b =>
+                {
+                    b.HasOne("RS2_Seminarski.Database.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("RS2_Seminarski.Database.Workout", b =>
+                {
+                    b.HasOne("RS2_Seminarski.Database.Trainer", "Trainer")
+                        .WithMany("Workouts")
+                        .HasForeignKey("TrainerId");
+
+                    b.HasOne("RS2_Seminarski.Database.WorkoutType", "WorkoutType")
+                        .WithMany("Workouts")
+                        .HasForeignKey("WorkoutTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

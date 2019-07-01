@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Models.Clients
+namespace Models.Trainers
 {
-    public class Client
-    {   
+    public class Trainer
+    {
         [Required]
         public int Id { get; set; }
         [Required]
@@ -17,7 +17,7 @@ namespace Models.Clients
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
         public UserStatus Status { get; set; }
 
         public string Name { get { return $"{FirstName} {LastName}"; } }

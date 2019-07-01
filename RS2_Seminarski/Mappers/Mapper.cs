@@ -21,6 +21,7 @@ namespace RS2_Seminarski.Mappers
             CreateMap<Database.SuplementType, Models.Suplements.SuplementType>();
             CreateMap<Database.Suplement, Models.Suplements.Suplement>();
             CreateMap<SuplementCreateRequest, Database.Suplement>().ReverseMap();
+            CreateMap<WorkoutType, Models.Workout.WorkoutType>();
         }
     }
 }
