@@ -1,5 +1,6 @@
 ﻿using eFitnessCenterDesktop.Clients;
 using eFitnessCenterDesktop.Suplements;
+using eFitnessCenterDesktop.Workouts;
 using Models.Clients;
 using System;
 using System.Collections.Generic;
@@ -219,6 +220,18 @@ namespace eFitnessCenterDesktop
             paymentForm.MinimizeBox = false;
             paymentForm.ShowIcon = false;
             paymentForm.Show();
+        }
+
+        private void CreateNewWorkoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkoutCreateForm workoutForm = new WorkoutCreateForm(_accessToken, null);
+            workoutForm.MdiParent = this;
+            workoutForm.WindowState = FormWindowState.Maximized;
+            workoutForm.ControlBox = false;
+            workoutForm.MaximizeBox = false;
+            workoutForm.MinimizeBox = false;
+            workoutForm.ShowIcon = false;
+            workoutForm.Show();
         }
     }
 }

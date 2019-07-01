@@ -20,7 +20,7 @@ namespace RS2_Seminarski.Services
 
         public List<Models.Workout.WorkoutType> GetAll()
         {
-            return _context.Workouts
+            return _context.WorkoutTypes
                 .Select(x => _mapper.Map<Models.Workout.WorkoutType>(x))
                 .ToList();
         }
