@@ -29,7 +29,7 @@ namespace RS2_Seminarski.Controllers
         }
 
         [HttpGet]
-        public List<Models.Workout.Workout> GetAll(Models.Requests.Workout.WorkoutSearchParams searchParams)
+        public List<Models.Workout.Workout> GetAll([FromQuery] Models.Requests.Workout.WorkoutSearchParams searchParams)
         {
             return _workourService.GetAll(searchParams);
         }
@@ -40,16 +40,16 @@ namespace RS2_Seminarski.Controllers
             return _workourService.Create(createRequest);
         }
 
-        [HttpPut]
-        public void Update(int Id, Models.Requests.Workout.WorkoutCreateRequest updateRequest)
+        [HttpPut("{id}")]
+        public void Update(int id, Models.Requests.Workout.WorkoutCreateRequest updateRequest)
         {
-            _workourService.Update(Id, updateRequest);
+            _workourService.Update(id, updateRequest);
         }
 
-        [HttpDelete]
-        public void Delete(int Id)
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            _workourService.Delete(Id);
+            _workourService.Delete(id);
         }
 
     }

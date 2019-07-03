@@ -129,6 +129,12 @@
     <Compile Include="Workouts\WorkoutCreateForm.Designer.cs">
       <DependentUpon>WorkoutCreateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Workouts\WorkoutListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workouts\WorkoutListForm.Designer.cs">
+      <DependentUpon>WorkoutListForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Clients\AddClientForm.resx">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +177,9 @@
     <EmbeddedResource Include="Workouts\WorkoutCreateForm.resx">
       <DependentUpon>WorkoutCreateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Workouts\WorkoutListForm.resx">
+      <DependentUpon>WorkoutListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Models.Clients.Client.datasource" />
     <None Include="Properties\DataSources\Models.Membership.MembershipPayment.datasource" />
@@ -178,6 +187,7 @@
     <None Include="Properties\DataSources\Models.Suplements.Suplement1.datasource" />
     <None Include="Properties\DataSources\Models.Suplements.SuplementPayment.datasource" />
     <None Include="Properties\DataSources\Models.Suplements.SuplementPayment1.datasource" />
+    <None Include="Properties\DataSources\Models.Workout.Workout.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

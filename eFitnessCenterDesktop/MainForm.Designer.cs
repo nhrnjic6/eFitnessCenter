@@ -38,11 +38,12 @@
             this.newSuplementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suplementPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workoutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createNewWorkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.workoutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createNewWorkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workoutListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +122,22 @@
             this.newPaymentToolStripMenuItem.Text = "New Payment";
             this.newPaymentToolStripMenuItem.Click += new System.EventHandler(this.NewPaymentToolStripMenuItem_Click);
             // 
+            // workoutsToolStripMenuItem
+            // 
+            this.workoutsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createNewWorkoutToolStripMenuItem,
+            this.workoutListToolStripMenuItem});
+            this.workoutsToolStripMenuItem.Name = "workoutsToolStripMenuItem";
+            this.workoutsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.workoutsToolStripMenuItem.Text = "Workouts";
+            // 
+            // createNewWorkoutToolStripMenuItem
+            // 
+            this.createNewWorkoutToolStripMenuItem.Name = "createNewWorkoutToolStripMenuItem";
+            this.createNewWorkoutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.createNewWorkoutToolStripMenuItem.Text = "Create New Workout";
+            this.createNewWorkoutToolStripMenuItem.Click += new System.EventHandler(this.CreateNewWorkoutToolStripMenuItem_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -137,20 +154,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // workoutsToolStripMenuItem
+            // workoutListToolStripMenuItem
             // 
-            this.workoutsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createNewWorkoutToolStripMenuItem});
-            this.workoutsToolStripMenuItem.Name = "workoutsToolStripMenuItem";
-            this.workoutsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.workoutsToolStripMenuItem.Text = "Workouts";
-            // 
-            // createNewWorkoutToolStripMenuItem
-            // 
-            this.createNewWorkoutToolStripMenuItem.Name = "createNewWorkoutToolStripMenuItem";
-            this.createNewWorkoutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.createNewWorkoutToolStripMenuItem.Text = "Create New Workout";
-            this.createNewWorkoutToolStripMenuItem.Click += new System.EventHandler(this.CreateNewWorkoutToolStripMenuItem_Click);
+            this.workoutListToolStripMenuItem.Name = "workoutListToolStripMenuItem";
+            this.workoutListToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.workoutListToolStripMenuItem.Text = "Workout List";
+            this.workoutListToolStripMenuItem.Click += new System.EventHandler(this.WorkoutListToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -188,6 +197,7 @@
         private System.Windows.Forms.ToolStripMenuItem newPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workoutsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createNewWorkoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem workoutListToolStripMenuItem;
     }
 }
 

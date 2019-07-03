@@ -42,9 +42,9 @@ namespace RS2_Seminarski.Services
                 query = query.Where(x => x.Trainer.AppUser.Id.Equals(searchParams.TrainerId));
             }
 
-            if (string.IsNullOrEmpty(searchParams.WorkoutType))
+            if (!string.IsNullOrEmpty(searchParams.WorkoutType))
             {
-                query = query.Where(x => x.WorkoutType.Name.Equals(searchParams.WorkoutType));
+                query = query.Where(x => x.WorkoutType.Name == searchParams.WorkoutType);
             }
 
             return query.Select(x => WorkoutMapper.FromDb(x))

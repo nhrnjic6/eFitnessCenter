@@ -45,6 +45,16 @@ namespace eFitnessCenterDesktop.Workouts
             cbWorkoutType.DataSource = workoutTypes;
             cbWorkoutType.ValueMember = "Id";
             cbWorkoutType.DisplayMember = "Name";
+
+            if(_workout != null)
+            {
+                tbDescription.Text = _workout.Description;
+                cbDifficulty.Text = _workout.Difficulty;
+                cbDuration.Text = _workout.Duration.ToString();
+                tbName.Text = _workout.Name;
+                cbTrainer.SelectedValue = _workout.TrainerId;
+                cbWorkoutType.SelectedValue = _workout.WorkoutTypeId;
+            }
         }
 
         private async void BtnSave_Click(object sender, EventArgs e)
@@ -59,7 +69,23 @@ namespace eFitnessCenterDesktop.Workouts
                 WorkoutTypeId = int.Parse(cbWorkoutType.SelectedValue.ToString())
             };
 
-            await _workoutApiService.Create<Workout>(createRequest);
+            if(_workout != null)
+            {
+                await _workoutApiService.Update<Workout>(_workout.Id, createRequest);
+            }
+            else
+            {
+                await _workoutApiService.Create<Workout>(createRequest);
+            }
+
+            WorkoutListForm workoutForm = new WorkoutListForm(_accessToken);
+            workoutForm.MdiParent = this.MdiParent;
+            workoutForm.WindowState = FormWindowState.Maximized;
+            workoutForm.ControlBox = false;
+            workoutForm.MaximizeBox = false;
+            workoutForm.MinimizeBox = false;
+            workoutForm.ShowIcon = false;
+            workoutForm.Show();
         }
     }
 }

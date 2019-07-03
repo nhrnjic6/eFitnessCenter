@@ -18,7 +18,9 @@ namespace RS2_Seminarski.Mappers
                 Difficulty = dbWorkout.Difficulty,
                 Duration = dbWorkout.Duration,
                 WorkoutType = dbWorkout.WorkoutType.Name,
-                Trainer = $"{dbWorkout.Trainer.AppUser.FirstName} {dbWorkout.Trainer.AppUser.LastName}"
+                Trainer = $"{dbWorkout.Trainer.AppUser.FirstName} {dbWorkout.Trainer.AppUser.LastName}",
+                WorkoutTypeId = dbWorkout.WorkoutTypeId,
+                TrainerId = dbWorkout.Trainer.AppUser.Id
             };
         }
     }
