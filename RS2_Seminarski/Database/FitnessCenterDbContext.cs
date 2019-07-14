@@ -25,6 +25,8 @@ namespace RS2_Seminarski.Database
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
 
+        public DbSet<WorkoutSchedule> WorkoutSchedules { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MembershipType>()

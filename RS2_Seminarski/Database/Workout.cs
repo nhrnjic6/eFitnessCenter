@@ -20,5 +20,7 @@ namespace RS2_Seminarski.Database
         public string Description { get; set; }
         public int Duration { get; set; }
         public string Difficulty { get; set; }
+
+        public ICollection<WorkoutSchedule> WorkoutSchedules { get; set; }
     }
 }

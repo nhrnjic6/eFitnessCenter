@@ -43,6 +43,12 @@ namespace RS2_Seminarski.Exceptions
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
 
+            else if (context.Exception is WorkoutScheduleTakenException)
+            {
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                context.ModelState.AddModelError("ERROR", context.Exception.Message);
+            }
+
             else
             {
                 context.ModelState.AddModelError("ERROR", "Greška na serveru");
