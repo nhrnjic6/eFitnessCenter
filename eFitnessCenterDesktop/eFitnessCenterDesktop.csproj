@@ -135,6 +135,12 @@
     <Compile Include="Workouts\WorkoutListForm.Designer.cs">
       <DependentUpon>WorkoutListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Workouts\WorkoutScheduleCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workouts\WorkoutScheduleCreateForm.Designer.cs">
+      <DependentUpon>WorkoutScheduleCreateForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Clients\AddClientForm.resx">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Workouts\WorkoutListForm.resx">
       <DependentUpon>WorkoutListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workouts\WorkoutScheduleCreateForm.resx">
+      <DependentUpon>WorkoutScheduleCreateForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Models.Clients.Client.datasource" />
