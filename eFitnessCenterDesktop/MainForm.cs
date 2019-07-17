@@ -257,5 +257,17 @@ namespace eFitnessCenterDesktop
             workoutForm.ShowIcon = false;
             workoutForm.Show();
         }
+
+        private void ScheduleListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkoutScheduleListForm workoutForm = new WorkoutScheduleListForm(_accessToken);
+            workoutForm.MdiParent = this;
+            workoutForm.WindowState = FormWindowState.Maximized;
+            workoutForm.ControlBox = false;
+            workoutForm.MaximizeBox = false;
+            workoutForm.MinimizeBox = false;
+            workoutForm.ShowIcon = false;
+            workoutForm.Show();
+        }
     }
 }

@@ -61,9 +61,10 @@ namespace eFitnessCenterDesktop.Workouts
             if (_workoutSchedule != null)
             {
                 Enum.TryParse(_workoutSchedule.DayOfTheWeek, out DayOfWeek dayOfWeek);
+                int dayOfWeekInt = (int)dayOfWeek;
 
                 tbDescription.Text = _workoutSchedule.Description;
-                cbDayOfWeek.SelectedValue = (int) dayOfWeek;
+                cbDayOfWeek.SelectedValue = dayOfWeekInt.ToString();
                 cbWorkout.SelectedValue = _workoutSchedule.WorkoutId;
                 timePicker.Value = Convert.ToDateTime(_workoutSchedule.TimeOfTheDay);
             }
@@ -79,7 +80,23 @@ namespace eFitnessCenterDesktop.Workouts
                 WorkoutId = int.Parse(cbWorkout.SelectedValue.ToString())
             };
 
-            await _workoutScheduleApiService.Create<Workout>(scheduleCreate);
+            if(_workoutSchedule == null)
+            {
+                await _workoutScheduleApiService.Create<Workout>(scheduleCreate);
+            }
+            else
+            {
+                await _workoutScheduleApiService.Update<Workout>(_workoutSchedule.Id ,scheduleCreate);
+            }
+
+            WorkoutScheduleListForm workoutForm = new WorkoutScheduleListForm(_accessToken);
+            workoutForm.MdiParent = this.MdiParent;
+            workoutForm.WindowState = FormWindowState.Maximized;
+            workoutForm.ControlBox = false;
+            workoutForm.MaximizeBox = false;
+            workoutForm.MinimizeBox = false;
+            workoutForm.ShowIcon = false;
+            workoutForm.Show();
         }
     }
 }

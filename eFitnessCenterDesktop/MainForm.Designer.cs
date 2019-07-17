@@ -41,10 +41,11 @@
             this.workoutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewWorkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workoutListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.createScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +129,8 @@
             this.workoutsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewWorkoutToolStripMenuItem,
             this.workoutListToolStripMenuItem,
-            this.createScheduleToolStripMenuItem});
+            this.createScheduleToolStripMenuItem,
+            this.scheduleListToolStripMenuItem});
             this.workoutsToolStripMenuItem.Name = "workoutsToolStripMenuItem";
             this.workoutsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.workoutsToolStripMenuItem.Text = "Workouts";
@@ -147,6 +149,13 @@
             this.workoutListToolStripMenuItem.Text = "Workout List";
             this.workoutListToolStripMenuItem.Click += new System.EventHandler(this.WorkoutListToolStripMenuItem_Click);
             // 
+            // createScheduleToolStripMenuItem
+            // 
+            this.createScheduleToolStripMenuItem.Name = "createScheduleToolStripMenuItem";
+            this.createScheduleToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.createScheduleToolStripMenuItem.Text = "Create Schedule";
+            this.createScheduleToolStripMenuItem.Click += new System.EventHandler(this.CreateScheduleToolStripMenuItem_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -163,12 +172,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // createScheduleToolStripMenuItem
+            // scheduleListToolStripMenuItem
             // 
-            this.createScheduleToolStripMenuItem.Name = "createScheduleToolStripMenuItem";
-            this.createScheduleToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.createScheduleToolStripMenuItem.Text = "Create Schedule";
-            this.createScheduleToolStripMenuItem.Click += new System.EventHandler(this.CreateScheduleToolStripMenuItem_Click);
+            this.scheduleListToolStripMenuItem.Name = "scheduleListToolStripMenuItem";
+            this.scheduleListToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.scheduleListToolStripMenuItem.Text = "Schedule List";
+            this.scheduleListToolStripMenuItem.Click += new System.EventHandler(this.ScheduleListToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -208,6 +217,7 @@
         private System.Windows.Forms.ToolStripMenuItem createNewWorkoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workoutListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createScheduleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleListToolStripMenuItem;
     }
 }
 
