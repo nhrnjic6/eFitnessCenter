@@ -24,8 +24,8 @@ namespace RS2_Seminarski.Database
         public DbSet<WorkoutType> WorkoutTypes { get; set; }
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
-
         public DbSet<WorkoutSchedule> WorkoutSchedules { get; set; }
+        public DbSet<WorkoutAdvice> WorkoutAdvices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

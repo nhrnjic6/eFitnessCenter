@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RS2_Seminarski.Database;
 
 namespace RS2_Seminarski.Migrations
 {
     [DbContext(typeof(FitnessCenterDbContext))]
-    partial class FitnessCenterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190723132809_Add_Workout_Advices")]
+    partial class Add_Workout_Advices
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -13,5 +13,6 @@ namespace RS2_Seminarski.Database
         public AppUser AppUser { get; set; } = new AppUser();
         public ICollection<MembershipPayment> MembershipPayments { get; set; }
         public ICollection<SuplementPayment> SuplementPayments { get; set; }
+        public ICollection<WorkoutAdvice> WorkoutAdvices { get; set; }
     }
 }
