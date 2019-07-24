@@ -15,7 +15,7 @@ namespace RS2_Seminarski.Mappers
             {
                 ClientId = workoutAdvice.ClientId,
                 TrainerId = workoutAdvice.TrainerId,
-                CreatedAt = workoutAdvice.CreatedAt,
+                CreatedAt = DateTime.Now,
                 Message = workoutAdvice.Message
             };
         }
@@ -28,7 +28,7 @@ namespace RS2_Seminarski.Mappers
                 TrainerId = dbWorkoutAdvice.TrainerId,
                 ClientName = $"{dbWorkoutAdvice.Client.AppUser.FirstName} {dbWorkoutAdvice.Client.AppUser.FirstName}",
                 TrainerName = $"{dbWorkoutAdvice.Trainer.AppUser.FirstName} {dbWorkoutAdvice.Trainer.AppUser.FirstName}",
-                CreatedAt = dbWorkoutAdvice.CreatedAt.ToString("mm-DD-yyyy"),
+                CreatedAt = dbWorkoutAdvice.CreatedAt.ToString("dd-MM-yyyy"),
                 Id = dbWorkoutAdvice.Id,
                 Message = dbWorkoutAdvice.Message
             };

@@ -269,5 +269,29 @@ namespace eFitnessCenterDesktop
             workoutForm.ShowIcon = false;
             workoutForm.Show();
         }
+
+        private void WorkoutAdviceListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkoutAdviceListForm workoutForm = new WorkoutAdviceListForm(_accessToken);
+            workoutForm.MdiParent = this;
+            workoutForm.WindowState = FormWindowState.Maximized;
+            workoutForm.ControlBox = false;
+            workoutForm.MaximizeBox = false;
+            workoutForm.MinimizeBox = false;
+            workoutForm.ShowIcon = false;
+            workoutForm.Show();
+        }
+
+        private void CreateWorkoutAdviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkoutAdviceCreateForm workoutForm = new WorkoutAdviceCreateForm(_accessToken, null);
+            workoutForm.MdiParent = this;
+            workoutForm.WindowState = FormWindowState.Maximized;
+            workoutForm.ControlBox = false;
+            workoutForm.MaximizeBox = false;
+            workoutForm.MinimizeBox = false;
+            workoutForm.ShowIcon = false;
+            workoutForm.Show();
+        }
     }
 }

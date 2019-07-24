@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RS2_Seminarski.Database
 {
+    [Table("WorkoutAdvice")]
     public class WorkoutAdvice
     {
         [Key]

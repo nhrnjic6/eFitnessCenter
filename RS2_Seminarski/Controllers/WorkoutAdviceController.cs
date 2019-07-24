@@ -51,7 +51,7 @@ namespace RS2_Seminarski.Controllers
             return NoContent();
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _workoutAdviceService.Delete(id);
