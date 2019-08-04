@@ -48,7 +48,7 @@ namespace RS2_Seminarski
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App.ViewModels"
+             x:Class="App.Views.SuplementListPage">
+
+    <ContentPage.BindingContext>
+        <vm:SuplementViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker 
+                Title="Odaberite Kategoriju"
+                SelectedItem="{Binding SuplementType}"
+                ItemsSource="{Binding SuplementTypes}"
+                ItemDisplayBinding="{Binding Type}"
+                 />
+
+            <ListView ItemsSource="{Binding Suplements}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <FlexLayout
+                                    JustifyContent="SpaceBetween">
+                                    <Label 
+                                    Text="{Binding Name}"  
+                                    FontSize="16"  />
+                                    <Label 
+                                    Text="{Binding Price, StringFormat='{0} KM'}" 
+                                    FontSize="16" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
