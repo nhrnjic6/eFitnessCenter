@@ -43,7 +43,7 @@ namespace App.ViewModels
             TokenResponse tokenResponse = await _apiService.Create<TokenResponse>(tokenPost);
 
             Application.Current.Properties["access_token"] = tokenResponse.AccessToken;
-            Application.Current.MainPage = new SuplementListPage();
+            Application.Current.MainPage = new MainPage();
         }
     }
 }
