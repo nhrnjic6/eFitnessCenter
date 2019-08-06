@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App.ViewModels"
+             x:Class="App.Views.MembershipPage">
+    
+    <ContentPage.BindingContext>
+        <vm:MembershipViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding MembershipPayments}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <FlexLayout
+                                    JustifyContent="SpaceBetween">
+                                    <Label 
+                                    Text="{Binding MembershipTypeName}"  
+                                    FontSize="16"  />
+                                    <Label 
+                                    Text="{Binding TotalPaid, StringFormat='{0} KM'}" 
+                                    FontSize="16" />
+                                    <Label 
+                                    Text="{Binding CreatedAt}" 
+                                    FontSize="16" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

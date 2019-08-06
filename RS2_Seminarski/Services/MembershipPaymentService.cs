@@ -4,6 +4,7 @@ using Models.Membership;
 using Models.Requests.Membership;
 using RS2_Seminarski.Exceptions;
 using RS2_Seminarski.Mappers;
+using RS2_Seminarski.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace RS2_Seminarski.Services
             _mapper = mapper;
         }
 
-        public List<MembershipPayment> GetAll(MembershipPaymentSearchParams searchParams)
+        public List<MembershipPayment> GetAll(MembershipPaymentSearchParams searchParams, UserInfo userInfo)
         {
             IQueryable<Database.MembershipPayment> query = _context.MembershipPayments
                 .AsQueryable()
@@ -30,9 +31,14 @@ namespace RS2_Seminarski.Services
                     .ThenInclude(x => x.AppUser)
                 .Include(x => x.MembershipType);
 
-            if(searchParams.ClientId != null)
+            if(userInfo.Role.Equals("EMPLOYEE") && searchParams.ClientId != null) 
             {
                 query = query.Where(x => x.ClientId == searchParams.ClientId);
+            }
+
+            if(userInfo.Role.Equals("CLIENT"))
+            {
+                query = query.Where(x => x.ClientId == userInfo.Id);
             }
 
             return query

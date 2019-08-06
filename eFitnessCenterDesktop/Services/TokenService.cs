@@ -11,7 +11,7 @@ namespace eFitnessCenterDesktop.Services
 {
     public class TokenService
     {
-        private readonly string baseUrl = "https://localhost:44330/api";
+        private readonly string baseUrl = "http://localhost:53876/api";
 
         public async Task<TokenResponse> GetToken (GetTokenPost getTokenPost) 
         {

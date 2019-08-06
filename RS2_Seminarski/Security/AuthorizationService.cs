@@ -40,6 +40,25 @@ namespace RS2_Seminarski.Security
             return userInfo;
         }
 
+        public UserInfo IsAuthorized(HttpRequest request, string[] roles)
+        {
+            var token = request.Headers["Authorization"];
+            var claims = JWTUtil.VerifyToken(token).Claims;
+
+            UserInfo userInfo = new UserInfo
+            {
+                Id = int.Parse(claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault().Value),
+                Role = claims.Where(x => x.Type == ClaimTypes.Role).FirstOrDefault().Value
+            };
+
+            if (!roles.Contains(userInfo.Role))
+            {
+                throw new InvalidTokenException("Invalid role");
+            }
+
+            return userInfo;
+        }
+
         public string AuthenticateUser(string email, string password)
         {
             string hashedPassword = HashUtil.ComputeSha256Hash(password);

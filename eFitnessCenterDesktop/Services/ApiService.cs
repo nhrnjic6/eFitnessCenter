@@ -13,7 +13,7 @@ namespace eFitnessCenterDesktop.Services
 {
     public class ApiService
     {
-        private readonly string _baseUrl = "https://localhost:44330/api";
+        private readonly string _baseUrl = "http://localhost:53876/api";
         private readonly string _resource;
         private readonly string _token;
 
