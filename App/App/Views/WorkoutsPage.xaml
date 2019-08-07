@@ -25,7 +25,8 @@
                 Margin="15"
                  />
 
-            <ListView ItemsSource="{Binding Workouts}">
+            <ListView ItemsSource="{Binding Workouts}"
+                      SelectedItem="{Binding SelectedWorkout}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App.ViewModels"
+             x:Class="App.Views.WorkoutDetailsPage">
+    
+    <ContentPage.BindingContext>
+        <vm:WorkoutDetailsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Grid Margin="0,0,0,20" RowSpacing="20" ColumnSpacing="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label FontSize="16" Text="Naziv" Grid.Row="0" Grid.Column="0"></Label>
+                <Label FontSize="16" Text="{Binding Workout.Name}" Grid.Row="0" Grid.Column="1"></Label>
+
+                <Label FontSize="16" Text="Trener" Grid.Row="1" Grid.Column="0"></Label>
+                <Label FontSize="16" Text="{Binding Workout.Trainer}" Grid.Row="1" Grid.Column="1"></Label>
+
+                <Label FontSize="16" Text="Vrsta Treninga" Grid.Row="2" Grid.Column="0"></Label>
+                <Label FontSize="16" Text="{Binding Workout.WorkoutType}" Grid.Row="2" Grid.Column="1"></Label>
+
+                <Label FontSize="16" Text="Duzina Treninga" Grid.Row="3" Grid.Column="0"></Label>
+                <Label FontSize="16" Text="{Binding Workout.Duration, StringFormat='{0} Minuta'}" Grid.Row="3" Grid.Column="1"></Label>
+
+                <Label FontSize="16" Text="Tezina Treninga" Grid.Row="4" Grid.Column="0"></Label>
+                <Label FontSize="16" Text="{Binding Workout.Difficulty}" Grid.Row="4" Grid.Column="1"></Label>
+
+                <Label FontSize="16" Text="Opis Treninga" Grid.Row="5" Grid.Column="0"></Label>
+                <Label FontSize="16" Text="{Binding Workout.Description}" Grid.Row="5" Grid.Column="1"></Label>
+            </Grid>
+
+            <Label FontSize="20" Margin="0,0,0,30" HorizontalTextAlignment ="Center"  Text="Raspored Treninga"></Label>
+
+            <ListView ItemsSource="{Binding WorkoutSchedules}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <FlexLayout
+                                    JustifyContent="SpaceBetween">
+                                    <Label 
+                                    Text="{Binding DayOfTheWeek}"  
+                                    FontSize="16"  />
+                                    <Label 
+                                    Text="{Binding TimeOfTheDay, StringFormat='{0} h'}" 
+                                    FontSize="16" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -28,7 +28,7 @@ namespace RS2_Seminarski.Services
                     .ThenInclude(x => x.AppUser)
                 .AsQueryable();
 
-            if(queryParams.ClientId != null)
+            if (queryParams.ClientId != null)
             {
                 query = query.Where(x => x.ClientId == queryParams.ClientId);
             }

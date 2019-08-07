@@ -24,9 +24,14 @@ namespace RS2_Seminarski.Services
 
         public List<WorkoutSchedule> GetAll(WorkoutScheduleSearchParams searchParams)
         {
-            var query = _context.WorkoutSchedules.AsQueryable()
+            var query = _context.WorkoutSchedules
                 .Include(x => x.Workout)
-                .Where(x => x.DayOfTheWeek == searchParams.DayOfWeek);
+                .AsQueryable();
+
+            if (searchParams.DayOfWeek != null)
+            {
+               query = query.Where(x => x.DayOfTheWeek == searchParams.DayOfWeek);
+            }
 
             if (!string.IsNullOrEmpty(searchParams.WorkoutId))
             {

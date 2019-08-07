@@ -10,7 +10,7 @@ namespace Models.Requests.Workout
         public string WorkoutId { get; set; }
         public TimeSpan? TimeFrom { get; set; }
         public TimeSpan? TimeTo { get; set; }
-        public DayOfWeek DayOfWeek { get; set; }
+        public DayOfWeek? DayOfWeek { get; set; }
 
         public string ToQueryParams()
         {

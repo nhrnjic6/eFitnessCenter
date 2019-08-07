@@ -1,4 +1,5 @@
 ﻿using App.Services;
+using App.Views;
 using Models.Requests.Workout;
 using Models.Workout;
 using System;
@@ -16,11 +17,26 @@ namespace App.ViewModels
         private ApiService workoutTypeApiService;
         private WorkoutType _workoutType;
         private string _duration;
+        private Workout _selectedWorkout;
+        
+        public INavigation Navigation { get; set; }
 
         public List<string> DurationValues { get; set; }
 
         public ObservableCollection<Workout> Workouts { get; set; } = new ObservableCollection<Workout>();
         public ObservableCollection<WorkoutType> WorkoutTypes { get; set; } = new ObservableCollection<WorkoutType>();
+
+        public Workout SelectedWorkout {
+            get { return _selectedWorkout; }
+            set
+            {
+                SetProperty(ref _selectedWorkout, value);
+                if(Navigation != null)
+                {
+                    _ = Navigation.PushAsync(new WorkoutDetailsPage(_selectedWorkout));
+                }
+            }
+        }
 
         public WorkoutType WorkoutType
         {

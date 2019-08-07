@@ -1,4 +1,5 @@
 ﻿using App.ViewModels;
+using Models.Workout;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +12,20 @@ using Xamarin.Forms.Xaml;
 namespace App.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WorkoutsPage : ContentPage
+    public partial class WorkoutDetailsPage : ContentPage
     {
-        public WorkoutViewModel WorkoutViewModel;
+        private WorkoutDetailsViewModel WorkoutDetailsViewModel;
 
-        public WorkoutsPage()
+        public WorkoutDetailsPage(Workout workout)
         {
             InitializeComponent();
+            BindingContext = WorkoutDetailsViewModel = new WorkoutDetailsViewModel(workout);
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            BindingContext = WorkoutViewModel = new WorkoutViewModel();
-            WorkoutViewModel.Navigation = Navigation;
-            await WorkoutViewModel.LoadWorkoutTypes();
-            await WorkoutViewModel.LoadWorkouts(); 
+            await WorkoutDetailsViewModel.LoadSchedules();
         }
     }
 }
