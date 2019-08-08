@@ -3,6 +3,7 @@ using Models.Requests.Workout;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
 using RS2_Seminarski.Mappers;
+using RS2_Seminarski.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace RS2_Seminarski.Services
             _context = context;
         }
 
-        public List<Models.Workout.WorkoutAdvice> GetAll(WorkoutAdviceQueryParams queryParams)
+        public List<Models.Workout.WorkoutAdvice> GetAll(WorkoutAdviceQueryParams queryParams, UserInfo userInfo)
         {
             var query = _context.WorkoutAdvices
                 .Include(x => x.Client)
@@ -28,14 +29,21 @@ namespace RS2_Seminarski.Services
                     .ThenInclude(x => x.AppUser)
                 .AsQueryable();
 
-            if (queryParams.ClientId != null)
+            if(userInfo.Role == "EMPLOYEE")
             {
-                query = query.Where(x => x.ClientId == queryParams.ClientId);
-            }
+                if (queryParams.ClientId != null)
+                {
+                    query = query.Where(x => x.ClientId == queryParams.ClientId);
+                }
 
-            if (queryParams.TrainerId != null)
+                if (queryParams.TrainerId != null)
+                {
+                    query = query.Where(x => x.TrainerId == queryParams.TrainerId);
+                }
+            }
+            else
             {
-                query = query.Where(x => x.TrainerId == queryParams.TrainerId);
+                query = query.Where(x => x.ClientId == userInfo.Id);
             }
 
             return query.Select(x => WorkoutAdviceMapper.fromDb(x))

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Views.WorkoutAdvicePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker 
+                Title="Odaberite Trenera"
+                SelectedItem="{Binding Trainer}"
+                ItemsSource="{Binding Trainers}"
+                ItemDisplayBinding="{Binding Name}"
+                Margin="15"
+                 />
+
+            <ListView ItemsSource="{Binding WorkoutAdvices}"
+                      SelectedItem="{Binding WorkoutAdvice}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <FlexLayout
+                                    JustifyContent="SpaceBetween">
+                                    <Label 
+                                    Text="{Binding TrainerName}"  
+                                    FontSize="16"  />
+                                    <Label 
+                                    Text="{Binding CreatedAt}" 
+                                    FontSize="16" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

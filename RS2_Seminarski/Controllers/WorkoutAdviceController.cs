@@ -29,7 +29,8 @@ namespace RS2_Seminarski.Controllers
         [HttpGet]
         public List<Models.Workout.WorkoutAdvice> GetAll([FromQuery] WorkoutAdviceQueryParams queryParams)
         {
-           return _workoutAdviceService.GetAll(queryParams);
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "CLIENT" }); 
+           return _workoutAdviceService.GetAll(queryParams, userInfo);
         }
 
         [HttpGet("{id}")]
