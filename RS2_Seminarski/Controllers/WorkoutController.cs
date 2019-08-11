@@ -31,7 +31,7 @@ namespace RS2_Seminarski.Controllers
         [HttpGet]
         public List<Models.Workout.Workout> GetAll([FromQuery] Models.Requests.Workout.WorkoutSearchParams searchParams)
         {
-            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new string[] { "ADMIN", "CLIENT", "TRAINER" });
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new string[] { "EMPLOYEE", "CLIENT", "TRAINER" });
             return _workourService.GetAll(searchParams, userInfo);
         }
 
