@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Views.WorkoutAdviceCreatePage">
+    <ContentPage.Content>
+            
+        <StackLayout>
+
+            <Label 
+                Text="Ovo polje je obavezno." 
+                TextColor="Red"
+                Margin="15,0,15,0"
+                IsVisible="{Binding PickerErrorVissible}"/>
+
+            <Picker 
+                Title="Odaberite Korisnika"
+                SelectedItem="{Binding Client}"
+                ItemsSource="{Binding Clients}"
+                ItemDisplayBinding="{Binding Name}"
+                Margin="15"/>
+
+            <Label 
+                Text="Ovo polje je obavezno." 
+                TextColor="Red" 
+                Margin="15,0,15,0"
+                IsVisible="{Binding EntryErrorVissible}"/>
+
+            <Label Text="Unesite savjet" Margin="15"/>
+
+            <Entry Margin="15,0,15,0" HeightRequest="100" Placeholder="Savjeti.." Text="{Binding AdviceContent}" />
+
+            <Button Text="Spasi" Margin="15" Command="{Binding SaveAdviceCommand}"/>
+
+            <Button Text="Obrisi" Margin="15,0,15,0" IsVisible="{Binding DeleteButtonVissible}" Command="{Binding DeleteAdviceCommand}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -22,5 +22,6 @@ namespace RS2_Seminarski.Database
         public UserStatus Status { get; set; }
         public Employee Employee { get; set; }
         public Client Client { get; set; }
+        public Trainer Trainer { get; set; }
     }
 }

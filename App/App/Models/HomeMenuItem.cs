@@ -11,7 +11,8 @@ namespace App.Models
         Suplements,
         Workouts,
         Memberships,
-        WorkoutAdvice
+        WorkoutAdvice,
+        WorkoutAdviceTrainer
     }
     public class HomeMenuItem
     {

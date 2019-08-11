@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
 using RS2_Seminarski.Mappers;
+using RS2_Seminarski.Security;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,13 +20,18 @@ namespace RS2_Seminarski.Services
             _mapper = mapper;
         }
 
-        public List<Models.Workout.Workout> GetAll(Models.Requests.Workout.WorkoutSearchParams searchParams)
+        public List<Models.Workout.Workout> GetAll(Models.Requests.Workout.WorkoutSearchParams searchParams, UserInfo userInfo)
         {
             IQueryable<Workout> query = _context.Workouts
                 .Include(x => x.WorkoutType)
                 .Include(x => x.Trainer)
                     .ThenInclude(x => x.AppUser)
                 .AsQueryable();
+
+            if(userInfo.Role == "TRAINER")
+            {
+                searchParams.TrainerId = userInfo.Id;
+            }
 
             if (!string.IsNullOrEmpty(searchParams.Difficulty))
             {

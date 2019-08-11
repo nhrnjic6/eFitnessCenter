@@ -34,7 +34,7 @@ namespace RS2_Seminarski.Controllers
         [HttpGet]
         public List<Models.Suplements.Suplement> GetAll([FromQuery] SuplementSearchParams suplementSearch)
         {
-            _authenticationService.IsAuthorized(Request, "EMPLOYEE");
+            _authenticationService.IsAuthorized(Request, new string[] { "EMPLOYEE", "CLIENT" });
             return _suplementsService.GetAll(suplementSearch);
         }
 

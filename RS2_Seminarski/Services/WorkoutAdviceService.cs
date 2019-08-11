@@ -41,6 +41,12 @@ namespace RS2_Seminarski.Services
                     query = query.Where(x => x.TrainerId == queryParams.TrainerId);
                 }
             }
+
+            else if(userInfo.Role == "TRAINER")
+            {
+                query = query.Where(x => x.TrainerId == userInfo.Id);
+            }
+
             else
             {
                 query = query.Where(x => x.ClientId == userInfo.Id);
@@ -68,7 +74,7 @@ namespace RS2_Seminarski.Services
             return WorkoutAdviceMapper.fromDb(dbAdvice);
         }
 
-        public Models.Workout.WorkoutAdvice Create(Models.Requests.Workout.WorkoutAdviceCreate adviceCreate)
+        public Models.Workout.WorkoutAdvice Create(Models.Requests.Workout.WorkoutAdviceCreate adviceCreate, UserInfo userInfo)
         {
             Client dbClient = _context.Clients.Find(adviceCreate.ClientId);
             if(dbClient == null)
@@ -76,10 +82,17 @@ namespace RS2_Seminarski.Services
                 throw new ResourceNotFoundException($"Client with id {adviceCreate.ClientId} not found");
             }
 
-            Trainer dbTrainer = _context.Trainers.Find(adviceCreate.TrainerId);
-            if (dbTrainer == null)
+            if(userInfo.Role == "ADMIN")
             {
-                throw new ResourceNotFoundException($"Trainer with id {adviceCreate.TrainerId} not found");
+                Trainer dbTrainer = _context.Trainers.Find(adviceCreate.TrainerId);
+                if (dbTrainer == null)
+                {
+                    throw new ResourceNotFoundException($"Trainer with id {adviceCreate.TrainerId} not found");
+                }
+            }
+            else
+            {
+                adviceCreate.TrainerId = userInfo.Id;
             }
 
             WorkoutAdvice dbWorkoutAdvice = WorkoutAdviceMapper.toDb(adviceCreate);
@@ -88,7 +101,7 @@ namespace RS2_Seminarski.Services
             return GetById(dbWorkoutAdvice.Id);
         }
 
-        public void Update(int id, Models.Requests.Workout.WorkoutAdviceCreate adviceCreate)
+        public void Update(int id, Models.Requests.Workout.WorkoutAdviceCreate adviceCreate, UserInfo userInfo)
         {
             WorkoutAdvice dbWorkoutAdvice = _context.WorkoutAdvices.Find(id);
             if (dbWorkoutAdvice == null)
@@ -102,10 +115,23 @@ namespace RS2_Seminarski.Services
                 throw new ResourceNotFoundException($"Client with id {adviceCreate.ClientId} not found");
             }
 
+            if(userInfo.Role == "TRAINER")
+            {
+                adviceCreate.TrainerId = userInfo.Id;
+            }
+
             Trainer dbTrainer = _context.Trainers.Find(adviceCreate.TrainerId);
             if (dbTrainer == null)
             {
                 throw new ResourceNotFoundException($"Trainer with id {adviceCreate.TrainerId} not found");
+            }
+
+            if (userInfo.Role == "TRAINER")
+            {
+                if(dbWorkoutAdvice.TrainerId != userInfo.Id)
+                {
+                    throw new OperationNowAllowedException();
+                }
             }
 
             if (adviceCreate.Message != null) dbWorkoutAdvice.Message = adviceCreate.Message;
@@ -116,12 +142,20 @@ namespace RS2_Seminarski.Services
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(int id, UserInfo userInfo)
         {
             WorkoutAdvice dbWorkoutAdvice = _context.WorkoutAdvices.Find(id);
             if (dbWorkoutAdvice == null)
             {
                 throw new ResourceNotFoundException($"Workout advice with id {id} not found");
+            }
+
+            if(userInfo.Role == "TRAINER")
+            {
+                if (dbWorkoutAdvice.TrainerId != userInfo.Id)
+                {
+                    throw new OperationNowAllowedException();
+                }
             }
 
             _context.WorkoutAdvices.Remove(dbWorkoutAdvice);

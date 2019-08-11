@@ -29,7 +29,7 @@ namespace RS2_Seminarski.Controllers
         [HttpGet]
         public List<Models.Workout.WorkoutAdvice> GetAll([FromQuery] WorkoutAdviceQueryParams queryParams)
         {
-            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "CLIENT" }); 
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "CLIENT", "TRAINER" }); 
            return _workoutAdviceService.GetAll(queryParams, userInfo);
         }
 
@@ -42,20 +42,23 @@ namespace RS2_Seminarski.Controllers
         [HttpPost]
         public Models.Workout.WorkoutAdvice Create(Models.Requests.Workout.WorkoutAdviceCreate adviceCreate)
         {
-            return _workoutAdviceService.Create(adviceCreate);
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "ADMIN", "TRAINER" });
+            return _workoutAdviceService.Create(adviceCreate, userInfo);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Models.Requests.Workout.WorkoutAdviceCreate adviceCreate)
         {
-            _workoutAdviceService.Update(id, adviceCreate);
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "ADMIN", "TRAINER" });
+            _workoutAdviceService.Update(id, adviceCreate, userInfo);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _workoutAdviceService.Delete(id);
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "ADMIN", "TRAINER" });
+            _workoutAdviceService.Delete(id, userInfo);
             return NoContent();
         }
     }

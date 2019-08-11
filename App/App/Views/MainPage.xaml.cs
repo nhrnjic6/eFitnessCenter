@@ -47,6 +47,9 @@ namespace App.Views
                     case (int)MenuItemType.WorkoutAdvice:
                         MenuPages.Add(id, new NavigationPage(new WorkoutAdvicePage()));
                         break;
+                    case (int)MenuItemType.WorkoutAdviceTrainer:
+                        MenuPages.Add(id, new NavigationPage(new WorkoutAdviceTrainerPage()));
+                        break;
                 }
             }
 

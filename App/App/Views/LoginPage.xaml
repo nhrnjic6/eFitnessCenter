@@ -13,12 +13,12 @@
             Padding="20"
             VerticalOptions="CenterAndExpand">
             <Label Text="Korisnicko Ime:" />
-            <Entry Text="{Binding Username}}"></Entry>
+            <Entry Text="{Binding Username}"></Entry>
 
             <Label Text="Password:"></Label>
-            <Entry Text="{Binding Password}}"></Entry>
+            <Entry Text="{Binding Password}"></Entry>
 
-            <Button Text="Login" Command="{Binding LoginCommand}}"></Button>
+            <Button Text="Login" Command="{Binding LoginCommand}"></Button>
             
         </StackLayout>
     </ContentPage.Content>

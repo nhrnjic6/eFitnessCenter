@@ -65,6 +65,7 @@ namespace RS2_Seminarski.Security
             AppUser appUser = _context.AppUsers
                 .Include(user => user.Employee)
                 .Include(user => user.Client)
+                .Include(user => user.Trainer)
                 .Where(x => x.Email == email)
                 .Where(x => x.HashedPassword == hashedPassword)
                 .FirstOrDefault();
@@ -87,6 +88,10 @@ namespace RS2_Seminarski.Security
             }else if(appUser.Employee != null)
             {
                 role = "EMPLOYEE";
+            }
+            else if(appUser.Trainer != null)
+            {
+                role = "TRAINER";
             }
             else
             {

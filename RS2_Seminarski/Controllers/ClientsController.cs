@@ -33,7 +33,7 @@ namespace RS2_Seminarski.Controllers
         [HttpGet]
         public List<Models.Clients.Client> Get([FromQuery] SearchClientParams searchClientParams)
         {
-            _authenticationService.IsAuthorized(Request, "EMPLOYEE");
+            _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "TRAINER" });
             return _clientsService.GetAll(searchClientParams);
         }
 
