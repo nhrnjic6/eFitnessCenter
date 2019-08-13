@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Models.Token;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
 using System;
@@ -59,7 +60,7 @@ namespace RS2_Seminarski.Security
             return userInfo;
         }
 
-        public string AuthenticateUser(string email, string password)
+        public TokenInformation AuthenticateUser(string email, string password)
         {
             string hashedPassword = HashUtil.ComputeSha256Hash(password);
             AppUser appUser = _context.AppUsers
@@ -78,7 +79,7 @@ namespace RS2_Seminarski.Security
             return GetToken(appUser);
         }
 
-        private string GetToken(AppUser appUser)
+        private TokenInformation GetToken(AppUser appUser)
         {
             string role;
 
@@ -98,7 +99,11 @@ namespace RS2_Seminarski.Security
                 throw new Exception("Invalid user without assigned role");
             }
 
-            return JWTUtil.CreateToken(appUser.Id, role);
+            return new TokenInformation
+            {
+                AccessToken = JWTUtil.CreateToken(appUser.Id, role),
+                Role = role
+            };
         }
     }
 }

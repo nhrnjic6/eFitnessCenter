@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Requests.Token
+namespace Models.Token
 {
-    public class TokenResponse
+    public class TokenInformation
     {
         public string AccessToken { get; set; }
-        public string UserRole { get; set; }
+        public string Role { get; set; }
     }
 }

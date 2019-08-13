@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models.Requests.Token;
+using Models.Token;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Security;
 
@@ -28,13 +29,14 @@ namespace RS2_Seminarski.Controllers
         [HttpPost]
         public TokenResponse CreateToken(GetTokenPost getTokenPost)
         {
-            string token = authenticationService.AuthenticateUser(
+            TokenInformation tokenInformation = authenticationService.AuthenticateUser(
                 getTokenPost.Email, getTokenPost.Password
             );
 
             return new TokenResponse
             {
-                AccessToken = token
+                AccessToken = tokenInformation.AccessToken,
+                UserRole = tokenInformation.Role
             };
         }
     }

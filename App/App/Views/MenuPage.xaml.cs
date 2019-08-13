@@ -19,16 +19,31 @@ namespace App.Views
         {
             InitializeComponent();
 
-            menuItems = new List<HomeMenuItem>
+            string loggedUserRole = (string) Application.Current.Properties["userRole"];
+
+            if(loggedUserRole == "CLIENT" || loggedUserRole == "EMPLOYEE") {
+                menuItems = new List<HomeMenuItem>
+                {
+                    new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                    new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                    new HomeMenuItem {Id = MenuItemType.Suplements, Title = "Suplementi"},
+                    new HomeMenuItem {Id = MenuItemType.Workouts, Title = "Treninzi"},
+                    new HomeMenuItem {Id = MenuItemType.Memberships, Title = "Clanarine"},
+                    new HomeMenuItem {Id = MenuItemType.WorkoutAdvice, Title = "Savjeti"},
+                };
+            }
+
+            if(loggedUserRole == "TRAINER")
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.Suplements, Title = "Suplementi"},
-                new HomeMenuItem {Id = MenuItemType.Workouts, Title = "Treninzi"},
-                new HomeMenuItem {Id = MenuItemType.Memberships, Title = "Clanarine"},
-                new HomeMenuItem {Id = MenuItemType.WorkoutAdvice, Title = "Savjeti"},
-                new HomeMenuItem {Id = MenuItemType.WorkoutAdviceTrainer, Title = "Savjeti Trener"}
-            };
+                menuItems = new List<HomeMenuItem>
+                {
+                    new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                    new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                    new HomeMenuItem {Id = MenuItemType.Suplements, Title = "Suplementi"},
+                    new HomeMenuItem {Id = MenuItemType.Workouts, Title = "Treninzi"},
+                    new HomeMenuItem {Id = MenuItemType.WorkoutAdviceTrainer, Title = "Savjeti"},
+                };
+            }
 
             ListViewMenu.ItemsSource = menuItems;
 
