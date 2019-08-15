@@ -58,30 +58,72 @@ namespace eFitnessCenterDesktop.Workouts
 
         private async void BtnSave_Click(object sender, EventArgs e)
         {
-            WorkoutAdviceCreate adviceCreate = new WorkoutAdviceCreate
+            if (this.ValidateChildren())
             {
-                ClientId = int.Parse(cbClient.SelectedValue.ToString()),
-                TrainerId = int.Parse(cbTrainer.SelectedValue.ToString()),
-                Message = tbMessage.Text
-            };
+                WorkoutAdviceCreate adviceCreate = new WorkoutAdviceCreate
+                {
+                    ClientId = int.Parse(cbClient.SelectedValue.ToString()),
+                    TrainerId = int.Parse(cbTrainer.SelectedValue.ToString()),
+                    Message = tbMessage.Text
+                };
 
-            if(_workoutAdvice == null)
+                if (_workoutAdvice == null)
+                {
+                    await _workoutAdviceApiService.Create<WorkoutAdvice>(adviceCreate);
+                }
+                else
+                {
+                    await _workoutAdviceApiService.Update<WorkoutAdvice>(_workoutAdvice.Id, adviceCreate);
+                }
+
+                WorkoutAdviceListForm workoutForm = new WorkoutAdviceListForm(_accessToken);
+                workoutForm.MdiParent = this.MdiParent;
+                workoutForm.WindowState = FormWindowState.Maximized;
+                workoutForm.ControlBox = false;
+                workoutForm.MaximizeBox = false;
+                workoutForm.MinimizeBox = false;
+                workoutForm.ShowIcon = false;
+                workoutForm.Show();
+            }
+        }
+
+        private void CbClient_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbClient.Text))
             {
-                await _workoutAdviceApiService.Create<WorkoutAdvice>(adviceCreate);
+                errorProvider.SetError(cbClient, "Ovo polje je obavezno");
+                e.Cancel = true;
             }
             else
             {
-                await _workoutAdviceApiService.Update<WorkoutAdvice>(_workoutAdvice.Id, adviceCreate);
+                errorProvider.SetError(cbClient, null);
             }
+        }
 
-            WorkoutAdviceListForm workoutForm = new WorkoutAdviceListForm(_accessToken);
-            workoutForm.MdiParent = this.MdiParent;
-            workoutForm.WindowState = FormWindowState.Maximized;
-            workoutForm.ControlBox = false;
-            workoutForm.MaximizeBox = false;
-            workoutForm.MinimizeBox = false;
-            workoutForm.ShowIcon = false;
-            workoutForm.Show();
+        private void CbTrainer_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbTrainer.Text))
+            {
+                errorProvider.SetError(cbTrainer, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbTrainer, null);
+            }
+        }
+
+        private void TbMessage_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbMessage.Text))
+            {
+                errorProvider.SetError(tbMessage, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbMessage, null);
+            }
         }
     }
 }

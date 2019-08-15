@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbIme = new System.Windows.Forms.TextBox();
             this.tbPrezime = new System.Windows.Forms.TextBox();
@@ -44,6 +45,8 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.btnClanarine = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +64,7 @@
             this.tbIme.Name = "tbIme";
             this.tbIme.Size = new System.Drawing.Size(239, 20);
             this.tbIme.TabIndex = 1;
+            this.tbIme.Validating += new System.ComponentModel.CancelEventHandler(this.TbIme_Validating);
             // 
             // tbPrezime
             // 
@@ -68,6 +72,7 @@
             this.tbPrezime.Name = "tbPrezime";
             this.tbPrezime.Size = new System.Drawing.Size(239, 20);
             this.tbPrezime.TabIndex = 3;
+            this.tbPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.TbPrezime_Validating);
             // 
             // label2
             // 
@@ -84,6 +89,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(239, 20);
             this.tbEmail.TabIndex = 5;
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TbEmail_Validating);
             // 
             // label3
             // 
@@ -109,6 +115,7 @@
             this.tbAdresa.Name = "tbAdresa";
             this.tbAdresa.Size = new System.Drawing.Size(239, 20);
             this.tbAdresa.TabIndex = 9;
+            this.tbAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.TbAdresa_Validating);
             // 
             // label5
             // 
@@ -135,6 +142,7 @@
             this.tbTelefon.Name = "tbTelefon";
             this.tbTelefon.Size = new System.Drawing.Size(239, 20);
             this.tbTelefon.TabIndex = 12;
+            this.tbTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.TbTelefon_Validating);
             // 
             // label6
             // 
@@ -152,6 +160,7 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(239, 20);
             this.tbPassword.TabIndex = 7;
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TbPassword_Validating);
             // 
             // lblStatus
             // 
@@ -166,6 +175,7 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Active",
@@ -176,6 +186,7 @@
             this.cbStatus.Size = new System.Drawing.Size(239, 21);
             this.cbStatus.TabIndex = 14;
             this.cbStatus.Visible = false;
+            this.cbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.CbStatus_Validating);
             // 
             // btnClanarine
             // 
@@ -186,6 +197,10 @@
             this.btnClanarine.Text = "Clanarine";
             this.btnClanarine.UseVisualStyleBackColor = true;
             this.btnClanarine.Click += new System.EventHandler(this.BtnClanarine_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AddClientForm
             // 
@@ -210,6 +225,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddClientForm";
             this.Text = "AddClientForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +249,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Button btnClanarine;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

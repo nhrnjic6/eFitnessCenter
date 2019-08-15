@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.inputEmail = new System.Windows.Forms.TextBox();
             this.inputPassword = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +62,7 @@
             this.inputEmail.Name = "inputEmail";
             this.inputEmail.Size = new System.Drawing.Size(141, 20);
             this.inputEmail.TabIndex = 2;
+            this.inputEmail.Validating += new System.ComponentModel.CancelEventHandler(this.InputEmail_Validating);
             // 
             // inputPassword
             // 
@@ -66,6 +70,7 @@
             this.inputPassword.Name = "inputPassword";
             this.inputPassword.Size = new System.Drawing.Size(141, 20);
             this.inputPassword.TabIndex = 3;
+            this.inputPassword.Validating += new System.ComponentModel.CancelEventHandler(this.InputPassword_Validating);
             // 
             // btnSubmit
             // 
@@ -76,6 +81,10 @@
             this.btnSubmit.Text = "Login";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // LoginForm
             // 
@@ -89,6 +98,7 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +111,6 @@
         private System.Windows.Forms.TextBox inputEmail;
         private System.Windows.Forms.TextBox inputPassword;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

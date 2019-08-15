@@ -31,20 +31,52 @@ namespace eFitnessCenterDesktop
 
         private async void BtnSubmit_Click(object sender, EventArgs e)
         {
-            string email = inputEmail.Text;
-            string password = inputPassword.Text;
-            TokenResponse result = await tokenService.GetToken(
-            new GetTokenPost{
-                Email = email,
-                Password = password});
 
-            if(result == null)
+            if (this.ValidateChildren())
             {
-                MessageBox.Show("Invalid username or password");
+                string email = inputEmail.Text;
+                string password = inputPassword.Text;
+                TokenResponse result = await tokenService.GetToken(
+                new GetTokenPost
+                {
+                    Email = email,
+                    Password = password
+                });
+
+                if (result == null)
+                {
+                    MessageBox.Show("Invalid username or password");
+                }
+                else
+                {
+                    _tokenAction(result.AccessToken);
+                }
+            }
+        }
+
+        private void InputEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(inputEmail.Text))
+            {
+                errorProvider.SetError(inputEmail, "Ovo polje je obavezno");
+                e.Cancel = true;
             }
             else
             {
-                _tokenAction(result.AccessToken);
+                errorProvider.SetError(inputEmail, null);
+            }
+        }
+
+        private void InputPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(inputPassword.Text))
+            {
+                errorProvider.SetError(inputPassword, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(inputPassword, null);
             }
         }
     }

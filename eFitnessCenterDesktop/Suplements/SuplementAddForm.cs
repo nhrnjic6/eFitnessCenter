@@ -28,6 +28,9 @@ namespace eFitnessCenterDesktop.Suplements
             _suplementApiService = new ApiService("suplements", _accessToken);
             _suplementTypeApiService = new ApiService("suplementType", _accessToken);
             setEditFields();
+
+            cbVrsta.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMessure.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private async Task initComboBoxData()
@@ -55,34 +58,115 @@ namespace eFitnessCenterDesktop.Suplements
 
         private async void BtnSave_Click(object sender, EventArgs e)
         {
-            SuplementCreateRequest createRequest = new SuplementCreateRequest
+            if (this.ValidateChildren())
             {
-                Name = tbNaziv.Text,
-                Price = (double) numPrice.Value,
-                Description = tbOpis.Text,
-                Amount = (double) numKolicina.Value,
-                MessureUnit = cbMessure.Text,
-                SuplementTypeId = int.Parse(cbVrsta.SelectedValue.ToString())
-            };
+                SuplementCreateRequest createRequest = new SuplementCreateRequest
+                {
+                    Name = tbNaziv.Text,
+                    Price = (double)numPrice.Value,
+                    Description = tbOpis.Text,
+                    Amount = (double)numKolicina.Value,
+                    MessureUnit = cbMessure.Text,
+                    SuplementTypeId = int.Parse(cbVrsta.SelectedValue.ToString())
+                };
 
-            if(_suplement == null)
+                if (_suplement == null)
+                {
+                    await _suplementApiService.Create<Suplement>(createRequest);
+                }
+                else
+                {
+                    await _suplementApiService.Update<Suplement>(_suplement.Id, createRequest);
+                }
+
+                SuplementsListForm suplementListForm = new SuplementsListForm(_accessToken);
+                suplementListForm.MdiParent = this.MdiParent;
+                suplementListForm.WindowState = FormWindowState.Maximized;
+                suplementListForm.ControlBox = false;
+                suplementListForm.MaximizeBox = false;
+                suplementListForm.MinimizeBox = false;
+                suplementListForm.ShowIcon = false;
+
+                suplementListForm.Show();
+            }
+        }
+
+        private void TbNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbNaziv.Text))
             {
-                await _suplementApiService.Create<Suplement>(createRequest);
+                errorProvider.SetError(tbNaziv, "Ovo polje je obavezno");
+                e.Cancel = true;
             }
             else
             {
-                await _suplementApiService.Update<Suplement>(_suplement.Id ,createRequest);
+                errorProvider.SetError(tbNaziv, null);
             }
+        }
 
-            SuplementsListForm suplementListForm = new SuplementsListForm(_accessToken);
-            suplementListForm.MdiParent = this.MdiParent;
-            suplementListForm.WindowState = FormWindowState.Maximized;
-            suplementListForm.ControlBox = false;
-            suplementListForm.MaximizeBox = false;
-            suplementListForm.MinimizeBox = false;
-            suplementListForm.ShowIcon = false;
+        private void NumPrice_Validating(object sender, CancelEventArgs e)
+        {
+            if (numPrice.Value <= 0)
+            {
+                errorProvider.SetError(numPrice, "Ovo polje je mora imati vrijednost iznad 0");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(numPrice, null);
+            }
+        }
 
-            suplementListForm.Show();
+        private void CbMessure_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbMessure.Text))
+            {
+                errorProvider.SetError(cbMessure, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbMessure, null);
+            }
+        }
+
+        private void NumKolicina_Validating(object sender, CancelEventArgs e)
+        {
+            if (numKolicina.Value <= 0)
+            {
+                errorProvider.SetError(numKolicina, "Ovo polje je mora imati vrijednost iznad 0");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(numKolicina, null);
+            }
+        }
+
+        private void CbVrsta_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbVrsta.Text))
+            {
+                errorProvider.SetError(cbVrsta, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbVrsta, null);
+            }
+        }
+
+        private void TbOpis_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbOpis.Text))
+            {
+                errorProvider.SetError(tbOpis, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbOpis, null);
+            }
         }
     }
 }

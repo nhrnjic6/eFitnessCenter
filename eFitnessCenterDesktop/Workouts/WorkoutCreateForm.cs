@@ -59,33 +59,114 @@ namespace eFitnessCenterDesktop.Workouts
 
         private async void BtnSave_Click(object sender, EventArgs e)
         {
-            WorkoutCreateRequest createRequest = new WorkoutCreateRequest
+            if (this.ValidateChildren())
             {
-                Description = tbDescription.Text,
-                Difficulty = cbDifficulty.Text,
-                Duration = int.Parse(cbDuration.Text),
-                Name = tbName.Text,
-                TrainerId = int.Parse(cbTrainer.SelectedValue.ToString()),
-                WorkoutTypeId = int.Parse(cbWorkoutType.SelectedValue.ToString())
-            };
+                WorkoutCreateRequest createRequest = new WorkoutCreateRequest
+                {
+                    Description = tbDescription.Text,
+                    Difficulty = cbDifficulty.Text,
+                    Duration = int.Parse(cbDuration.Text),
+                    Name = tbName.Text,
+                    TrainerId = int.Parse(cbTrainer.SelectedValue.ToString()),
+                    WorkoutTypeId = int.Parse(cbWorkoutType.SelectedValue.ToString())
+                };
 
-            if(_workout != null)
+                if (_workout != null)
+                {
+                    await _workoutApiService.Update<Workout>(_workout.Id, createRequest);
+                }
+                else
+                {
+                    await _workoutApiService.Create<Workout>(createRequest);
+                }
+
+                WorkoutListForm workoutForm = new WorkoutListForm(_accessToken);
+                workoutForm.MdiParent = this.MdiParent;
+                workoutForm.WindowState = FormWindowState.Maximized;
+                workoutForm.ControlBox = false;
+                workoutForm.MaximizeBox = false;
+                workoutForm.MinimizeBox = false;
+                workoutForm.ShowIcon = false;
+                workoutForm.Show();
+            }
+        }
+
+        private void CbTrainer_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbTrainer.Text))
             {
-                await _workoutApiService.Update<Workout>(_workout.Id, createRequest);
+                errorProvider.SetError(cbTrainer, "Ovo polje je obavezno");
+                e.Cancel = true;
             }
             else
             {
-                await _workoutApiService.Create<Workout>(createRequest);
+                errorProvider.SetError(cbTrainer, null);
             }
+        }
 
-            WorkoutListForm workoutForm = new WorkoutListForm(_accessToken);
-            workoutForm.MdiParent = this.MdiParent;
-            workoutForm.WindowState = FormWindowState.Maximized;
-            workoutForm.ControlBox = false;
-            workoutForm.MaximizeBox = false;
-            workoutForm.MinimizeBox = false;
-            workoutForm.ShowIcon = false;
-            workoutForm.Show();
+        private void TbName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbName.Text))
+            {
+                errorProvider.SetError(tbName, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbName, null);
+            }
+        }
+
+        private void CbWorkoutType_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbWorkoutType.Text))
+            {
+                errorProvider.SetError(cbWorkoutType, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbWorkoutType, null);
+            }
+        }
+
+        private void TbDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbDescription.Text))
+            {
+                errorProvider.SetError(tbDescription, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbDescription, null);
+            }
+        }
+
+        private void CbDuration_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbDuration.Text))
+            {
+                errorProvider.SetError(cbDuration, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbDuration, null);
+            }
+        }
+
+        private void CbDifficulty_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbDifficulty.Text))
+            {
+                errorProvider.SetError(cbDifficulty, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbDifficulty, null);
+            }
         }
     }
 }

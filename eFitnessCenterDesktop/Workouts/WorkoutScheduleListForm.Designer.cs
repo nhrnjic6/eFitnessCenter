@@ -120,6 +120,7 @@
             // 
             // cbWorkoutDays
             // 
+            this.cbWorkoutDays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorkoutDays.FormattingEnabled = true;
             this.cbWorkoutDays.Location = new System.Drawing.Point(16, 38);
             this.cbWorkoutDays.Name = "cbWorkoutDays";
@@ -128,6 +129,7 @@
             // 
             // cbWorkout
             // 
+            this.cbWorkout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorkout.FormattingEnabled = true;
             this.cbWorkout.Location = new System.Drawing.Point(159, 38);
             this.cbWorkout.Name = "cbWorkout";

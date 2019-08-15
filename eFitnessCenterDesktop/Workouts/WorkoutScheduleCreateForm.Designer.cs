@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.cbWorkout = new System.Windows.Forms.ComboBox();
             this.cbDayOfWeek = new System.Windows.Forms.ComboBox();
@@ -37,6 +38,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.RichTextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,19 +53,23 @@
             // 
             // cbWorkout
             // 
+            this.cbWorkout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorkout.FormattingEnabled = true;
             this.cbWorkout.Location = new System.Drawing.Point(32, 44);
             this.cbWorkout.Name = "cbWorkout";
             this.cbWorkout.Size = new System.Drawing.Size(169, 21);
             this.cbWorkout.TabIndex = 1;
+            this.cbWorkout.Validating += new System.ComponentModel.CancelEventHandler(this.CbWorkout_Validating);
             // 
             // cbDayOfWeek
             // 
+            this.cbDayOfWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDayOfWeek.FormattingEnabled = true;
             this.cbDayOfWeek.Location = new System.Drawing.Point(32, 115);
             this.cbDayOfWeek.Name = "cbDayOfWeek";
             this.cbDayOfWeek.Size = new System.Drawing.Size(169, 21);
             this.cbDayOfWeek.TabIndex = 3;
+            this.cbDayOfWeek.Validating += new System.ComponentModel.CancelEventHandler(this.CbDayOfWeek_Validating);
             // 
             // label2
             // 
@@ -90,6 +97,7 @@
             this.timePicker.Name = "timePicker";
             this.timePicker.Size = new System.Drawing.Size(169, 20);
             this.timePicker.TabIndex = 5;
+            this.timePicker.Validating += new System.ComponentModel.CancelEventHandler(this.TimePicker_Validating);
             // 
             // label4
             // 
@@ -107,6 +115,7 @@
             this.tbDescription.Size = new System.Drawing.Size(173, 96);
             this.tbDescription.TabIndex = 7;
             this.tbDescription.Text = "";
+            this.tbDescription.Validating += new System.ComponentModel.CancelEventHandler(this.TbDescription_Validating);
             // 
             // btnSave
             // 
@@ -117,6 +126,10 @@
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // WorkoutScheduleCreateForm
             // 
@@ -134,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Name = "WorkoutScheduleCreateForm";
             this.Text = "WorkoutScheduleCreateForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +164,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox tbDescription;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

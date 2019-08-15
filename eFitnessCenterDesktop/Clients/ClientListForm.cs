@@ -23,7 +23,6 @@ namespace eFitnessCenterDesktop.Clients
         public ClientListForm(string accessToken)
         {
             InitializeComponent();
-            dgvClients.Visible = false;
             cbUserStatus.Text = "Active";
             _accessToken = accessToken;
             _apiService = new ApiService("clients", _accessToken);
@@ -43,8 +42,6 @@ namespace eFitnessCenterDesktop.Clients
 
             _clients = await _apiService.GetAll<List<Client>>(searchClientParams);
             dgvClients.DataSource = _clients;
-            dgvClients.Columns[0].Visible = false;
-            dgvClients.Visible = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)

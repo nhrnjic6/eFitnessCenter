@@ -38,24 +38,28 @@ namespace eFitnessCenterDesktop.Clients
 
         private async void BtnSave_Click(object sender, EventArgs e)
         {
-            if(_clientForEdit == null)
-            {
-                CreateNewClient();
-            }
-            else
-            {
-                UpdateClient();
-            }
 
-            ClientListForm clientListForm = new ClientListForm(_accessToken);
-            clientListForm.MdiParent = this.MdiParent;
-            clientListForm.WindowState = FormWindowState.Maximized;
-            clientListForm.ControlBox = false;
-            clientListForm.MaximizeBox = false;
-            clientListForm.MinimizeBox = false;
-            clientListForm.ShowIcon = false;
+            if (this.ValidateChildren())
+            {
+                if (_clientForEdit == null)
+                {
+                    CreateNewClient();
+                }
+                else
+                {
+                    UpdateClient();
+                }
 
-            clientListForm.Show();
+                ClientListForm clientListForm = new ClientListForm(_accessToken);
+                clientListForm.MdiParent = this.MdiParent;
+                clientListForm.WindowState = FormWindowState.Maximized;
+                clientListForm.ControlBox = false;
+                clientListForm.MaximizeBox = false;
+                clientListForm.MinimizeBox = false;
+                clientListForm.ShowIcon = false;
+
+                clientListForm.Show();
+            }
         }
 
         private void SetClientForEdit()
@@ -148,6 +152,97 @@ namespace eFitnessCenterDesktop.Clients
             paymentForm.ShowIcon = false;
 
             paymentForm.Show();
+        }
+
+        private void TbIme_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbIme.Text))
+            {
+                errorProvider.SetError(tbIme, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbIme, null);
+            }
+        }
+
+        private void TbPrezime_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbPrezime.Text))
+            {
+                errorProvider.SetError(tbPrezime, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbPrezime, null);
+            }
+        }
+
+        private void TbEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbEmail.Text))
+            {
+                errorProvider.SetError(tbEmail, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbEmail, null);
+            }
+        }
+
+        private void TbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (_clientForEdit == null && string.IsNullOrEmpty(tbPassword.Text))
+            {
+                errorProvider.SetError(tbPassword, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbPassword, null);
+            }
+        }
+
+        private void TbAdresa_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbAdresa.Text))
+            {
+                errorProvider.SetError(tbAdresa, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbAdresa, null);
+            }
+        }
+
+        private void TbTelefon_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbTelefon.Text))
+            {
+                errorProvider.SetError(tbTelefon, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbTelefon, null);
+            }
+        }
+
+        private void CbStatus_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbStatus.Visible && string.IsNullOrEmpty(cbStatus.Text))
+            {
+                errorProvider.SetError(cbStatus, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbStatus, null);
+            }
         }
     }
 }

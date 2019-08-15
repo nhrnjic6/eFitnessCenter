@@ -36,6 +36,7 @@
             // 
             // cbClanarinaType
             // 
+            this.cbClanarinaType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClanarinaType.FormattingEnabled = true;
             this.cbClanarinaType.Location = new System.Drawing.Point(29, 98);
             this.cbClanarinaType.Name = "cbClanarinaType";

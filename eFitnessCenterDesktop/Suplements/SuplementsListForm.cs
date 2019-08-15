@@ -46,8 +46,8 @@ namespace eFitnessCenterDesktop
         {
             List<SuplementType> types = await _suplementTypeApiService.GetAll<List<SuplementType>>(null);
             cbVrsta.DataSource = types;
-            cbVrsta.DisplayMember = "Name";
-            cbVrsta.ValueMember = "Name";
+            cbVrsta.DisplayMember = "Type";
+            cbVrsta.ValueMember = "Type";
         }
 
         private async void BtnSearch_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.cbKorisnik = new System.Windows.Forms.ComboBox();
             this.cbSuplement = new System.Windows.Forms.ComboBox();
@@ -35,7 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nupKolicina = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nupKolicina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,19 +52,23 @@
             // 
             // cbKorisnik
             // 
+            this.cbKorisnik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKorisnik.FormattingEnabled = true;
             this.cbKorisnik.Location = new System.Drawing.Point(26, 54);
             this.cbKorisnik.Name = "cbKorisnik";
             this.cbKorisnik.Size = new System.Drawing.Size(121, 21);
             this.cbKorisnik.TabIndex = 1;
+            this.cbKorisnik.Validating += new System.ComponentModel.CancelEventHandler(this.CbKorisnik_Validating);
             // 
             // cbSuplement
             // 
+            this.cbSuplement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSuplement.FormattingEnabled = true;
             this.cbSuplement.Location = new System.Drawing.Point(26, 132);
             this.cbSuplement.Name = "cbSuplement";
             this.cbSuplement.Size = new System.Drawing.Size(121, 21);
             this.cbSuplement.TabIndex = 3;
+            this.cbSuplement.Validating += new System.ComponentModel.CancelEventHandler(this.CbSuplement_Validating);
             // 
             // label2
             // 
@@ -92,6 +99,7 @@
             0,
             0,
             0});
+            this.nupKolicina.Validating += new System.ComponentModel.CancelEventHandler(this.NupKolicina_Validating);
             // 
             // btnSave
             // 
@@ -102,6 +110,10 @@
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // SuplementPaymentCreate
             // 
@@ -118,6 +130,7 @@
             this.Name = "SuplementPaymentCreate";
             this.Text = "SuplementPaymentCreate";
             ((System.ComponentModel.ISupportInitialize)(this.nupKolicina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +145,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nupKolicina;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

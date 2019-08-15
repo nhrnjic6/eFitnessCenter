@@ -120,6 +120,7 @@
             // 
             // cbTrainer
             // 
+            this.cbTrainer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrainer.FormattingEnabled = true;
             this.cbTrainer.Location = new System.Drawing.Point(15, 31);
             this.cbTrainer.Name = "cbTrainer";
@@ -146,6 +147,7 @@
             // 
             // cbType
             // 
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(194, 31);
             this.cbType.Name = "cbType";
@@ -163,6 +165,7 @@
             // 
             // cbDifficulty
             // 
+            this.cbDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDifficulty.FormattingEnabled = true;
             this.cbDifficulty.Items.AddRange(new object[] {
             "Begginer",
@@ -186,6 +189,7 @@
             // 
             // cbDuration
             // 
+            this.cbDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDuration.FormattingEnabled = true;
             this.cbDuration.Items.AddRange(new object[] {
             "15",

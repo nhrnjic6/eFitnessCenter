@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label4;
             this.label1 = new System.Windows.Forms.Label();
             this.tbNaziv = new System.Windows.Forms.TextBox();
@@ -41,9 +42,11 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.numPrice = new System.Windows.Forms.NumericUpDown();
             this.numKolicina = new System.Windows.Forms.NumericUpDown();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKolicina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -70,6 +73,7 @@
             this.tbNaziv.Name = "tbNaziv";
             this.tbNaziv.Size = new System.Drawing.Size(121, 20);
             this.tbNaziv.TabIndex = 1;
+            this.tbNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.TbNaziv_Validating);
             // 
             // label2
             // 
@@ -99,6 +103,7 @@
             this.cbMessure.Name = "cbMessure";
             this.cbMessure.Size = new System.Drawing.Size(121, 21);
             this.cbMessure.TabIndex = 5;
+            this.cbMessure.Validating += new System.ComponentModel.CancelEventHandler(this.CbMessure_Validating);
             // 
             // label5
             // 
@@ -111,11 +116,13 @@
             // 
             // cbVrsta
             // 
+            this.cbVrsta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVrsta.FormattingEnabled = true;
             this.cbVrsta.Location = new System.Drawing.Point(30, 225);
             this.cbVrsta.Name = "cbVrsta";
             this.cbVrsta.Size = new System.Drawing.Size(121, 21);
             this.cbVrsta.TabIndex = 9;
+            this.cbVrsta.Validating += new System.ComponentModel.CancelEventHandler(this.CbVrsta_Validating);
             // 
             // Opis
             // 
@@ -133,6 +140,7 @@
             this.tbOpis.Size = new System.Drawing.Size(196, 79);
             this.tbOpis.TabIndex = 11;
             this.tbOpis.Text = "";
+            this.tbOpis.Validating += new System.ComponentModel.CancelEventHandler(this.TbOpis_Validating);
             // 
             // btnSave
             // 
@@ -150,6 +158,7 @@
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(120, 20);
             this.numPrice.TabIndex = 14;
+            this.numPrice.Validating += new System.ComponentModel.CancelEventHandler(this.NumPrice_Validating);
             // 
             // numKolicina
             // 
@@ -162,6 +171,11 @@
             0,
             0,
             0});
+            this.numKolicina.Validating += new System.ComponentModel.CancelEventHandler(this.NumKolicina_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // numAmount
             // 
@@ -185,6 +199,7 @@
             this.Text = "SuplementAddForm";
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKolicina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +219,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown numPrice;
         private System.Windows.Forms.NumericUpDown numKolicina;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

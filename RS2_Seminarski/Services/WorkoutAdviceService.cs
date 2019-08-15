@@ -82,7 +82,7 @@ namespace RS2_Seminarski.Services
                 throw new ResourceNotFoundException($"Client with id {adviceCreate.ClientId} not found");
             }
 
-            if(userInfo.Role == "ADMIN")
+            if(userInfo.Role == "EMPLOYEE")
             {
                 Trainer dbTrainer = _context.Trainers.Find(adviceCreate.TrainerId);
                 if (dbTrainer == null)

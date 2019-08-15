@@ -26,8 +26,8 @@ namespace RS2_Seminarski.Mappers
             {
                 ClientId = dbWorkoutAdvice.ClientId,
                 TrainerId = dbWorkoutAdvice.TrainerId,
-                ClientName = $"{dbWorkoutAdvice.Client.AppUser.FirstName} {dbWorkoutAdvice.Client.AppUser.FirstName}",
-                TrainerName = $"{dbWorkoutAdvice.Trainer.AppUser.FirstName} {dbWorkoutAdvice.Trainer.AppUser.FirstName}",
+                ClientName = $"{dbWorkoutAdvice.Client.AppUser.FirstName} {dbWorkoutAdvice.Client.AppUser.LastName}",
+                TrainerName = $"{dbWorkoutAdvice.Trainer.AppUser.FirstName} {dbWorkoutAdvice.Trainer.AppUser.LastName}",
                 CreatedAt = dbWorkoutAdvice.CreatedAt.ToString("dd-MM-yyyy"),
                 Id = dbWorkoutAdvice.Id,
                 Message = dbWorkoutAdvice.Message

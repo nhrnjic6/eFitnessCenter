@@ -72,31 +72,86 @@ namespace eFitnessCenterDesktop.Workouts
 
         private async void BtnSave_Click(object sender, EventArgs e)
         {
-            WorkoutScheduleCreate scheduleCreate = new WorkoutScheduleCreate
+            if (this.ValidateChildren())
             {
-                DayOfTheWeek = (DayOfWeek)int.Parse(cbDayOfWeek.SelectedValue.ToString()),
-                Description = tbDescription.Text,
-                TimeOfTheDay = new TimeSpan(timePicker.Value.Hour, timePicker.Value.Minute, 0),
-                WorkoutId = int.Parse(cbWorkout.SelectedValue.ToString())
-            };
+                WorkoutScheduleCreate scheduleCreate = new WorkoutScheduleCreate
+                {
+                    DayOfTheWeek = (DayOfWeek)int.Parse(cbDayOfWeek.SelectedValue.ToString()),
+                    Description = tbDescription.Text,
+                    TimeOfTheDay = new TimeSpan(timePicker.Value.Hour, timePicker.Value.Minute, 0),
+                    WorkoutId = int.Parse(cbWorkout.SelectedValue.ToString())
+                };
 
-            if(_workoutSchedule == null)
+                if (_workoutSchedule == null)
+                {
+                    await _workoutScheduleApiService.Create<Workout>(scheduleCreate);
+                }
+                else
+                {
+                    await _workoutScheduleApiService.Update<Workout>(_workoutSchedule.Id, scheduleCreate);
+                }
+
+                WorkoutScheduleListForm workoutForm = new WorkoutScheduleListForm(_accessToken);
+                workoutForm.MdiParent = this.MdiParent;
+                workoutForm.WindowState = FormWindowState.Maximized;
+                workoutForm.ControlBox = false;
+                workoutForm.MaximizeBox = false;
+                workoutForm.MinimizeBox = false;
+                workoutForm.ShowIcon = false;
+                workoutForm.Show();
+            }   
+        }
+
+        private void CbWorkout_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbWorkout.Text))
             {
-                await _workoutScheduleApiService.Create<Workout>(scheduleCreate);
+                errorProvider.SetError(cbWorkout, "Ovo polje je obavezno");
+                e.Cancel = true;
             }
             else
             {
-                await _workoutScheduleApiService.Update<Workout>(_workoutSchedule.Id ,scheduleCreate);
+                errorProvider.SetError(cbWorkout, null);
             }
+        }
 
-            WorkoutScheduleListForm workoutForm = new WorkoutScheduleListForm(_accessToken);
-            workoutForm.MdiParent = this.MdiParent;
-            workoutForm.WindowState = FormWindowState.Maximized;
-            workoutForm.ControlBox = false;
-            workoutForm.MaximizeBox = false;
-            workoutForm.MinimizeBox = false;
-            workoutForm.ShowIcon = false;
-            workoutForm.Show();
+        private void CbDayOfWeek_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbDayOfWeek.Text))
+            {
+                errorProvider.SetError(cbDayOfWeek, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbDayOfWeek, null);
+            }
+        }
+
+        private void TimePicker_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(timePicker.Text))
+            {
+                errorProvider.SetError(timePicker, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(timePicker, null);
+            }
+        }
+
+        private void TbDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbDescription.Text))
+            {
+                errorProvider.SetError(tbDescription, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tbDescription, null);
+            }
         }
     }
 }

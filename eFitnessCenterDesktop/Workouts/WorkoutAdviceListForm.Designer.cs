@@ -34,12 +34,12 @@
             this.cbTrainer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAdvices = new System.Windows.Forms.DataGridView();
-            this.workoutAdviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.messageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trainerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workoutAdviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdvices)).BeginInit();
@@ -65,6 +65,7 @@
             // 
             // cbTrainer
             // 
+            this.cbTrainer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrainer.FormattingEnabled = true;
             this.cbTrainer.Location = new System.Drawing.Point(203, 34);
             this.cbTrainer.Name = "cbTrainer";
@@ -97,10 +98,6 @@
             this.dgvAdvices.TabIndex = 4;
             this.dgvAdvices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAdvices_CellContentDoubleClick);
             // 
-            // workoutAdviceBindingSource
-            // 
-            this.workoutAdviceBindingSource.DataSource = typeof(Models.Workout.WorkoutAdvice);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -131,6 +128,10 @@
             this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
             this.createdAtDataGridViewTextBoxColumn.HeaderText = "Kreirano";
             this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            // 
+            // workoutAdviceBindingSource
+            // 
+            this.workoutAdviceBindingSource.DataSource = typeof(Models.Workout.WorkoutAdvice);
             // 
             // btnSearch
             // 

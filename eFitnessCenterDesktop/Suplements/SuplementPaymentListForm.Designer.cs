@@ -36,11 +36,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvSuplementPayments = new System.Windows.Forms.DataGridView();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbSuplementType = new System.Windows.Forms.ComboBox();
-            this.suplementPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,12 +43,18 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suplementPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbSuplementType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuplementPayments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suplementPaymentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbSuplement
             // 
+            this.cbSuplement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSuplement.FormattingEnabled = true;
             this.cbSuplement.Location = new System.Drawing.Point(110, 12);
             this.cbSuplement.Name = "cbSuplement";
@@ -124,43 +125,6 @@
             this.dgvSuplementPayments.TabIndex = 7;
             this.dgvSuplementPayments.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSuplementPayments_CellContentDoubleClick);
             // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(358, 57);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(123, 20);
-            this.tbLastName.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Client Last Name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(266, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Suplement Name";
-            // 
-            // cbSuplementType
-            // 
-            this.cbSuplementType.FormattingEnabled = true;
-            this.cbSuplementType.Location = new System.Drawing.Point(358, 14);
-            this.cbSuplementType.Name = "cbSuplementType";
-            this.cbSuplementType.Size = new System.Drawing.Size(121, 21);
-            this.cbSuplementType.TabIndex = 10;
-            // 
-            // suplementPaymentBindingSource
-            // 
-            this.suplementPaymentBindingSource.DataSource = typeof(Models.Suplements.SuplementPayment);
-            // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Id";
@@ -203,6 +167,44 @@
             this.dataGridViewTextBoxColumn14.DataPropertyName = "CreatedAt";
             this.dataGridViewTextBoxColumn14.HeaderText = "Datum Kupovine";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // suplementPaymentBindingSource
+            // 
+            this.suplementPaymentBindingSource.DataSource = typeof(Models.Suplements.SuplementPayment);
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(358, 57);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(123, 20);
+            this.tbLastName.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(266, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Client Last Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(266, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Suplement Name";
+            // 
+            // cbSuplementType
+            // 
+            this.cbSuplementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSuplementType.FormattingEnabled = true;
+            this.cbSuplementType.Location = new System.Drawing.Point(358, 14);
+            this.cbSuplementType.Name = "cbSuplementType";
+            this.cbSuplementType.Size = new System.Drawing.Size(121, 21);
+            this.cbSuplementType.TabIndex = 10;
             // 
             // SuplementPaymentListForm
             // 

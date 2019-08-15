@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.cbTrainer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.cbDifficulty = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,11 +57,13 @@
             // 
             // cbTrainer
             // 
+            this.cbTrainer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrainer.FormattingEnabled = true;
             this.cbTrainer.Location = new System.Drawing.Point(27, 40);
             this.cbTrainer.Name = "cbTrainer";
             this.cbTrainer.Size = new System.Drawing.Size(129, 21);
             this.cbTrainer.TabIndex = 1;
+            this.cbTrainer.Validating += new System.ComponentModel.CancelEventHandler(this.CbTrainer_Validating);
             // 
             // label2
             // 
@@ -75,14 +80,17 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(129, 20);
             this.tbName.TabIndex = 3;
+            this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.TbName_Validating);
             // 
             // cbWorkoutType
             // 
+            this.cbWorkoutType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorkoutType.FormattingEnabled = true;
             this.cbWorkoutType.Location = new System.Drawing.Point(27, 182);
             this.cbWorkoutType.Name = "cbWorkoutType";
             this.cbWorkoutType.Size = new System.Drawing.Size(129, 21);
             this.cbWorkoutType.TabIndex = 5;
+            this.cbWorkoutType.Validating += new System.ComponentModel.CancelEventHandler(this.CbWorkoutType_Validating);
             // 
             // label3
             // 
@@ -109,9 +117,11 @@
             this.tbDescription.Size = new System.Drawing.Size(224, 96);
             this.tbDescription.TabIndex = 7;
             this.tbDescription.Text = "";
+            this.tbDescription.Validating += new System.ComponentModel.CancelEventHandler(this.TbDescription_Validating);
             // 
             // cbDuration
             // 
+            this.cbDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDuration.FormattingEnabled = true;
             this.cbDuration.Items.AddRange(new object[] {
             "15",
@@ -124,6 +134,7 @@
             this.cbDuration.Name = "cbDuration";
             this.cbDuration.Size = new System.Drawing.Size(129, 21);
             this.cbDuration.TabIndex = 9;
+            this.cbDuration.Validating += new System.ComponentModel.CancelEventHandler(this.CbDuration_Validating);
             // 
             // label5
             // 
@@ -136,6 +147,7 @@
             // 
             // cbDifficulty
             // 
+            this.cbDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDifficulty.FormattingEnabled = true;
             this.cbDifficulty.Items.AddRange(new object[] {
             "Begginer",
@@ -147,6 +159,7 @@
             this.cbDifficulty.Name = "cbDifficulty";
             this.cbDifficulty.Size = new System.Drawing.Size(129, 21);
             this.cbDifficulty.TabIndex = 11;
+            this.cbDifficulty.Validating += new System.ComponentModel.CancelEventHandler(this.CbDifficulty_Validating);
             // 
             // label6
             // 
@@ -166,6 +179,10 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // WorkoutCreateForm
             // 
@@ -187,6 +204,7 @@
             this.Controls.Add(this.label1);
             this.Name = "WorkoutCreateForm";
             this.Text = "WorkoutCreateForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +225,6 @@
         private System.Windows.Forms.ComboBox cbDifficulty;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

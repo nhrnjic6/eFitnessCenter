@@ -66,30 +66,72 @@ namespace eFitnessCenterDesktop.Suplements
 
         private async void BtnSave_Click(object sender, EventArgs e)
         {
-            SuplementPaymentRequest paymentRequest = new SuplementPaymentRequest
+            if (this.ValidateChildren())
             {
-                ClientId = int.Parse(cbKorisnik.SelectedValue.ToString()),
-                SuplementId = int.Parse(cbSuplement.SelectedValue.ToString()),
-                Amount = (int) nupKolicina.Value
-            };
+                SuplementPaymentRequest paymentRequest = new SuplementPaymentRequest
+                {
+                    ClientId = int.Parse(cbKorisnik.SelectedValue.ToString()),
+                    SuplementId = int.Parse(cbSuplement.SelectedValue.ToString()),
+                    Amount = (int)nupKolicina.Value
+                };
 
-            if(_paymentForEdit == null)
+                if (_paymentForEdit == null)
+                {
+                    await _suplementPaymentApiService.Create<SuplementPayment>(paymentRequest);
+                }
+                else
+                {
+                    await _suplementPaymentApiService.Update<SuplementPayment>(_paymentForEdit.Id, paymentRequest);
+                }
+
+                SuplementPaymentListForm paymentForm = new SuplementPaymentListForm(_accessToken);
+                paymentForm.MdiParent = this.MdiParent;
+                paymentForm.WindowState = FormWindowState.Maximized;
+                paymentForm.ControlBox = false;
+                paymentForm.MaximizeBox = false;
+                paymentForm.MinimizeBox = false;
+                paymentForm.ShowIcon = false;
+                paymentForm.Show();
+            }
+        }
+
+        private void CbKorisnik_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbKorisnik.Text))
             {
-                await _suplementPaymentApiService.Create<SuplementPayment>(paymentRequest);
+                errorProvider.SetError(cbKorisnik, "Ovo polje je obavezno");
+                e.Cancel = true;
             }
             else
             {
-                await _suplementPaymentApiService.Update<SuplementPayment>(_paymentForEdit.Id, paymentRequest);
+                errorProvider.SetError(cbKorisnik, null);
             }
+        }
 
-            SuplementPaymentListForm paymentForm = new SuplementPaymentListForm(_accessToken);
-            paymentForm.MdiParent = this.MdiParent;
-            paymentForm.WindowState = FormWindowState.Maximized;
-            paymentForm.ControlBox = false;
-            paymentForm.MaximizeBox = false;
-            paymentForm.MinimizeBox = false;
-            paymentForm.ShowIcon = false;
-            paymentForm.Show();
+        private void CbSuplement_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbSuplement.Text))
+            {
+                errorProvider.SetError(cbSuplement, "Ovo polje je obavezno");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cbSuplement, null);
+            }
+        }
+
+        private void NupKolicina_Validating(object sender, CancelEventArgs e)
+        {
+            if (nupKolicina.Value <= 0)
+            {
+                errorProvider.SetError(nupKolicina, "Ovo polje mora imati vrijednost iznad 0");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(nupKolicina, null);
+            }
         }
     }
 }

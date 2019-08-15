@@ -42,14 +42,14 @@ namespace RS2_Seminarski.Controllers
         [HttpPost]
         public Models.Workout.WorkoutAdvice Create(Models.Requests.Workout.WorkoutAdviceCreate adviceCreate)
         {
-            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "ADMIN", "TRAINER" });
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "TRAINER" });
             return _workoutAdviceService.Create(adviceCreate, userInfo);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Models.Requests.Workout.WorkoutAdviceCreate adviceCreate)
         {
-            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "ADMIN", "TRAINER" });
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "TRAINER" });
             _workoutAdviceService.Update(id, adviceCreate, userInfo);
             return NoContent();
         }
@@ -57,7 +57,7 @@ namespace RS2_Seminarski.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "ADMIN", "TRAINER" });
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "TRAINER" });
             _workoutAdviceService.Delete(id, userInfo);
             return NoContent();
         }
