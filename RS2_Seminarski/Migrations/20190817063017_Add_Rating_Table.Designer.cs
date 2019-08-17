@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RS2_Seminarski.Database;
 
 namespace RS2_Seminarski.Migrations
 {
     [DbContext(typeof(FitnessCenterDbContext))]
-    partial class FitnessCenterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190817063017_Add_Rating_Table")]
+    partial class Add_Rating_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,7 +181,7 @@ namespace RS2_Seminarski.Migrations
 
                     b.Property<int>("ClientId");
 
-                    b.Property<int>("Rating");
+                    b.Property<int>("Ocjena");
 
                     b.Property<int>("SuplementId");
 

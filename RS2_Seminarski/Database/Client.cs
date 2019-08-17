@@ -14,5 +14,7 @@ namespace RS2_Seminarski.Database
         public ICollection<MembershipPayment> MembershipPayments { get; set; }
         public ICollection<SuplementPayment> SuplementPayments { get; set; }
         public ICollection<WorkoutAdvice> WorkoutAdvices { get; set; }
+        public ICollection<SuplementsRating> SuplementsRatings { get; set; }
+
     }
 }

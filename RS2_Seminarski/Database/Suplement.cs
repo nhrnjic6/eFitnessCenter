@@ -26,5 +26,6 @@ namespace RS2_Seminarski.Database
         public double Amount { get; set; }
         public string MessureUnit { get; set; }
         public ICollection<SuplementPayment> SuplementPayments { get; set; }
+        public ICollection<SuplementsRating> SuplementsRatings { get; set; }
     }
 }

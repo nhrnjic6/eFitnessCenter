@@ -55,6 +55,12 @@ namespace RS2_Seminarski.Exceptions
                 context.ModelState.AddModelError("ERROR", context.Exception.Message);
             }
 
+            else if (context.Exception is InvalidRatingValueException)
+            {
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                context.ModelState.AddModelError("ERROR", context.Exception.Message);
+            }
+
             else
             {
                 context.ModelState.AddModelError("ERROR", "Greška na serveru");
