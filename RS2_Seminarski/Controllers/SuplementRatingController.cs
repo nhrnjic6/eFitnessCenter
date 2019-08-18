@@ -26,7 +26,7 @@ namespace RS2_Seminarski.Controllers
             _authenticationService = new AuthenticationService(_context);
         }
 
-        [HttpPost("rating")]
+        [HttpPost]
         public IActionResult RateSuplement(SuplementRatingCreate suplementRating)
         {
             UserInfo userInfo = _authenticationService.IsAuthorized(Request, "CLIENT");

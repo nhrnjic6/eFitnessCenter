@@ -34,16 +34,30 @@ namespace RS2_Seminarski.Services
             SuplementsRating dbSuplementRating = _context.SuplementsRatings.Where(x => x.ClientId == userInfo.Id).FirstOrDefault();
             if(dbSuplementRating == null)
             {
+                dbSuplementRating = new SuplementsRating();
+
                 dbSuplementRating.ClientId = userInfo.Id;
                 dbSuplementRating.SuplementId = ratingCreate.SuplementId;
                 dbSuplementRating.Rating = ratingCreate.Rating;
+                _context.SuplementsRatings.Add(dbSuplementRating);
             }
             else
             {
                 dbSuplementRating.Rating = ratingCreate.Rating;
+                _context.SuplementsRatings.Update(dbSuplementRating);
             }
 
             _context.SaveChanges();
+        }
+
+        public double GetAverageSuplementRating(int suplementId)
+        {
+            return _context.SuplementsRatings.Where(x => x.SuplementId == suplementId).Average(x => x.Rating);
+        }
+
+        public SuplementsRating GetUserSuplementRating(int userId, int suplementId)
+        {
+            return _context.SuplementsRatings.Where(x => x.SuplementId == suplementId).Where(x => x.ClientId == userId).FirstOrDefault();
         }
     }
 }

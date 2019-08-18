@@ -1,4 +1,5 @@
 ﻿using App.Services;
+using App.Views;
 using Models.Requests;
 using Models.Suplements;
 using System;
@@ -16,6 +17,9 @@ namespace App.ViewModels
         private ApiService suplementsApiService;
         private ApiService suplementTypeApiService;
         private SuplementType _suplementType;
+        private Suplement _selectedSuplement;
+
+        public INavigation Navigation { get; set; }
 
         public SuplementType SuplementType
         {
@@ -32,6 +36,26 @@ namespace App.ViewModels
 
         public ObservableCollection<Suplement> Suplements { get; set; } = new ObservableCollection<Suplement>();
         public ObservableCollection<SuplementType> SuplementTypes { get; set; } = new ObservableCollection<SuplementType>();
+
+        public Suplement SelectedSuplement
+        {
+            get { return _selectedSuplement; }
+            set
+            {   
+                SetProperty(ref _selectedSuplement, value);
+                if(_selectedSuplement != null)
+                {
+                    try
+                    {
+
+                    _ = Navigation.PushAsync(new SuplementDetailsPage(_selectedSuplement));
+                    }catch(Exception e)
+                    {
+
+                    }
+                }
+            }
+        }
         
         public async Task OnPickerIndexChanged()
         {

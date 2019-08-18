@@ -4,6 +4,7 @@ using Models.Requests;
 using Models.Requests.Suplements;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
+using RS2_Seminarski.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,18 +16,38 @@ namespace RS2_Seminarski.Services
     {
         private readonly IMapper _mapper;
         private readonly FitnessCenterDbContext _context;
+        private readonly SuplementRatingService _suplementRatingService;
 
         public SuplementsService(FitnessCenterDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+            _suplementRatingService = new SuplementRatingService(_context);
         }
 
-        public List<Models.Suplements.Suplement> GetAll(SuplementSearchParams suplementSearch)
+        public Models.Suplements.Suplement GetById(int id, UserInfo userInfo)
+        {
+            Database.Suplement dbSuplement = _context.Suplements
+                .AsQueryable()
+                .Include(x => x.SuplementType)
+                .Include(x => x.SuplementsRatings)
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            if(dbSuplement == null)
+            {
+                throw new ResourceNotFoundException($"Suplement with id: {id} not found");
+            }
+
+            return mapFromDb(dbSuplement, userInfo);
+        }
+
+        public List<Models.Suplements.Suplement> GetAll(SuplementSearchParams suplementSearch, UserInfo userInfo)
         {
             IQueryable<Database.Suplement> query = _context.Suplements
                 .AsQueryable()
-                .Include(x => x.SuplementType);
+                .Include(x => x.SuplementType)
+                .Include(x => x.SuplementsRatings);
 
             if (!string.IsNullOrEmpty(suplementSearch.Name))
             {
@@ -38,7 +59,8 @@ namespace RS2_Seminarski.Services
                 query = query.Where(x => x.SuplementType.Type == suplementSearch.Type);
             }
 
-            return query.Select(x => mapFromDb(x))
+            return query.ToList()
+                .Select(x => mapFromDb(x, userInfo))
                 .ToList();
         }
 
@@ -48,7 +70,7 @@ namespace RS2_Seminarski.Services
             suplement.CreatedAt = DateTime.Now;
             _context.Suplements.Add(suplement);
             _context.SaveChanges();
-            return mapFromDb(suplement);
+            return mapFromDb(suplement, null);
         }
 
         public void Update(int id ,SuplementCreateRequest suplementCreateRequest)
@@ -78,12 +100,27 @@ namespace RS2_Seminarski.Services
             _context.SaveChanges();
         }
 
-        private Models.Suplements.Suplement mapFromDb(Database.Suplement dbSuplement)
+        private Models.Suplements.Suplement mapFromDb(Database.Suplement dbSuplement, UserInfo userInfo)
         {
             Models.Suplements.Suplement suplement = new Models.Suplements.Suplement();
             _mapper.Map(dbSuplement, suplement);
             suplement.SuplementTypeName = dbSuplement.SuplementType?.Type;
             suplement.CreatedAt = dbSuplement.CreatedAt.ToString("dd-MM-yyyy");
+
+            if(dbSuplement.SuplementsRatings != null && dbSuplement.SuplementsRatings.Count > 0)
+            {
+                suplement.AverageRating = dbSuplement.SuplementsRatings.Average(x => x.Rating);
+
+                if (userInfo != null)
+                {
+                    SuplementsRating userSuplementRating = dbSuplement.SuplementsRatings.Where(x => x.ClientId == userInfo.Id).FirstOrDefault();
+                    if (userSuplementRating != null)
+                    {
+                        suplement.UserRating = userSuplementRating.Rating;
+                    }
+                }
+            }
+
             return suplement;
         }
     }

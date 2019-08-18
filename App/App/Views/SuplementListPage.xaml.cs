@@ -19,6 +19,7 @@ namespace App.Views
         {
             InitializeComponent();
             BindingContext = SuplementViewModel = new SuplementViewModel();
+            SuplementViewModel.Navigation = Navigation;
         }
 
         protected async override void OnAppearing()

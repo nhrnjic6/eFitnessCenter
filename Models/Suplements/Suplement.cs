@@ -16,5 +16,9 @@ namespace Models.Suplements
         public string Description { get; set; }
         public double Amount { get; set; }
         public string MessureUnit { get; set; }
+
+        public double AverageRating { get; set; }
+
+        public int? UserRating { get; set; }
     }
 }

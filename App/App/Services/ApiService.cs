@@ -11,7 +11,7 @@ namespace App.Services
 {
     public class ApiService
     {
-        private readonly string _baseUrl = "http://192.168.1.6:45457/api";
+        private readonly string _baseUrl = "http://192.168.1.5:45455/api";
         private readonly string _resource;
         private readonly string _token;
 
@@ -25,6 +25,15 @@ namespace App.Services
         {
             var url = $"{_baseUrl}/{_resource}";
             url += queryParams?.ToQueryParams();
+            return await url
+                .WithHeader("Authorization", _token)
+                .GetJsonAsync<T>();
+        }
+
+        public async Task<T> GetById<T>(int id)
+        {
+            var url = $"{_baseUrl}/{_resource}/{id}";
+            
             return await url
                 .WithHeader("Authorization", _token)
                 .GetJsonAsync<T>();

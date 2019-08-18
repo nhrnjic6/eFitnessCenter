@@ -18,7 +18,8 @@
                 Margin="15"
                  />
 
-            <ListView ItemsSource="{Binding Suplements}">
+            <ListView ItemsSource="{Binding Suplements}"
+                      SelectedItem="{Binding SelectedSuplement}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
