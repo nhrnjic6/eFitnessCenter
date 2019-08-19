@@ -43,11 +43,14 @@
             this.workoutListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workoutAdviceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createWorkoutAdviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allTrainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.workoutAdviceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createWorkoutAdviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTranerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +60,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientsToolStripMenuItem,
             this.suplementsToolStripMenuItem,
-            this.workoutsToolStripMenuItem});
+            this.workoutsToolStripMenuItem,
+            this.trainersToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(820, 24);
@@ -167,6 +171,36 @@
             this.scheduleListToolStripMenuItem.Text = "Schedule List";
             this.scheduleListToolStripMenuItem.Click += new System.EventHandler(this.ScheduleListToolStripMenuItem_Click);
             // 
+            // workoutAdviceListToolStripMenuItem
+            // 
+            this.workoutAdviceListToolStripMenuItem.Name = "workoutAdviceListToolStripMenuItem";
+            this.workoutAdviceListToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.workoutAdviceListToolStripMenuItem.Text = "Workout Advice List";
+            this.workoutAdviceListToolStripMenuItem.Click += new System.EventHandler(this.WorkoutAdviceListToolStripMenuItem_Click);
+            // 
+            // createWorkoutAdviceToolStripMenuItem
+            // 
+            this.createWorkoutAdviceToolStripMenuItem.Name = "createWorkoutAdviceToolStripMenuItem";
+            this.createWorkoutAdviceToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.createWorkoutAdviceToolStripMenuItem.Text = "Create Workout Advice";
+            this.createWorkoutAdviceToolStripMenuItem.Click += new System.EventHandler(this.CreateWorkoutAdviceToolStripMenuItem_Click);
+            // 
+            // trainersToolStripMenuItem
+            // 
+            this.trainersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allTrainersToolStripMenuItem,
+            this.newTranerToolStripMenuItem});
+            this.trainersToolStripMenuItem.Name = "trainersToolStripMenuItem";
+            this.trainersToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.trainersToolStripMenuItem.Text = "Trainers";
+            // 
+            // allTrainersToolStripMenuItem
+            // 
+            this.allTrainersToolStripMenuItem.Name = "allTrainersToolStripMenuItem";
+            this.allTrainersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allTrainersToolStripMenuItem.Text = "All Trainers";
+            this.allTrainersToolStripMenuItem.Click += new System.EventHandler(this.AllTrainersToolStripMenuItem_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -183,19 +217,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // workoutAdviceListToolStripMenuItem
+            // newTranerToolStripMenuItem
             // 
-            this.workoutAdviceListToolStripMenuItem.Name = "workoutAdviceListToolStripMenuItem";
-            this.workoutAdviceListToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.workoutAdviceListToolStripMenuItem.Text = "Workout Advice List";
-            this.workoutAdviceListToolStripMenuItem.Click += new System.EventHandler(this.WorkoutAdviceListToolStripMenuItem_Click);
-            // 
-            // createWorkoutAdviceToolStripMenuItem
-            // 
-            this.createWorkoutAdviceToolStripMenuItem.Name = "createWorkoutAdviceToolStripMenuItem";
-            this.createWorkoutAdviceToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.createWorkoutAdviceToolStripMenuItem.Text = "Create Workout Advice";
-            this.createWorkoutAdviceToolStripMenuItem.Click += new System.EventHandler(this.CreateWorkoutAdviceToolStripMenuItem_Click);
+            this.newTranerToolStripMenuItem.Name = "newTranerToolStripMenuItem";
+            this.newTranerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newTranerToolStripMenuItem.Text = "New Traner";
+            this.newTranerToolStripMenuItem.Click += new System.EventHandler(this.NewTranerToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -238,6 +265,9 @@
         private System.Windows.Forms.ToolStripMenuItem scheduleListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workoutAdviceListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createWorkoutAdviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trainersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allTrainersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newTranerToolStripMenuItem;
     }
 }
 

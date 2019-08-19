@@ -1,5 +1,6 @@
 ﻿using eFitnessCenterDesktop.Clients;
 using eFitnessCenterDesktop.Suplements;
+using eFitnessCenterDesktop.Trainers;
 using eFitnessCenterDesktop.Workouts;
 using Models.Clients;
 using System;
@@ -292,6 +293,30 @@ namespace eFitnessCenterDesktop
             workoutForm.MinimizeBox = false;
             workoutForm.ShowIcon = false;
             workoutForm.Show();
+        }
+
+        private void AllTrainersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TrainersListForm trainersListForm = new TrainersListForm(_accessToken);
+            trainersListForm.MdiParent = this;
+            trainersListForm.WindowState = FormWindowState.Maximized;
+            trainersListForm.ControlBox = false;
+            trainersListForm.MaximizeBox = false;
+            trainersListForm.MinimizeBox = false;
+            trainersListForm.ShowIcon = false;
+            trainersListForm.Show();
+        }
+
+        private void NewTranerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTrainerForm addTrainerForm = new AddTrainerForm(_accessToken, null);
+            addTrainerForm.MdiParent = this;
+            addTrainerForm.WindowState = FormWindowState.Maximized;
+            addTrainerForm.ControlBox = false;
+            addTrainerForm.MaximizeBox = false;
+            addTrainerForm.MinimizeBox = false;
+            addTrainerForm.ShowIcon = false;
+            addTrainerForm.Show();
         }
     }
 }

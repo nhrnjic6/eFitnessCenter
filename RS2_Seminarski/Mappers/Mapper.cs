@@ -15,6 +15,7 @@ namespace RS2_Seminarski.Mappers
         public Mapper()
         {
             CreateMap<CreateClientRequest, Database.AppUser>();
+            CreateMap<CreateTrainerRequest, Database.AppUser>();
             CreateMap<Database.AppUser, Models.Clients.Client>();
             CreateMap<Database.AppUser, Models.Trainers.Trainer>();
             CreateMap<CreateTrainerRequest, Models.Trainers.Trainer>();

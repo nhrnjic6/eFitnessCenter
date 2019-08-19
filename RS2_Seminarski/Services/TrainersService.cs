@@ -73,7 +73,7 @@ namespace RS2_Seminarski.Services
             Database.AppUser appUser = _mapper.Map<Database.AppUser>(createTrainerRequest);
             appUser.HashedPassword = HashUtil.ComputeSha256Hash(createTrainerRequest.Password);
             appUser.CreatedAt = DateTime.UtcNow;
-            appUser.Status = Database.UserStatus.INACTIVE;
+            appUser.Status = Database.UserStatus.ACTIVE;
 
             // add trainer specific data
             Database.Trainer trainer = new Database.Trainer();
