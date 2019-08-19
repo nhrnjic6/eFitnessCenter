@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Models.Requests.Clients;
 using Models.Requests.Suplements;
+using Models.Requests.Trainers;
 using RS2_Seminarski.Database;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,10 @@ namespace RS2_Seminarski.Mappers
         {
             CreateMap<CreateClientRequest, Database.AppUser>();
             CreateMap<Database.AppUser, Models.Clients.Client>();
+            CreateMap<Database.AppUser, Models.Trainers.Trainer>();
+            CreateMap<CreateTrainerRequest, Models.Trainers.Trainer>();
             CreateMap<Models.Requests.Clients.UpdateClientRequest, Database.AppUser>();
+            CreateMap<Models.Requests.Trainers.UpdateTrainerRequest, Database.AppUser>();
             CreateMap<Database.MembershipPayment, Models.Membership.MembershipPayment>();
             CreateMap<Database.MembershipType, Models.Membership.MembershipType>();
             CreateMap<Database.SuplementType, Models.Suplements.SuplementType>();
