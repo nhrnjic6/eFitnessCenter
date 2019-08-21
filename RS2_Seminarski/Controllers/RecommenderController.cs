@@ -28,7 +28,7 @@ namespace RS2_Seminarski.Controllers
             _authenticationService = new AuthenticationService(_context);
         }
 
-        [HttpGet("suplements/{suplementId}")]
+        [HttpGet("{id}")]
         public List<Models.Suplements.Suplement> GetSimilarSuplements(int suplementId)
         {
             UserInfo userInfo = _authenticationService.IsAuthorized(Request, "CLIENT");

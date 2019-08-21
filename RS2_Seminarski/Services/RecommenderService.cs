@@ -27,8 +27,6 @@ namespace RS2_Seminarski.Services
 
             // get ratings for all suplements other than current suplement
             List<Suplement> restOfSuplements = _context.Suplements
-                .Include(x => x.SuplementsRatings)
-                .Include(x => x.SuplementType)
                 .Where(x => x.SuplementTypeId == suplementId)
                 .ToList();
 
@@ -69,7 +67,12 @@ namespace RS2_Seminarski.Services
 
                 if(similarity > 0.5)
                 {
-                    Suplement suplement = _context.Suplements.Find(ratings.Key);
+                    Suplement suplement = _context.Suplements
+                        .Include(x => x.SuplementsRatings)
+                        .Include(x => x.SuplementType)
+                        .Where(x => x.Id == ratings.Key)
+                        .FirstOrDefault();
+
                     reccomendedSuplements.Add(suplement);
                 }
             }

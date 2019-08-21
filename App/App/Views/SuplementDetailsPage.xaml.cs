@@ -21,5 +21,11 @@ namespace App.Views
             InitializeComponent();
             BindingContext = SuplementDetailsViewModel = new SuplementDetailsViewModel(suplement);
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await SuplementDetailsViewModel.LoadRecommendedSuplements();
+        }
     }
 }

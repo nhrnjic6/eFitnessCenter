@@ -3,6 +3,7 @@ using Models.Requests.Suplements;
 using Models.Suplements;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace App.ViewModels
         private string _selectedRating;
         private ApiService ratingApiService;
         private ApiService suplementsApiService;
+        private ApiService _recommendationApiService;
 
         public SuplementDetailsViewModel(Suplement suplement)
         {
@@ -23,7 +25,10 @@ namespace App.ViewModels
             string token = (string)Application.Current.Properties["access_token"];
             ratingApiService = new ApiService("suplementRating", token);
             suplementsApiService = new ApiService("suplements", token);
+            _recommendationApiService = new ApiService("recommender", token);
         }
+
+        public ObservableCollection<Suplement> RecommendedSuplements { get; set; } = new ObservableCollection<Suplement>();
 
         public string[] RatingValues
         {
@@ -75,6 +80,16 @@ namespace App.ViewModels
             await ratingApiService.Create<object>(ratingCreate);
             Suplement = await suplementsApiService.GetById<Suplement>(Suplement.Id);
             OnPropertyChanged("UserSuplementRating");
+        }
+
+        public async Task LoadRecommendedSuplements()
+        {
+            RecommendedSuplements.Clear();
+            List<Suplement> suplements = await _recommendationApiService.GetById<List<Suplement>>(_suplement.Id);
+            foreach(var suplement in suplements)
+            {
+                RecommendedSuplements.Add(suplement);
+            }
         }
     }
 }

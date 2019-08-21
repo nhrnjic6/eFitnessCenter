@@ -39,6 +39,28 @@
 
             <Picker Title="Ocjeni Proizvod" ItemsSource="{Binding RatingValues}" SelectedItem="{Binding SelectedRating}"/>
 
+            <Label Text="Preporuceni Proizvodi" />
+
+            <ListView ItemsSource="{Binding RecommendedSuplements}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <FlexLayout
+                                    JustifyContent="SpaceBetween">
+                                    <Label 
+                                    Text="{Binding Name}"  
+                                    FontSize="16"  />
+                                    <Label 
+                                    Text="{Binding Price, StringFormat='{0} KM'}" 
+                                    FontSize="16" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
 
     </ContentPage.Content>
