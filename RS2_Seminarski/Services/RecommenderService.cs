@@ -12,7 +12,7 @@ namespace RS2_Seminarski.Services
     public class RecommenderService
     {
         private readonly FitnessCenterDbContext _context;
-        private Dictionary<int, List<SuplementsRating>> suplementRatings;
+        private Dictionary<int, List<SuplementsRating>> suplementRatings = new Dictionary<int, List<SuplementsRating>>();
         private readonly IMapper _mapper;
 
         public RecommenderService(FitnessCenterDbContext context, IMapper mapper)
@@ -27,7 +27,7 @@ namespace RS2_Seminarski.Services
 
             // get ratings for all suplements other than current suplement
             List<Suplement> restOfSuplements = _context.Suplements
-                .Where(x => x.SuplementTypeId == suplementId)
+                .Where(x => x.Id != suplementId)
                 .ToList();
 
             foreach(var suplement in restOfSuplements)
@@ -39,7 +39,7 @@ namespace RS2_Seminarski.Services
 
                 if(ratings.Count > 0)
                 {
-                    suplementRatings.Add(suplementId, ratings);
+                    suplementRatings.Add(suplement.Id, ratings);
                 }
             }
 
