@@ -31,7 +31,10 @@ namespace RS2_Seminarski.Services
                 throw new ResourceNotFoundException($"Suplement with id: {ratingCreate.SuplementId} not found.");
             }
 
-            SuplementsRating dbSuplementRating = _context.SuplementsRatings.Where(x => x.ClientId == userInfo.Id).FirstOrDefault();
+            SuplementsRating dbSuplementRating = _context.SuplementsRatings
+                .Where(x => x.ClientId == userInfo.Id)
+                .Where(x => x.SuplementId == ratingCreate.SuplementId)
+                .FirstOrDefault();
             if(dbSuplementRating == null)
             {
                 dbSuplementRating = new SuplementsRating();

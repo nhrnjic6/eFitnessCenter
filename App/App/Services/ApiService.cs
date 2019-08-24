@@ -11,7 +11,7 @@ namespace App.Services
 {
     public class ApiService
     {
-        private readonly string _baseUrl = "http://192.168.1.5:45455/api";
+        private readonly string _baseUrl = "http://192.168.1.6:45457/api";
         private readonly string _resource;
         private readonly string _token;
 

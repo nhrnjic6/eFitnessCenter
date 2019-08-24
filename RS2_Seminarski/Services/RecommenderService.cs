@@ -83,6 +83,7 @@ namespace RS2_Seminarski.Services
         private double GetSimilarityBetweenProducts(List<SuplementsRating> rating1, List<SuplementsRating> rating2)
         {
             if (rating1.Count != rating2.Count) return 0;
+            if (rating1.Count == 0 || rating2.Count == 0) return 0;
 
             double numerator = 0, denominator1 = 0, denominator2 = 0;
 
