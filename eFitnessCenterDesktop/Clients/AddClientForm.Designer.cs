@@ -60,7 +60,7 @@
             // 
             // tbIme
             // 
-            this.tbIme.Location = new System.Drawing.Point(29, 45);
+            this.tbIme.Location = new System.Drawing.Point(29, 39);
             this.tbIme.Name = "tbIme";
             this.tbIme.Size = new System.Drawing.Size(239, 20);
             this.tbIme.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             // tbPrezime
             // 
-            this.tbPrezime.Location = new System.Drawing.Point(29, 105);
+            this.tbPrezime.Location = new System.Drawing.Point(29, 92);
             this.tbPrezime.Name = "tbPrezime";
             this.tbPrezime.Size = new System.Drawing.Size(239, 20);
             this.tbPrezime.TabIndex = 3;
@@ -77,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 78);
+            this.label2.Location = new System.Drawing.Point(26, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(29, 168);
+            this.tbEmail.Location = new System.Drawing.Point(29, 147);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(239, 20);
             this.tbEmail.TabIndex = 5;
@@ -94,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 140);
+            this.label3.Location = new System.Drawing.Point(26, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 4;
@@ -103,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 208);
+            this.label4.Location = new System.Drawing.Point(26, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             // tbAdresa
             // 
-            this.tbAdresa.Location = new System.Drawing.Point(29, 299);
+            this.tbAdresa.Location = new System.Drawing.Point(29, 261);
             this.tbAdresa.Name = "tbAdresa";
             this.tbAdresa.Size = new System.Drawing.Size(239, 20);
             this.tbAdresa.TabIndex = 9;
@@ -120,7 +120,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 271);
+            this.label5.Location = new System.Drawing.Point(26, 242);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 8;
@@ -128,7 +128,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(29, 481);
+            this.btnSave.Location = new System.Drawing.Point(29, 422);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 10;
@@ -138,7 +138,7 @@
             // 
             // tbTelefon
             // 
-            this.tbTelefon.Location = new System.Drawing.Point(29, 367);
+            this.tbTelefon.Location = new System.Drawing.Point(29, 320);
             this.tbTelefon.Name = "tbTelefon";
             this.tbTelefon.Size = new System.Drawing.Size(239, 20);
             this.tbTelefon.TabIndex = 12;
@@ -147,7 +147,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 337);
+            this.label6.Location = new System.Drawing.Point(26, 300);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 11;
@@ -155,7 +155,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(29, 234);
+            this.tbPassword.Location = new System.Drawing.Point(29, 204);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(239, 20);
@@ -165,7 +165,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(29, 403);
+            this.lblStatus.Location = new System.Drawing.Point(29, 357);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(37, 13);
             this.lblStatus.TabIndex = 13;
@@ -181,7 +181,7 @@
             "Active",
             "Inactive",
             "Deleted"});
-            this.cbStatus.Location = new System.Drawing.Point(29, 432);
+            this.cbStatus.Location = new System.Drawing.Point(29, 378);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(239, 21);
             this.cbStatus.TabIndex = 14;
@@ -190,7 +190,7 @@
             // 
             // btnClanarine
             // 
-            this.btnClanarine.Location = new System.Drawing.Point(447, 42);
+            this.btnClanarine.Location = new System.Drawing.Point(339, 15);
             this.btnClanarine.Name = "btnClanarine";
             this.btnClanarine.Size = new System.Drawing.Size(75, 23);
             this.btnClanarine.TabIndex = 15;
@@ -206,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 526);
+            this.ClientSize = new System.Drawing.Size(424, 526);
             this.Controls.Add(this.btnClanarine);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.lblStatus);

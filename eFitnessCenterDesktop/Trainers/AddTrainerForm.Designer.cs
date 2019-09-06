@@ -56,7 +56,7 @@
             "Active",
             "Inactive",
             "Deleted"});
-            this.cbStatus.Location = new System.Drawing.Point(29, 420);
+            this.cbStatus.Location = new System.Drawing.Point(29, 359);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(239, 21);
             this.cbStatus.TabIndex = 29;
@@ -66,7 +66,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(29, 391);
+            this.lblStatus.Location = new System.Drawing.Point(29, 338);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(37, 13);
             this.lblStatus.TabIndex = 28;
@@ -75,7 +75,7 @@
             // 
             // tbTelefon
             // 
-            this.tbTelefon.Location = new System.Drawing.Point(29, 355);
+            this.tbTelefon.Location = new System.Drawing.Point(29, 302);
             this.tbTelefon.Name = "tbTelefon";
             this.tbTelefon.Size = new System.Drawing.Size(239, 20);
             this.tbTelefon.TabIndex = 27;
@@ -84,7 +84,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 325);
+            this.label6.Location = new System.Drawing.Point(26, 281);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 26;
@@ -92,7 +92,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(29, 469);
+            this.btnSave.Location = new System.Drawing.Point(28, 398);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 25;
@@ -102,7 +102,7 @@
             // 
             // tbAdresa
             // 
-            this.tbAdresa.Location = new System.Drawing.Point(29, 287);
+            this.tbAdresa.Location = new System.Drawing.Point(29, 246);
             this.tbAdresa.Name = "tbAdresa";
             this.tbAdresa.Size = new System.Drawing.Size(239, 20);
             this.tbAdresa.TabIndex = 24;
@@ -111,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 259);
+            this.label5.Location = new System.Drawing.Point(26, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 23;
@@ -119,7 +119,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(29, 222);
+            this.tbPassword.Location = new System.Drawing.Point(29, 190);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(239, 20);
@@ -129,7 +129,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 196);
+            this.label4.Location = new System.Drawing.Point(26, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 21;
@@ -137,7 +137,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(29, 156);
+            this.tbEmail.Location = new System.Drawing.Point(29, 136);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(239, 20);
             this.tbEmail.TabIndex = 20;
@@ -146,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 128);
+            this.label3.Location = new System.Drawing.Point(26, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 19;
@@ -154,7 +154,7 @@
             // 
             // tbPrezime
             // 
-            this.tbPrezime.Location = new System.Drawing.Point(29, 93);
+            this.tbPrezime.Location = new System.Drawing.Point(29, 83);
             this.tbPrezime.Name = "tbPrezime";
             this.tbPrezime.Size = new System.Drawing.Size(239, 20);
             this.tbPrezime.TabIndex = 18;
@@ -163,7 +163,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 66);
+            this.label2.Location = new System.Drawing.Point(26, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 17;
@@ -171,7 +171,7 @@
             // 
             // tbIme
             // 
-            this.tbIme.Location = new System.Drawing.Point(29, 33);
+            this.tbIme.Location = new System.Drawing.Point(29, 29);
             this.tbIme.Name = "tbIme";
             this.tbIme.Size = new System.Drawing.Size(239, 20);
             this.tbIme.TabIndex = 16;
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 513);
+            this.ClientSize = new System.Drawing.Size(331, 513);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.tbTelefon);
