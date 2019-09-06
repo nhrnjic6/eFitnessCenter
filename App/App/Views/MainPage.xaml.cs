@@ -50,6 +50,9 @@ namespace App.Views
                     case (int)MenuItemType.WorkoutAdviceTrainer:
                         MenuPages.Add(id, new NavigationPage(new WorkoutAdviceTrainerPage()));
                         break;
+                    case (int)MenuItemType.LogOut:
+                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
+                        break;
                 }
             }
 

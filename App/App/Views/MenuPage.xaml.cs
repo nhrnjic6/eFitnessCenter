@@ -30,6 +30,7 @@ namespace App.Views
                     new HomeMenuItem {Id = MenuItemType.Workouts, Title = "Treninzi"},
                     new HomeMenuItem {Id = MenuItemType.Memberships, Title = "Clanarine"},
                     new HomeMenuItem {Id = MenuItemType.WorkoutAdvice, Title = "Savjeti"},
+                    new HomeMenuItem {Id = MenuItemType.LogOut, Title = "Logout"}
                 };
             }
 
@@ -42,6 +43,7 @@ namespace App.Views
                     new HomeMenuItem {Id = MenuItemType.Suplements, Title = "Suplementi"},
                     new HomeMenuItem {Id = MenuItemType.Workouts, Title = "Treninzi"},
                     new HomeMenuItem {Id = MenuItemType.WorkoutAdviceTrainer, Title = "Savjeti"},
+                    new HomeMenuItem {Id = MenuItemType.LogOut, Title = "Logout"}
                 };
             }
 
