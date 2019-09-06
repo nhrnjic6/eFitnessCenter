@@ -43,7 +43,7 @@ namespace eFitnessCenterDesktop
                     Password = password
                 });
 
-                if (result == null)
+                if (result == null || result.UserRole != "EMPLOYEE")
                 {
                     MessageBox.Show("Invalid username or password");
                 }
