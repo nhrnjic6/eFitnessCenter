@@ -46,6 +46,7 @@ namespace eFitnessCenterDesktop.Workouts
         {
             await initFormData();
             await loadGridData();
+            dgvSchedules.Visible = true;
         }
 
         public async Task initFormData()

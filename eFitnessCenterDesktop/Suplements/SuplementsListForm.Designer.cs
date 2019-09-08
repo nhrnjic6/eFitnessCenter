@@ -30,15 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvSuplements = new System.Windows.Forms.DataGridView();
-            this.suplementBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.suplementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lblVrsta = new System.Windows.Forms.Label();
-            this.cbVrsta = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.suplementBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,10 +38,19 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suplementBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.suplementBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.suplementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lblVrsta = new System.Windows.Forms.Label();
+            this.cbVrsta = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuplements)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvSuplements
@@ -71,7 +71,61 @@
             this.dgvSuplements.Name = "dgvSuplements";
             this.dgvSuplements.Size = new System.Drawing.Size(800, 373);
             this.dgvSuplements.TabIndex = 0;
+            this.dgvSuplements.Visible = false;
             this.dgvSuplements.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSuplements_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "CreatedAt";
+            this.dataGridViewTextBoxColumn12.HeaderText = "CreatedAt";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "SuplementTypeName";
+            this.dataGridViewTextBoxColumn14.HeaderText = "SuplementTypeName";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Amount";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "MessureUnit";
+            this.dataGridViewTextBoxColumn17.HeaderText = "MessureUnit";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // suplementBindingSource2
+            // 
+            this.suplementBindingSource2.DataSource = typeof(Models.Suplements.Suplement);
             // 
             // suplementBindingSource
             // 
@@ -131,59 +185,6 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // suplementBindingSource2
-            // 
-            this.suplementBindingSource2.DataSource = typeof(Models.Suplements.Suplement);
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "CreatedAt";
-            this.dataGridViewTextBoxColumn12.HeaderText = "CreatedAt";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "SuplementTypeName";
-            this.dataGridViewTextBoxColumn14.HeaderText = "SuplementTypeName";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Amount";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "MessureUnit";
-            this.dataGridViewTextBoxColumn17.HeaderText = "MessureUnit";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
             // SuplementsListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,9 +200,9 @@
             this.Name = "SuplementsListForm";
             this.Text = "SuplementsListForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuplements)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suplementBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

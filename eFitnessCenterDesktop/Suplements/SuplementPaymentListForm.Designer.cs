@@ -123,6 +123,7 @@
             this.dgvSuplementPayments.Name = "dgvSuplementPayments";
             this.dgvSuplementPayments.Size = new System.Drawing.Size(796, 325);
             this.dgvSuplementPayments.TabIndex = 7;
+            this.dgvSuplementPayments.Visible = false;
             this.dgvSuplementPayments.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSuplementPayments_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn8

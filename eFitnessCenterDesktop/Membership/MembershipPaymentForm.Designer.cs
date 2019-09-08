@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvPayments = new System.Windows.Forms.DataGridView();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +38,8 @@
             this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validDescriptorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.membershipPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membershipPaymentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -61,27 +61,8 @@
             this.dgvPayments.Name = "dgvPayments";
             this.dgvPayments.Size = new System.Drawing.Size(800, 386);
             this.dgvPayments.TabIndex = 0;
+            this.dgvPayments.Visible = false;
             this.dgvPayments.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPayments_CellContentDoubleClick);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(23, 23);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 1;
-            this.btnNew.Text = "Nova Clanarina";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(128, 23);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(105, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Obrisi Clanarinu";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -130,6 +111,26 @@
             // membershipPaymentBindingSource
             // 
             this.membershipPaymentBindingSource.DataSource = typeof(Models.Membership.MembershipPayment);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(23, 23);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 1;
+            this.btnNew.Text = "Nova Clanarina";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(128, 23);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(105, 23);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Obrisi Clanarinu";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // MembershipPaymentForm
             // 

@@ -44,6 +44,7 @@ namespace eFitnessCenterDesktop.Clients
 
             _clients = await _apiService.GetAll<List<Client>>(searchClientParams);
             dgvClients.DataSource = _clients;
+            dgvClients.Visible = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)

@@ -34,6 +34,7 @@ namespace eFitnessCenterDesktop
         {
             await initComboBoxData();
             await initGridData();
+            dgvSuplements.Visible = true;
         }
 
         private async Task initGridData()

@@ -44,6 +44,7 @@ namespace eFitnessCenterDesktop.Trainers
 
             _trainers = await _apiService.GetAll<List<Trainer>>(searchTrainerParams);
             dgvTrainers.DataSource = _trainers;
+            dgvTrainers.Visible = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)

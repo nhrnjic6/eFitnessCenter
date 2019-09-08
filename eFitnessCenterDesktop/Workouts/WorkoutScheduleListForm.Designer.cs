@@ -67,6 +67,7 @@
             this.dgvSchedules.Name = "dgvSchedules";
             this.dgvSchedules.Size = new System.Drawing.Size(799, 367);
             this.dgvSchedules.TabIndex = 0;
+            this.dgvSchedules.Visible = false;
             this.dgvSchedules.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSchedules_CellContentDoubleClick);
             // 
             // idDataGridViewTextBoxColumn

@@ -96,6 +96,7 @@
             this.dgvAdvices.Name = "dgvAdvices";
             this.dgvAdvices.Size = new System.Drawing.Size(789, 378);
             this.dgvAdvices.TabIndex = 4;
+            this.dgvAdvices.Visible = false;
             this.dgvAdvices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAdvices_CellContentDoubleClick);
             // 
             // idDataGridViewTextBoxColumn

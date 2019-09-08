@@ -37,6 +37,7 @@ namespace eFitnessCenterDesktop.Suplements
             await initSuplementList();
             await initSuplementTypeList();
             await initDataGrid();
+            dgvSuplementPayments.Visible = true;
         }
 
         private async Task initDataGrid()

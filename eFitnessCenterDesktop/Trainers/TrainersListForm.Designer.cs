@@ -142,6 +142,7 @@
             this.dgvTrainers.Name = "dgvTrainers";
             this.dgvTrainers.Size = new System.Drawing.Size(871, 342);
             this.dgvTrainers.TabIndex = 9;
+            this.dgvTrainers.Visible = false;
             this.dgvTrainers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTrainers_CellContentDoubleClick);
             // 
             // idDataGridViewTextBoxColumn

@@ -40,6 +40,7 @@ namespace eFitnessCenterDesktop.Membership
             _payments = await _apiService.GetAll<List<MembershipPayment>>(searchParams);
 
             dgvPayments.DataSource = _payments;
+            dgvPayments.Visible = true;
         }
 
         private void BtnNew_Click(object sender, EventArgs e)

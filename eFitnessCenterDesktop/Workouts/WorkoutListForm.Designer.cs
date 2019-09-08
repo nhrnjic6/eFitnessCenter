@@ -69,6 +69,7 @@
             this.dgvWorkouts.Name = "dgvWorkouts";
             this.dgvWorkouts.Size = new System.Drawing.Size(798, 313);
             this.dgvWorkouts.TabIndex = 0;
+            this.dgvWorkouts.Visible = false;
             this.dgvWorkouts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvWorkouts_CellContentClick);
             // 
             // idDataGridViewTextBoxColumn
