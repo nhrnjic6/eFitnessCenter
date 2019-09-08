@@ -47,10 +47,10 @@
             this.createWorkoutAdviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allTrainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTranerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.newTranerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,7 @@
             this.menuStrip.Size = new System.Drawing.Size(820, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            this.menuStrip.Visible = false;
             // 
             // clientsToolStripMenuItem
             // 
@@ -197,9 +198,16 @@
             // allTrainersToolStripMenuItem
             // 
             this.allTrainersToolStripMenuItem.Name = "allTrainersToolStripMenuItem";
-            this.allTrainersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allTrainersToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.allTrainersToolStripMenuItem.Text = "All Trainers";
             this.allTrainersToolStripMenuItem.Click += new System.EventHandler(this.AllTrainersToolStripMenuItem_Click);
+            // 
+            // newTranerToolStripMenuItem
+            // 
+            this.newTranerToolStripMenuItem.Name = "newTranerToolStripMenuItem";
+            this.newTranerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.newTranerToolStripMenuItem.Text = "New Traner";
+            this.newTranerToolStripMenuItem.Click += new System.EventHandler(this.NewTranerToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -216,13 +224,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // newTranerToolStripMenuItem
-            // 
-            this.newTranerToolStripMenuItem.Name = "newTranerToolStripMenuItem";
-            this.newTranerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newTranerToolStripMenuItem.Text = "New Traner";
-            this.newTranerToolStripMenuItem.Click += new System.EventHandler(this.NewTranerToolStripMenuItem_Click);
             // 
             // MainForm
             // 

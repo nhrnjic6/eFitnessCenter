@@ -165,6 +165,7 @@ namespace eFitnessCenterDesktop
 
             loginForm.OnTokenFetch((token) =>
             {
+                menuStrip.Visible = true;
                 _accessToken = token;
                 ShowClientList();
             });
