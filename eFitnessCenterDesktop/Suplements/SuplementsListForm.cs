@@ -27,7 +27,13 @@ namespace eFitnessCenterDesktop
             _accessToken = accessToken;
             _suplementApiService = new ApiService("suplements", _accessToken);
             _suplementTypeApiService = new ApiService("suplementType", _accessToken);
-            initComboBoxData();
+            _ = loadSuplements();
+        }
+
+        private async Task loadSuplements()
+        {
+            await initComboBoxData();
+            await initGridData();
         }
 
         private async Task initGridData()
@@ -42,7 +48,7 @@ namespace eFitnessCenterDesktop
             dgvSuplements.DataSource = _suplements;
         }
 
-        private async void initComboBoxData()
+        private async Task initComboBoxData()
         {
             List<SuplementType> types = await _suplementTypeApiService.GetAll<List<SuplementType>>(null);
             cbVrsta.DataSource = types;

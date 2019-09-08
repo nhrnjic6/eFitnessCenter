@@ -29,8 +29,13 @@ namespace eFitnessCenterDesktop.Workouts
             _trainerApiService = new ApiService("trainers", _accessToken);
             _workoutTypeApiService = new ApiService("workoutType", _accessToken);
             _workoutApiService = new ApiService("workout", _accessToken);
-            _ = initFormData();
             _ = loadWorkouts();
+        }
+
+        public async Task loadWorkouts()
+        {
+            await initFormData();
+            await loadDataGrid();
         }
 
         public async Task initFormData()
@@ -46,7 +51,7 @@ namespace eFitnessCenterDesktop.Workouts
             cbType.DisplayMember = "Name";
         }
 
-        public async Task loadWorkouts()
+        public async Task loadDataGrid()
         {
             WorkoutSearchParams searchParams = new WorkoutSearchParams
             {
@@ -62,7 +67,7 @@ namespace eFitnessCenterDesktop.Workouts
 
         private async void BtnSeach_Click(object sender, EventArgs e)
         {
-            await loadWorkouts();
+            await loadDataGrid();
         }
 
         private async void BtnDelete_Click(object sender, EventArgs e)
@@ -74,7 +79,7 @@ namespace eFitnessCenterDesktop.Workouts
                 int selectedRowIndex = dgvWorkouts.CurrentCell.RowIndex;
                 int id = int.Parse(dgvWorkouts.Rows[selectedRowIndex].Cells[0].Value.ToString());
                 await _workoutApiService.Delete(id);
-                await loadWorkouts();
+                await loadDataGrid();
             }
             else
             {

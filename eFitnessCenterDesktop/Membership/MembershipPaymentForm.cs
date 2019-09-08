@@ -27,7 +27,7 @@ namespace eFitnessCenterDesktop.Membership
             _accessToken = token;
             _client = client;
             _apiService = new ApiService("membershipPayments", token);
-            initDataGrid();
+            _= initDataGrid();
         }
 
         private async Task initDataGrid()

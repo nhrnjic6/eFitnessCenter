@@ -29,8 +29,14 @@ namespace eFitnessCenterDesktop.Suplements
             _suplementTypeApiService = new ApiService("suplementType", accessToken);
             _suplementPaymentApiService = new ApiService("suplementPayments", accessToken);
 
-            initSuplementList();
-            initSuplementTypeList();
+            _ = loadPayments();
+        }
+
+        private async Task loadPayments()
+        {
+            await initSuplementList();
+            await initSuplementTypeList();
+            await initDataGrid();
         }
 
         private async Task initDataGrid()
@@ -47,7 +53,7 @@ namespace eFitnessCenterDesktop.Suplements
             dgvSuplementPayments.DataSource = _suplementPayments;
         }
 
-        private async void initSuplementList()
+        private async Task initSuplementList()
         {   
             List<Suplement> suplements = await _suplementApiService.GetAll<List<Suplement>>(null);
             cbSuplement.DataSource = suplements;
@@ -55,7 +61,7 @@ namespace eFitnessCenterDesktop.Suplements
             cbSuplement.DisplayMember = "Name";
         }
 
-        private async void initSuplementTypeList()
+        private async Task initSuplementTypeList()
         {
             List<SuplementType> suplementType = await _suplementTypeApiService.GetAll<List<SuplementType>>(null);
             cbSuplementType.DataSource = suplementType;

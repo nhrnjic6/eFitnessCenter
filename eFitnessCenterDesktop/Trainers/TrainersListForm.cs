@@ -26,6 +26,8 @@ namespace eFitnessCenterDesktop.Trainers
             cbUserStatus.Text = "Active";
             _accessToken = accessToken;
             _apiService = new ApiService("trainers", _accessToken);
+
+            _= loadDataGrid();
         }
 
         public async Task loadDataGrid()

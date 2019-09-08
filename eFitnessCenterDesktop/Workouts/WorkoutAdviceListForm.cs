@@ -30,8 +30,13 @@ namespace eFitnessCenterDesktop.Workouts
             _trainerApiService = new ApiService("trainers", _accessToken);
             _clientApiService = new ApiService("clients", _accessToken);
             _workoutAdviceApiService = new ApiService("workoutAdvice", _accessToken);
-            _ = initFormData();
-            _ = loadGridData();
+            _ = loadAdvices();
+        }
+
+        public async Task loadAdvices()
+        {
+            await initFormData();
+            await loadGridData();
         }
 
         public async Task initFormData()
