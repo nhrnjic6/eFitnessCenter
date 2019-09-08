@@ -68,6 +68,7 @@
             // 
             this.inputPassword.Location = new System.Drawing.Point(38, 94);
             this.inputPassword.Name = "inputPassword";
+            this.inputPassword.PasswordChar = '*';
             this.inputPassword.Size = new System.Drawing.Size(141, 20);
             this.inputPassword.TabIndex = 3;
             this.inputPassword.Validating += new System.ComponentModel.CancelEventHandler(this.InputPassword_Validating);
