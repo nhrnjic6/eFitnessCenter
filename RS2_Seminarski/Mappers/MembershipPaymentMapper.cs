@@ -26,6 +26,8 @@ namespace RS2_Seminarski.Mappers
                 Price = membershipPayment.MembershipType.Price
             };
 
+            DateTime expiresAt = membershipPayment.CreatedAt.AddMonths(membershipType.MonthsValid);
+
             return new MembershipPayment
             {
                 Id = membershipPayment.Id,
@@ -34,7 +36,7 @@ namespace RS2_Seminarski.Mappers
                 FirstName = client.FirstName,
                 LastName = client.LastName,
                 MembershipTypeName = membershipType.Name,
-                ValidDescriptor = "Valid or Invalid",
+                ValidDescriptor = DateTime.Now >= expiresAt ? "Nije Validno" : "Validno",
                 TotalPaid = membershipType.Price
             };
         }

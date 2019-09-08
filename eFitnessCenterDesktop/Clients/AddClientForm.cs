@@ -244,5 +244,10 @@ namespace eFitnessCenterDesktop.Clients
                 errorProvider.SetError(cbStatus, null);
             }
         }
+
+        private void AddClientForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
