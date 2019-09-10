@@ -179,7 +179,6 @@
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Active",
-            "Inactive",
             "Deleted"});
             this.cbStatus.Location = new System.Drawing.Point(29, 378);
             this.cbStatus.Name = "cbStatus";

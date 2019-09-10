@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Models.Token;
 using RS2_Seminarski.Database;
 using RS2_Seminarski.Exceptions;
+using RS2_Seminarski.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,12 @@ namespace RS2_Seminarski.Security
     public class AuthenticationService
     {
         private readonly FitnessCenterDbContext _context;
+        private readonly UserStatusService _userStatusService;
 
         public AuthenticationService(FitnessCenterDbContext context)
         {
             _context = context;
+            _userStatusService = new UserStatusService(_context);
         }
 
         public UserInfo IsAuthorized(HttpRequest request, string role)
@@ -66,6 +69,7 @@ namespace RS2_Seminarski.Security
             AppUser appUser = _context.AppUsers
                 .Include(user => user.Employee)
                 .Include(user => user.Client)
+                .ThenInclude(x => x.MembershipPayments)
                 .Include(user => user.Trainer)
                 .Where(x => x.Email == email)
                 .Where(x => x.HashedPassword == hashedPassword)
@@ -85,6 +89,12 @@ namespace RS2_Seminarski.Security
 
             if(appUser.Client != null)
             {
+                UserStatus userStatus = _userStatusService.CalculateUserStatus(appUser);
+                if (userStatus != UserStatus.ACTIVE)
+                {
+                    throw new InvalidCredentialsException("Invalid username or password");
+                }
+
                 role = "CLIENT";
             }else if(appUser.Employee != null)
             {

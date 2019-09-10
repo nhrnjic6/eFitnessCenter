@@ -16,26 +16,23 @@ namespace RS2_Seminarski.Services
     {
         private readonly IMapper _mapper;
         private readonly FitnessCenterDbContext _context;
+        private readonly UserStatusService _userStatusService;
 
         public ClientsService(FitnessCenterDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+            _userStatusService = new UserStatusService(_context);
         }
 
         public List<Models.Clients.Client> GetAll(SearchClientParams searchClientParams)
         {
             var query = _context.AppUsers.AsQueryable()
                 .Include(x => x.Client)
+                .ThenInclude(x => x.MembershipPayments)
                 .Where(x => x.Client != null);
 
-            if(searchClientParams.UserStatus != null)
-            {
-                Database.UserStatus userStatus = (Database.UserStatus)(int)searchClientParams.UserStatus;
-                query = query.Where(x => x.Status == userStatus);
-            }
-
-            if(!string.IsNullOrEmpty(searchClientParams.FirstName))
+            if (!string.IsNullOrEmpty(searchClientParams.FirstName))
             {
                 query = query.Where(x => x.FirstName == searchClientParams.FirstName);
             }
@@ -46,8 +43,16 @@ namespace RS2_Seminarski.Services
             }
 
             List<Models.Clients.Client> clients = query
+                .Select(x => CalculateUserStatus(x))
                 .Select(x => _mapper.Map<Models.Clients.Client>(x))
                 .ToList();
+
+            if (searchClientParams.UserStatus != null)
+            {
+                clients = clients
+                    .Where(x => x.Status == searchClientParams.UserStatus)
+                    .ToList();
+            }
 
             return clients;
         }
@@ -114,6 +119,12 @@ namespace RS2_Seminarski.Services
             client.Status = Database.UserStatus.DELETED;
             _context.AppUsers.Update(client);
             _context.SaveChanges();
+        }
+
+        private AppUser CalculateUserStatus(AppUser appUser)
+        {
+            appUser.Status = _userStatusService.CalculateUserStatus(appUser);
+            return appUser;
         }
     }
 }
