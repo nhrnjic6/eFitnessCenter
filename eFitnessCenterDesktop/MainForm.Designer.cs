@@ -75,21 +75,22 @@
             this.allClientsToolStripMenuItem,
             this.addClientToolStripMenuItem});
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.clientsToolStripMenuItem.Text = "Clients";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.clientsToolStripMenuItem.Text = "Klienti";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.ClientsToolStripMenuItem_Click);
             // 
             // allClientsToolStripMenuItem
             // 
             this.allClientsToolStripMenuItem.Name = "allClientsToolStripMenuItem";
-            this.allClientsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.allClientsToolStripMenuItem.Text = "All Clients";
+            this.allClientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allClientsToolStripMenuItem.Text = "Pregled";
             this.allClientsToolStripMenuItem.Click += new System.EventHandler(this.AllClientsToolStripMenuItem_Click);
             // 
             // addClientToolStripMenuItem
             // 
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.addClientToolStripMenuItem.Text = "Add Client";
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClientToolStripMenuItem.Text = "Novi";
             this.addClientToolStripMenuItem.Click += new System.EventHandler(this.AddClientToolStripMenuItem_Click);
             // 
             // suplementsToolStripMenuItem
@@ -100,35 +101,35 @@
             this.suplementPaymentsToolStripMenuItem,
             this.newPaymentToolStripMenuItem});
             this.suplementsToolStripMenuItem.Name = "suplementsToolStripMenuItem";
-            this.suplementsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.suplementsToolStripMenuItem.Text = "Suplements";
+            this.suplementsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.suplementsToolStripMenuItem.Text = "Suplementi";
             // 
             // suplementListToolStripMenuItem
             // 
             this.suplementListToolStripMenuItem.Name = "suplementListToolStripMenuItem";
-            this.suplementListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.suplementListToolStripMenuItem.Text = "Suplement List";
+            this.suplementListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.suplementListToolStripMenuItem.Text = "Pregled";
             this.suplementListToolStripMenuItem.Click += new System.EventHandler(this.SuplementListToolStripMenuItem_Click);
             // 
             // newSuplementToolStripMenuItem
             // 
             this.newSuplementToolStripMenuItem.Name = "newSuplementToolStripMenuItem";
-            this.newSuplementToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.newSuplementToolStripMenuItem.Text = "New Suplement";
+            this.newSuplementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newSuplementToolStripMenuItem.Text = "Novi";
             this.newSuplementToolStripMenuItem.Click += new System.EventHandler(this.NewSuplementToolStripMenuItem_Click);
             // 
             // suplementPaymentsToolStripMenuItem
             // 
             this.suplementPaymentsToolStripMenuItem.Name = "suplementPaymentsToolStripMenuItem";
-            this.suplementPaymentsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.suplementPaymentsToolStripMenuItem.Text = "Suplement Payments";
+            this.suplementPaymentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.suplementPaymentsToolStripMenuItem.Text = "Pregled Kupovine";
             this.suplementPaymentsToolStripMenuItem.Click += new System.EventHandler(this.SuplementPaymentsToolStripMenuItem_Click);
             // 
             // newPaymentToolStripMenuItem
             // 
             this.newPaymentToolStripMenuItem.Name = "newPaymentToolStripMenuItem";
-            this.newPaymentToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.newPaymentToolStripMenuItem.Text = "New Payment";
+            this.newPaymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPaymentToolStripMenuItem.Text = "Nova Kupovina";
             this.newPaymentToolStripMenuItem.Click += new System.EventHandler(this.NewPaymentToolStripMenuItem_Click);
             // 
             // workoutsToolStripMenuItem
@@ -141,49 +142,49 @@
             this.workoutAdviceListToolStripMenuItem,
             this.createWorkoutAdviceToolStripMenuItem});
             this.workoutsToolStripMenuItem.Name = "workoutsToolStripMenuItem";
-            this.workoutsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.workoutsToolStripMenuItem.Text = "Workouts";
+            this.workoutsToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.workoutsToolStripMenuItem.Text = "Treninzi";
             // 
             // createNewWorkoutToolStripMenuItem
             // 
             this.createNewWorkoutToolStripMenuItem.Name = "createNewWorkoutToolStripMenuItem";
-            this.createNewWorkoutToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.createNewWorkoutToolStripMenuItem.Text = "Create New Workout";
+            this.createNewWorkoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createNewWorkoutToolStripMenuItem.Text = "Dodaj Novi";
             this.createNewWorkoutToolStripMenuItem.Click += new System.EventHandler(this.CreateNewWorkoutToolStripMenuItem_Click);
             // 
             // workoutListToolStripMenuItem
             // 
             this.workoutListToolStripMenuItem.Name = "workoutListToolStripMenuItem";
-            this.workoutListToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.workoutListToolStripMenuItem.Text = "Workout List";
+            this.workoutListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.workoutListToolStripMenuItem.Text = "Pregled Treninga";
             this.workoutListToolStripMenuItem.Click += new System.EventHandler(this.WorkoutListToolStripMenuItem_Click);
             // 
             // createScheduleToolStripMenuItem
             // 
             this.createScheduleToolStripMenuItem.Name = "createScheduleToolStripMenuItem";
-            this.createScheduleToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.createScheduleToolStripMenuItem.Text = "Create Schedule";
+            this.createScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createScheduleToolStripMenuItem.Text = "Dodaj Raspored";
             this.createScheduleToolStripMenuItem.Click += new System.EventHandler(this.CreateScheduleToolStripMenuItem_Click);
             // 
             // scheduleListToolStripMenuItem
             // 
             this.scheduleListToolStripMenuItem.Name = "scheduleListToolStripMenuItem";
-            this.scheduleListToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.scheduleListToolStripMenuItem.Text = "Schedule List";
+            this.scheduleListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.scheduleListToolStripMenuItem.Text = "Pregled Rasporeda";
             this.scheduleListToolStripMenuItem.Click += new System.EventHandler(this.ScheduleListToolStripMenuItem_Click);
             // 
             // workoutAdviceListToolStripMenuItem
             // 
             this.workoutAdviceListToolStripMenuItem.Name = "workoutAdviceListToolStripMenuItem";
-            this.workoutAdviceListToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.workoutAdviceListToolStripMenuItem.Text = "Workout Advice List";
+            this.workoutAdviceListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.workoutAdviceListToolStripMenuItem.Text = "Pregled Savjeta";
             this.workoutAdviceListToolStripMenuItem.Click += new System.EventHandler(this.WorkoutAdviceListToolStripMenuItem_Click);
             // 
             // createWorkoutAdviceToolStripMenuItem
             // 
             this.createWorkoutAdviceToolStripMenuItem.Name = "createWorkoutAdviceToolStripMenuItem";
-            this.createWorkoutAdviceToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.createWorkoutAdviceToolStripMenuItem.Text = "Create Workout Advice";
+            this.createWorkoutAdviceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createWorkoutAdviceToolStripMenuItem.Text = "Novi Savjet";
             this.createWorkoutAdviceToolStripMenuItem.Click += new System.EventHandler(this.CreateWorkoutAdviceToolStripMenuItem_Click);
             // 
             // trainersToolStripMenuItem
@@ -192,21 +193,21 @@
             this.allTrainersToolStripMenuItem,
             this.newTranerToolStripMenuItem});
             this.trainersToolStripMenuItem.Name = "trainersToolStripMenuItem";
-            this.trainersToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.trainersToolStripMenuItem.Text = "Trainers";
+            this.trainersToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.trainersToolStripMenuItem.Text = "Treneri";
             // 
             // allTrainersToolStripMenuItem
             // 
             this.allTrainersToolStripMenuItem.Name = "allTrainersToolStripMenuItem";
-            this.allTrainersToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.allTrainersToolStripMenuItem.Text = "All Trainers";
+            this.allTrainersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allTrainersToolStripMenuItem.Text = "Pregled Trenera";
             this.allTrainersToolStripMenuItem.Click += new System.EventHandler(this.AllTrainersToolStripMenuItem_Click);
             // 
             // newTranerToolStripMenuItem
             // 
             this.newTranerToolStripMenuItem.Name = "newTranerToolStripMenuItem";
-            this.newTranerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.newTranerToolStripMenuItem.Text = "New Traner";
+            this.newTranerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newTranerToolStripMenuItem.Text = "Novi Trener";
             this.newTranerToolStripMenuItem.Click += new System.EventHandler(this.NewTranerToolStripMenuItem_Click);
             // 
             // statusStrip

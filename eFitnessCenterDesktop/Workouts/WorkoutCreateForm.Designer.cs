@@ -51,9 +51,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Trainer";
+            this.label1.Text = "Trener";
             // 
             // cbTrainer
             // 
@@ -72,7 +72,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Workout Name";
+            this.label2.Text = "Naziv Treninga";
             // 
             // tbName
             // 
@@ -97,18 +97,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 154);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Workout Type";
+            this.label3.Text = "Vrsta Treninga";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(24, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Description";
+            this.label4.Text = "Opis";
             // 
             // tbDescription
             // 
@@ -166,9 +166,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(320, 111);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Difficulty";
+            this.label6.Text = "Tezina";
             // 
             // btnSave
             // 
@@ -176,7 +176,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 23);
             this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -203,7 +203,7 @@
             this.Controls.Add(this.cbTrainer);
             this.Controls.Add(this.label1);
             this.Name = "WorkoutCreateForm";
-            this.Text = "WorkoutCreateForm";
+            this.Text = "Duzina Trajanja";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

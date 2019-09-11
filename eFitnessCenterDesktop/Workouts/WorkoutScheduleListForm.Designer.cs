@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvSchedules = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workoutIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workoutNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dayOfTheWeekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeOfTheDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workoutScheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cbWorkoutDays = new System.Windows.Forms.ComboBox();
@@ -47,6 +41,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workoutIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workoutNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dayOfTheWeekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeOfTheDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workoutScheduleBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,42 +69,6 @@
             this.dgvSchedules.TabIndex = 0;
             this.dgvSchedules.Visible = false;
             this.dgvSchedules.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSchedules_CellContentDoubleClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // workoutIdDataGridViewTextBoxColumn
-            // 
-            this.workoutIdDataGridViewTextBoxColumn.DataPropertyName = "WorkoutId";
-            this.workoutIdDataGridViewTextBoxColumn.HeaderText = "WorkoutId";
-            this.workoutIdDataGridViewTextBoxColumn.Name = "workoutIdDataGridViewTextBoxColumn";
-            // 
-            // workoutNameDataGridViewTextBoxColumn
-            // 
-            this.workoutNameDataGridViewTextBoxColumn.DataPropertyName = "WorkoutName";
-            this.workoutNameDataGridViewTextBoxColumn.HeaderText = "WorkoutName";
-            this.workoutNameDataGridViewTextBoxColumn.Name = "workoutNameDataGridViewTextBoxColumn";
-            // 
-            // dayOfTheWeekDataGridViewTextBoxColumn
-            // 
-            this.dayOfTheWeekDataGridViewTextBoxColumn.DataPropertyName = "DayOfTheWeek";
-            this.dayOfTheWeekDataGridViewTextBoxColumn.HeaderText = "DayOfTheWeek";
-            this.dayOfTheWeekDataGridViewTextBoxColumn.Name = "dayOfTheWeekDataGridViewTextBoxColumn";
-            // 
-            // timeOfTheDayDataGridViewTextBoxColumn
-            // 
-            this.timeOfTheDayDataGridViewTextBoxColumn.DataPropertyName = "TimeOfTheDay";
-            this.timeOfTheDayDataGridViewTextBoxColumn.HeaderText = "TimeOfTheDay";
-            this.timeOfTheDayDataGridViewTextBoxColumn.Name = "timeOfTheDayDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
             // workoutScheduleBindingSource
             // 
@@ -198,6 +162,42 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // workoutIdDataGridViewTextBoxColumn
+            // 
+            this.workoutIdDataGridViewTextBoxColumn.DataPropertyName = "WorkoutId";
+            this.workoutIdDataGridViewTextBoxColumn.HeaderText = "WorkoutId";
+            this.workoutIdDataGridViewTextBoxColumn.Name = "workoutIdDataGridViewTextBoxColumn";
+            // 
+            // workoutNameDataGridViewTextBoxColumn
+            // 
+            this.workoutNameDataGridViewTextBoxColumn.DataPropertyName = "WorkoutName";
+            this.workoutNameDataGridViewTextBoxColumn.HeaderText = "Trening";
+            this.workoutNameDataGridViewTextBoxColumn.Name = "workoutNameDataGridViewTextBoxColumn";
+            // 
+            // dayOfTheWeekDataGridViewTextBoxColumn
+            // 
+            this.dayOfTheWeekDataGridViewTextBoxColumn.DataPropertyName = "DayOfTheWeek";
+            this.dayOfTheWeekDataGridViewTextBoxColumn.HeaderText = "Dan u Sedmici";
+            this.dayOfTheWeekDataGridViewTextBoxColumn.Name = "dayOfTheWeekDataGridViewTextBoxColumn";
+            // 
+            // timeOfTheDayDataGridViewTextBoxColumn
+            // 
+            this.timeOfTheDayDataGridViewTextBoxColumn.DataPropertyName = "TimeOfTheDay";
+            this.timeOfTheDayDataGridViewTextBoxColumn.HeaderText = "Vrijeme u Danu";
+            this.timeOfTheDayDataGridViewTextBoxColumn.Name = "timeOfTheDayDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Opis";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
             // WorkoutScheduleListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,12 +226,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSchedules;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn workoutIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn workoutNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dayOfTheWeekDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeOfTheDayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource workoutScheduleBindingSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbWorkoutDays;
@@ -243,5 +237,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn workoutIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn workoutNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dayOfTheWeekDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeOfTheDayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
     }
 }

@@ -95,7 +95,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 13;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnSearch
@@ -104,7 +104,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 12;
-            this.btnSearch.Text = "Search";
+            this.btnSearch.Text = "Pretraga";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 

@@ -319,5 +319,10 @@ namespace eFitnessCenterDesktop
             addTrainerForm.ShowIcon = false;
             addTrainerForm.Show();
         }
+
+        private void ClientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

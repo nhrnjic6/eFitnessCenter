@@ -75,9 +75,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Client First Name";
+            this.label2.Text = "Ime Klienta";
             // 
             // tbFirstName
             // 
@@ -102,7 +102,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
@@ -185,18 +185,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(266, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Client Last Name";
+            this.label3.Text = "Prezime Klienta";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(266, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Suplement Name";
+            this.label4.Text = "Tip Suplementa";
             // 
             // cbSuplementType
             // 
