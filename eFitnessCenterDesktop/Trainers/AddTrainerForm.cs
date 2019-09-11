@@ -43,7 +43,6 @@ namespace eFitnessCenterDesktop.Trainers
 
                 cbStatus.Text = toStringStatus(_trainerForEdit.Status);
 
-                tbPassword.Visible = false;
                 tbIme.Text = _trainerForEdit.FirstName;
                 tbPrezime.Text = _trainerForEdit.LastName;
                 tbEmail.Text = _trainerForEdit.Email;
@@ -76,7 +75,8 @@ namespace eFitnessCenterDesktop.Trainers
                 Email = tbEmail.Text,
                 Address = tbAdresa.Text,
                 PhoneNumber = tbTelefon.Text,
-                Status = fromString(cbStatus.Text)
+                Status = fromString(cbStatus.Text),
+                Password = tbPassword.Text
             };
 
             await _apiService.Update<Trainer>(_trainerForEdit.Id, updateTrainerRequest);

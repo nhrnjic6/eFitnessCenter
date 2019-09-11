@@ -71,7 +71,6 @@ namespace eFitnessCenterDesktop.Clients
 
                 cbStatus.Text = toStringStatus(_clientForEdit.Status);
 
-                tbPassword.Visible = false;
                 tbIme.Text = _clientForEdit.FirstName;
                 tbPrezime.Text = _clientForEdit.LastName;
                 tbEmail.Text = _clientForEdit.Email;
@@ -108,6 +107,7 @@ namespace eFitnessCenterDesktop.Clients
                 Email = tbEmail.Text,
                 Address = tbAdresa.Text,
                 PhoneNumber = tbTelefon.Text,
+                Password = tbPassword.Text,
                 Status = fromString(cbStatus.Text)
             };
 

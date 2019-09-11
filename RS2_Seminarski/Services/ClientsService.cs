@@ -100,6 +100,7 @@ namespace RS2_Seminarski.Services
             }
 
             _mapper.Map(updateClientRequest, client);
+            client.HashedPassword = HashUtil.ComputeSha256Hash(updateClientRequest.Password);
 
             _context.AppUsers.Update(client);
             _context.SaveChanges();

@@ -96,6 +96,7 @@ namespace RS2_Seminarski.Services
             }
 
             _mapper.Map(updateTrainerRequest, trainer);
+            trainer.HashedPassword = HashUtil.ComputeSha256Hash(updateTrainerRequest.Password); 
 
             _context.AppUsers.Update(trainer);
             _context.SaveChanges();
