@@ -40,7 +40,7 @@ namespace RS2_Seminarski.Services
 
             if (searchParams.Duration != null)
             {
-                query = query.Where(x => x.Duration.Equals(searchParams.Difficulty));
+                query = query.Where(x => x.Duration == searchParams.Duration);
             }
 
             if (searchParams.TrainerId != null)

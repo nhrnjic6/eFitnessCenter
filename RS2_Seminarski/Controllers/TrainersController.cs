@@ -35,7 +35,7 @@ namespace RS2_Seminarski.Controllers
         [HttpGet]
         public List<Models.Trainers.Trainer> Get([FromQuery] SearchTrainerParams searchTrainerParams)
         {
-            _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "TRAINER" });
+            _authenticationService.IsAuthorized(Request, new[] { "EMPLOYEE", "TRAINER", "CLIENT" });
             return _trainersService.GetAll(searchTrainerParams);
         }
 

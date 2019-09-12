@@ -50,6 +50,11 @@ namespace RS2_Seminarski.Services
             else
             {
                 query = query.Where(x => x.ClientId == userInfo.Id);
+
+                if (queryParams.TrainerId != null)
+                {
+                    query = query.Where(x => x.TrainerId == queryParams.TrainerId);
+                }
             }
 
             return query.Select(x => WorkoutAdviceMapper.fromDb(x))

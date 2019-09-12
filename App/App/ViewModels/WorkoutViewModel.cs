@@ -64,7 +64,7 @@ namespace App.ViewModels
             workoutApiService = new ApiService("workout", token);
             workoutTypeApiService = new ApiService("workoutType", token);
 
-            DurationValues = new List<string> { "25", "30", "45", "60" };
+            DurationValues = new List<string> {"15", "25", "30", "45", "60", "90" };
         }
 
         public async Task LoadWorkouts()
