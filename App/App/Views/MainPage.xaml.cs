@@ -20,7 +20,7 @@ namespace App.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Suplements, (NavigationPage)Detail);
+            //MenuPages.Add((int)MenuItemType.Suplements, (NavigationPage)Detail);
 
             Detail = new NavigationPage(new SuplementListPage());
         }

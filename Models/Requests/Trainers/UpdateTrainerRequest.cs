@@ -19,7 +19,6 @@ namespace Models.Requests.Trainers
         public string Address { get; set; }
         [Required]
         public UserStatus? Status { get; set; }
-        [Required]
         public string Password { get; set; }
     }
 }

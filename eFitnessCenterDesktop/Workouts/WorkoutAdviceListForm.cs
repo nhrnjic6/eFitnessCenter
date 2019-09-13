@@ -1,5 +1,6 @@
 ﻿using eFitnessCenterDesktop.Services;
 using Models.Clients;
+using Models.Requests.Workout;
 using Models.Trainers;
 using Models.Workout;
 using System;
@@ -56,7 +57,13 @@ namespace eFitnessCenterDesktop.Workouts
 
         public async Task loadGridData()
         {
-            _workoutAdvices = await _workoutAdviceApiService.GetAll<List<WorkoutAdvice>>(null);
+            WorkoutAdviceQueryParams queryParams = new WorkoutAdviceQueryParams
+            {
+                ClientId = int.Parse(cbClient.SelectedValue.ToString()),
+                TrainerId = int.Parse(cbTrainer.SelectedValue.ToString())
+            };
+
+            _workoutAdvices = await _workoutAdviceApiService.GetAll<List<WorkoutAdvice>>(queryParams);
             dgvAdvices.DataSource = _workoutAdvices;
         }
 

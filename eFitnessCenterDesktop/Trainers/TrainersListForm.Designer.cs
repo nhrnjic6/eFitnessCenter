@@ -97,6 +97,7 @@
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click_1);
             // 
             // btnSearch
             // 

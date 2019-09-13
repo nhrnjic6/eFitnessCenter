@@ -31,7 +31,7 @@ namespace RS2_Seminarski.Controllers
         [HttpGet("{id}")]
         public List<Models.Suplements.Suplement> GetSimilarSuplements(int id)
         {
-            UserInfo userInfo = _authenticationService.IsAuthorized(Request, "CLIENT");
+            UserInfo userInfo = _authenticationService.IsAuthorized(Request,new[] { "CLIENT", "TRAINER" });
             return _recommenderService.GetSimilarSuplements(id, userInfo);
         }
     }

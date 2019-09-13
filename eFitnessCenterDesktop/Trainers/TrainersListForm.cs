@@ -54,19 +54,7 @@ namespace eFitnessCenterDesktop.Trainers
 
         private async void BtnDelete_Click(object sender, EventArgs e)
         {
-            int selectedRowsCount = dgvTrainers.SelectedRows.Count;
 
-            if (selectedRowsCount == 1)
-            {
-                int selectedRowIndex = dgvTrainers.CurrentCell.RowIndex;
-                int id = int.Parse(dgvTrainers.Rows[selectedRowIndex].Cells[0].Value.ToString());
-                await _apiService.Delete(id);
-                await loadDataGrid();
-            }
-            else
-            {
-                MessageBox.Show("Only one row can be selected for delete operation");
-            }
         }
 
         private UserStatus? fromString(string userStatus)
@@ -100,6 +88,23 @@ namespace eFitnessCenterDesktop.Trainers
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             _ = loadDataGrid();
+        }
+
+        private async void BtnDelete_Click_1(object sender, EventArgs e)
+        {
+            int selectedRowsCount = dgvTrainers.SelectedRows.Count;
+
+            if (selectedRowsCount == 1)
+            {
+                int selectedRowIndex = dgvTrainers.CurrentCell.RowIndex;
+                int id = int.Parse(dgvTrainers.Rows[selectedRowIndex].Cells[0].Value.ToString());
+                await _apiService.Delete(id);
+                await loadDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Only one row can be selected for delete operation");
+            }
         }
     }
 }
