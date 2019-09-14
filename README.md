@@ -1,6 +1,10 @@
 # eFitnessCenter
 Rest Api + Desktop App + Xamarin App for modern Fitness Center management
 
+In order to run this localy, you will need to change base urls for desktop and mobile app to point to you local web api instance.
+- For mobile app: App/Services/ApiService/_baseUrl
+- For desktop app: eFitnessCenterDesktop/Services/ApiService/_baseUrl
+
 When the application starts for the first time it will create new Admin user with following credentials: admin@gmail.com, password12345.
 Users can use this account to log in into the desktop application from where they can manage the system.
 
