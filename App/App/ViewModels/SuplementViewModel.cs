@@ -24,7 +24,10 @@ namespace App.ViewModels
         public SuplementType SuplementType
         {
             get { return _suplementType; }
-            set { SetProperty(ref _suplementType, value); var _ = LoadSuplements(_suplementType); }
+            set {
+                    SetProperty(ref _suplementType, value);
+                _ = LoadSuplements(_suplementType);
+            }
         }
 
         public SuplementViewModel()
@@ -64,6 +67,7 @@ namespace App.ViewModels
 
         public async Task LoadSuplements(SuplementType suplementType)
         {
+            Suplements.Clear();
             SuplementSearchParams searchParams = new SuplementSearchParams();
 
             if(suplementType != null)
@@ -71,7 +75,6 @@ namespace App.ViewModels
                 searchParams.Type = suplementType.Type;
             }
 
-            Suplements.Clear();
             List<Suplement> suplements = await suplementsApiService.GetAll<List<Suplement>>(searchParams);
             foreach(var suplement in suplements)
             {
@@ -81,6 +84,7 @@ namespace App.ViewModels
 
         public async Task LoadSuplemenTypes()
         {
+            SuplementTypes.Clear();
             List<SuplementType> suplementTypes = await suplementTypeApiService.GetAll<List<SuplementType>>(null);
             foreach (var suplementType in suplementTypes)
             {

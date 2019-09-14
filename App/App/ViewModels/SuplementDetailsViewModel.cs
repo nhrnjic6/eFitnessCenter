@@ -54,6 +54,14 @@ namespace App.ViewModels
             }
         }
 
+        public bool RatingPickerVisible
+        {
+            get
+            {
+                return (string)Application.Current.Properties["userRole"] != "TRAINER";
+            }
+        }
+
         public string UserSuplementRating
         {
             get

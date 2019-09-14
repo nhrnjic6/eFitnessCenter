@@ -42,9 +42,9 @@ namespace App.ViewModels
         {
             get { return _workoutType; }
             set
-            {
+            {   
                 SetProperty(ref _workoutType, value);
-                _ = LoadWorkouts();
+                if(_workoutType != null) _ = LoadWorkouts();
             }
         }
 
@@ -54,7 +54,7 @@ namespace App.ViewModels
             set
             {
                 SetProperty(ref _duration, value);
-                _ = LoadWorkouts();
+                if(_duration != null) _ = LoadWorkouts();
             }
         }
 
@@ -91,6 +91,7 @@ namespace App.ViewModels
 
         public async Task LoadWorkoutTypes()
         {
+            WorkoutTypes.Clear();
             List<WorkoutType> workoutTypes = await workoutTypeApiService.GetAll<List<WorkoutType>>(null);
             foreach (var workoutType in workoutTypes)
             {

@@ -37,7 +37,7 @@
                 <Label FontSize="16" Text="{Binding UserSuplementRating}" Grid.Row="5" Grid.Column="1"></Label>
             </Grid>
 
-            <Picker Title="Ocjeni Proizvod" ItemsSource="{Binding RatingValues}" SelectedItem="{Binding SelectedRating}"/>
+            <Picker Title="Ocjeni Proizvod" ItemsSource="{Binding RatingValues}" SelectedItem="{Binding SelectedRating}" IsVisible="{Binding RatingPickerVisible}"/>
 
             <Label Margin="0, 20, 0,0" FontSize="18" HorizontalTextAlignment="Center" Text="Preporuceni Proizvodi" />
  
